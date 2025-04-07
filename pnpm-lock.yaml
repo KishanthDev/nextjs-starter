@@ -19,6 +19,9 @@ importers:
       "@heroui/react":
         specifier: ^2.7.6
         version: 2.7.6(@types/react@19.1.0)(framer-motion@12.6.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tailwindcss@3.4.17)
+      "@radix-ui/react-slot":
+        specifier: ^1.1.2
+        version: 1.1.2(@types/react@19.1.0)(react@19.0.0)
       "@vercel/analytics":
         specifier: ^1.5.0
         version: 1.5.0(next@15.2.4(@babel/core@7.26.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
@@ -43,9 +46,6 @@ importers:
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      prettier:
-        specifier: ^3.5.3
-        version: 3.5.3
       react:
         specifier: 19.0.0
         version: 19.0.0
@@ -92,6 +92,9 @@ importers:
       postcss:
         specifier: ^8.5.3
         version: 8.5.3
+      prettier:
+        specifier: ^3.5.3
+        version: 3.5.3
       prettier-plugin-tailwindcss:
         specifier: ^0.6.11
         version: 0.6.11(prettier@3.5.3)
@@ -2111,6 +2114,30 @@ packages:
         integrity: sha512-VzgHzGblFmUeBmmrk55zPyrQIArQN4vujc9shWytaPdB3P7qhi0cpaiKIr7tlCmFv2lYUwnLospIqjL9ZSAhhg==,
       }
     engines: { node: ^12.20.0 || ^14.18.0 || >=16.0.0 }
+
+  "@radix-ui/react-compose-refs@1.1.1":
+    resolution:
+      {
+        integrity: sha512-Y9VzoRDSJtgFMUCoiZBDVo084VQ5hfpXxVE+NgkdNsjiDBByiImMZKKhxMwCbdHvhlENG6a833CbFkOQvTricw==,
+      }
+    peerDependencies:
+      "@types/react": "*"
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      "@types/react":
+        optional: true
+
+  "@radix-ui/react-slot@1.1.2":
+    resolution:
+      {
+        integrity: sha512-YAKxaiGsSQJ38VzKH86/BPRC4rh+b1Jpa+JneA5LRE7skmLPNAyeG8kPJj/oo4STLvlrs8vkf/iYyc3A5stYCQ==,
+      }
+    peerDependencies:
+      "@types/react": "*"
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      "@types/react":
+        optional: true
 
   "@react-aria/breadcrumbs@3.5.22":
     resolution:
@@ -9087,6 +9114,19 @@ snapshots:
     optional: true
 
   "@pkgr/core@0.2.1": {}
+
+  "@radix-ui/react-compose-refs@1.1.1(@types/react@19.1.0)(react@19.0.0)":
+    dependencies:
+      react: 19.0.0
+    optionalDependencies:
+      "@types/react": 19.1.0
+
+  "@radix-ui/react-slot@1.1.2(@types/react@19.1.0)(react@19.0.0)":
+    dependencies:
+      "@radix-ui/react-compose-refs": 1.1.1(@types/react@19.1.0)(react@19.0.0)
+      react: 19.0.0
+    optionalDependencies:
+      "@types/react": 19.1.0
 
   "@react-aria/breadcrumbs@3.5.22(react-dom@19.0.0(react@19.0.0))(react@19.0.0)":
     dependencies:

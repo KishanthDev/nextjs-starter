@@ -1,0 +1,4 @@
+# .eslintignore
+public/
+next.config.js
+*.config.js
