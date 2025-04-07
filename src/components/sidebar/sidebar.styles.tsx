@@ -1,5 +1,4 @@
 import React from "react";
-import { Box } from "../styles/box"; // Assuming you have this helper
 
 export const SidebarWrapper = ({ collapsed }: { collapsed: boolean }) => (
   <div

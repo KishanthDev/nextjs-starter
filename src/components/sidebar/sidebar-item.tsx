@@ -1,9 +1,8 @@
-"use client";
-import { Link } from "@nextui-org/react";
-import NextLink from "next/link";
-import React from "react";
-import { useSidebarContext } from "../layout/layout-context";
-import { Flex } from "../styles/flex";
+import { Link } from '@nextui-org/react';
+import NextLink from 'next/link';
+import React from 'react';
+import { useSidebarContext } from '../layout/layout-context';
+import { Flex } from '../styles/flex';
 
 interface Props {
   title: string;
@@ -12,7 +11,7 @@ interface Props {
   href?: string;
 }
 
-export const SidebarItem = ({ icon, title, isActive, href = "" }: Props) => {
+export const SidebarItem = ({ icon, title, isActive, href = '' }: Props) => {
   const { collapsed, setCollapsed } = useSidebarContext();
 
   const handleClick = () => {
@@ -22,22 +21,35 @@ export const SidebarItem = ({ icon, title, isActive, href = "" }: Props) => {
   };
 
   return (
-    <NextLink href={href}>
+    <NextLink href={href} passHref legacyBehavior>
       <Link
-        className="w-full text-zinc-600 dark:text-zinc-400"
-        underline="none"
+        as="div"
+        color="foreground"
+        className="w-full max-w-full"
       >
         <Flex
           onClick={handleClick}
-          className={`min-h-[44px] w-full cursor-pointer items-center gap-6 rounded-md px-7 transition-all duration-150 ${
-            isActive
-              ? "bg-blue-200 [&_svg_path]:fill-blue-600"
-              : "hover:bg-zinc-100 dark:hover:bg-zinc-800"
-          }`}
-          align={"center"}
+          className={`
+            gap-4
+            w-full
+            min-h-[44px]
+            h-full
+            items-center
+            px-4
+            rounded-lg
+            cursor-pointer
+            transition-all
+            duration-150
+            ease-in
+            active:scale-[0.98]
+            ${isActive
+              ? 'bg-primary-100 [&>svg]:text-primary-600'
+              : 'hover:bg-default-100'}
+          `}
+          align="center"
         >
           {icon}
-          <span className="text-base font-normal text-zinc-600 dark:text-zinc-400">
+          <span className="text-foreground text-base font-normal">
             {title}
           </span>
         </Flex>
