@@ -7,7 +7,7 @@ interface AcmeLogoProps {
 
 export const AcmeLogo: React.FC<AcmeLogoProps> = ({ className }) => (
   <Svg
-    className={`h-6 w-6 ${className || ''}`}
+    className={`h-6 w-6 ${className || ""}`}
     fill="none"
     height="42"
     viewBox="0 0 32 32"

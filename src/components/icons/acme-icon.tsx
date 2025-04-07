@@ -6,7 +6,6 @@ interface IconProps {
 }
 
 export const AcmeIcon = ({ className }: IconProps) => (
-
   <Svg
     width="42"
     height="42"

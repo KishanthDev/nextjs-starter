@@ -20,18 +20,23 @@ interface Company {
   logo: React.ReactNode;
 }
 
-const IconWrapper = ({ icon, className }: { icon: React.ReactElement<{ className?: string }>, className?: string }) => {
-  return React.cloneElement(icon, {
-    className: `${icon.props.className || ''} ${className || ''}`.trim()
+const IconWrapper = ({
+  icon,
+  className,
+}: {
+  icon: React.ReactElement<{ className?: string }>;
+  className?: string;
+}) =>
+  React.cloneElement(icon, {
+    className: `${icon.props.className || ""} ${className || ""}`.trim(),
   });
-};
 
 export const CompaniesDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [company, setCompany] = useState<Company>({
     name: "Acme Co.",
     location: "Palo Alto, CA",
-    logo: <IconWrapper icon={<AcmeIcon />} className="w-6 h-6" />,
+    logo: <IconWrapper icon={<AcmeIcon />} className="h-6 w-6" />,
   });
 
   return (
@@ -44,7 +49,7 @@ export const CompaniesDropdown = () => {
       <DropdownTrigger>
         <Box className="cursor-pointer">
           <Flex align="center" className="gap-2">
-            <div className="border border-black rounded p-1">
+            <div className="rounded border border-black p-1">
               {company.logo}
             </div>
             <Box className="ml-1">
@@ -55,10 +60,10 @@ export const CompaniesDropdown = () => {
                 {company.location}
               </span>
             </Box>
-            <div className="border border-black rounded p-1">
+            <div className="rounded border border-black p-1">
               <IconWrapper
                 icon={<BottomIcon />}
-                className={`w-3 h-3 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                className={`h-3 w-3 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
               />
             </div>
           </Flex>
@@ -69,41 +74,82 @@ export const CompaniesDropdown = () => {
         aria-label="Select Company"
         onAction={(key) => {
           const companies = {
-            "1": { name: "Facebook", location: "San Francisco, CA", logo: <AcmeIcon /> },
-            "2": { name: "Instagram", location: "Austin, TX", logo: <AcmeLogo className="w-4 h-4" /> },
-            "3": { name: "Twitter", location: "Brooklyn, NY", logo: <AcmeIcon /> },
-            "4": { name: "Acme Co.", location: "Palo Alto, CA", logo: <AcmeIcon /> }
+            "1": {
+              name: "Facebook",
+              location: "San Francisco, CA",
+              logo: <AcmeIcon />,
+            },
+            "2": {
+              name: "Instagram",
+              location: "Austin, TX",
+              logo: <AcmeLogo className="h-4 w-4" />,
+            },
+            "3": {
+              name: "Twitter",
+              location: "Brooklyn, NY",
+              logo: <AcmeIcon />,
+            },
+            "4": {
+              name: "Acme Co.",
+              location: "Palo Alto, CA",
+              logo: <AcmeIcon />,
+            },
           };
 
           setCompany({
             ...companies[key as keyof typeof companies],
-            logo: <div className="border border-black rounded p-1">
-              <IconWrapper icon={companies[key as keyof typeof companies].logo} className="w-4 h-4" />
-            </div>
+            logo: (
+              <div className="rounded border border-black p-1">
+                <IconWrapper
+                  icon={companies[key as keyof typeof companies].logo}
+                  className="h-4 w-4"
+                />
+              </div>
+            ),
           });
         }}
-        className="w-[200px] bg-white border border-gray-200 rounded-lg shadow-sm py-1 [&_.nextui-dropdown-item-content]:w-full [&_.nextui-dropdown-item-content]:font-semibold"
+        className="w-[200px] rounded-lg border border-gray-200 bg-white py-1 shadow-sm [&_.nextui-dropdown-item-content]:w-full [&_.nextui-dropdown-item-content]:font-semibold"
       >
         <DropdownSection
           title="Companies"
-          className="px-1 [&>h2]:text-xs [&>h2]:font-medium [&>h2]:text-gray-500 [&>h2]:px-2 [&>h2]:py-1"
+          className="px-1 [&>h2]:px-2 [&>h2]:py-1 [&>h2]:text-xs [&>h2]:font-medium [&>h2]:text-gray-500"
           showDivider
         >
           {[
-            { key: "1", name: "Facebook", location: "San Francisco, CA", icon: <AcmeIcon /> },
-            { key: "2", name: "Instagram", location: "Austin, TX", icon: <AcmeLogo className="w-3 h-3" /> },
-            { key: "3", name: "Twitter", location: "Brooklyn, NY", icon: <AcmeIcon /> },
-            { key: "4", name: "Acme Co.", location: "Palo Alto, CA", icon: <AcmeIcon /> }
+            {
+              key: "1",
+              name: "Facebook",
+              location: "San Francisco, CA",
+              icon: <AcmeIcon />,
+            },
+            {
+              key: "2",
+              name: "Instagram",
+              location: "Austin, TX",
+              icon: <AcmeLogo className="h-3 w-3" />,
+            },
+            {
+              key: "3",
+              name: "Twitter",
+              location: "Brooklyn, NY",
+              icon: <AcmeIcon />,
+            },
+            {
+              key: "4",
+              name: "Acme Co.",
+              location: "Palo Alto, CA",
+              icon: <AcmeIcon />,
+            },
           ].map((item) => (
             <DropdownItem
               key={item.key}
               description={item.location}
               startContent={
-                <div className="border border-black rounded p-1 mr-2">
-                  <IconWrapper icon={item.icon} className="w-3 h-3" />
+                <div className="mr-2 rounded border border-black p-1">
+                  <IconWrapper icon={item.icon} className="h-3 w-3" />
                 </div>
               }
-              className="py-1.5 px-2 text-sm hover:bg-gray-50"
+              className="px-2 py-1.5 text-sm hover:bg-gray-50"
             >
               {item.name}
             </DropdownItem>
