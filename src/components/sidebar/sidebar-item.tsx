@@ -11,13 +11,25 @@ interface Props {
   href?: string;
 }
 
-export const SidebarItem = ({ icon, title, isActive, href = '' }: Props) => {
+export const SidebarItem = ({ icon, title, isActive, href ='#' }: Props) => {
   const { collapsed, setCollapsed } = useSidebarContext();
 
   const handleClick = () => {
     if (window.innerWidth < 768) {
       setCollapsed();
     }
+  };
+
+  // Helper function to safely add className to icon
+  const renderIcon = () => {
+    if (React.isValidElement<{ className?: string }>(icon)) {
+      const iconProps = {
+        ...icon.props,
+        className: `${icon.props.className || ''} w-5 h-5`,
+      };
+      return React.cloneElement(icon, iconProps);
+    }
+    return <span className="w-5 h-5 flex items-center justify-center">{icon}</span>;
   };
 
   return (
@@ -30,7 +42,7 @@ export const SidebarItem = ({ icon, title, isActive, href = '' }: Props) => {
         <Flex
           onClick={handleClick}
           className={`
-            gap-4
+            gap-3
             w-full
             min-h-[44px]
             h-full
@@ -48,7 +60,9 @@ export const SidebarItem = ({ icon, title, isActive, href = '' }: Props) => {
           `}
           align="center"
         >
-          {icon}
+          <span className="flex items-center justify-center">
+            {renderIcon()}
+          </span>
           <span className="text-foreground text-base font-normal">
             {title}
           </span>
