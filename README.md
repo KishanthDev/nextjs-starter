@@ -1,6 +1,5 @@
 # Next.js 15.2 Starter Template
 
-
 ## Features ✨
 
 - ⚡️ [Next 15.2](https://nextjs.org/docs) - with app router
@@ -20,16 +19,13 @@
 
 ### Clone to local
 
-
-
- Make sure to replace **my-app** with your desired name
+Make sure to replace **my-app** with your desired name
 
 ### GitHub Template <img src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/github.svg" height=20 width=20 />
 
 [Create a repo from this template on GitHub](https://github.com/Bhanu1776/Nextjs15-Starter-Template/generate).
 
 ## Checklist ✅
-
 
 ## Development 🧑‍💻
 
@@ -43,7 +39,3 @@ Then visit <http://localhost:3000>
 
 This template comes with vercel inbuilt. Your app will be live in a minute by typing **`vercel`** in terminal.  
 For more information go through [Vercel CLI](https://vercel.com/docs/cli).
-
-
-
-

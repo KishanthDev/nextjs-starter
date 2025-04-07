@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import { Providers } from "./providers";
 import classNames from "classnames";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -14,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/icon.png" />
@@ -36,7 +37,7 @@ export default function RootLayout({
           "debug-screens": process.env.NODE_ENV === "development",
         })}
       >
-        {children}
+        <Providers>{children}</Providers>
         <Analytics />
       </body>
     </html>
