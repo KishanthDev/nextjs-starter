@@ -1,111 +1,146 @@
-import Link from "next/link";
-import {
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-  Avatar,
-} from "@heroui/react";
+"use client";
+import React from "react";
+import { Avatar } from "@heroui/react";
+import { Tooltip } from "@heroui/react";
+import { CompaniesDropdown } from "./companies-dropdown";
+import { HomeIcon } from "../icons/sidebar/home-icon";
+import { PaymentsIcon } from "../icons/sidebar/payments-icon";
+import { BalanceIcon } from "../icons/sidebar/balance-icon";
+import { AccountsIcon } from "../icons/sidebar/accounts-icon";
+import { CustomersIcon } from "../icons/sidebar/customers-icon";
+import { ProductsIcon } from "../icons/sidebar/products-icon";
+import { ReportsIcon } from "../icons/sidebar/reports-icon";
+import { DevIcon } from "../icons/sidebar/dev-icon";
+import { ViewIcon } from "../icons/sidebar/view-icon";
+import { SettingsIcon } from "../icons/sidebar/settings-icon";
+import { CollapseItems } from "./collapse-items";
+import { SidebarItem } from "./sidebar-item";
+import { SidebarMenu } from "./sidebar-menu";
+import { FilterIcon } from "../icons/sidebar/filter-icon";
+import { useSidebarContext } from "../layout/layout-context";
+import { ChangeLogIcon } from "../icons/sidebar/changelog-icon";
+import { usePathname } from "next/navigation";
 
-export default function Sidebar() {
+export const SidebarWrapper = () => {
+  const pathname = usePathname();
+  const { collapsed, setCollapsed } = useSidebarContext();
+
   return (
-    <aside className="h-screen w-64 border-r border-zinc-200 bg-white p-4 text-zinc-800 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white">
-      <div className="mb-6">
-        <Dropdown placement="bottom-start">
-          <DropdownTrigger>
-            <button className="flex w-full items-center gap-2 rounded px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800">
-              <Avatar
-                isBordered
-                src="https://i.pravatar.cc/100?u=acme"
-                className="h-6 w-6"
+    <aside
+      className={`fixed sticky top-0 z-[202] h-screen ${collapsed ? "w-0" : "w-64"}`}
+    >
+      {collapsed && (
+        <div
+          className="fixed inset-0 z-[201] bg-black/30 md:hidden"
+          onClick={() => setCollapsed()}
+        />
+      )}
+
+      <div
+        className={`flex h-full w-64 flex-col border-r border-gray-200 bg-white transition-all duration-200 ${collapsed ? "-translate-x-full md:translate-x-0" : ""}`}
+      >
+        <div className="border-b border-gray-200 p-4">
+          <CompaniesDropdown />
+        </div>
+
+        <div className="flex flex-1 flex-col justify-between overflow-y-auto">
+          <div className="space-y-6 p-4">
+            <SidebarItem
+              title="Home"
+              icon={<HomeIcon />}
+              isActive={pathname === "/"}
+              href="/"
+            />
+
+            <SidebarMenu title="Main Menu">
+              <SidebarItem
+                isActive={pathname === "/accounts"}
+                title="Accounts"
+                icon={<AccountsIcon />}
+                href="accounts"
               />
-              <span className="text-sm font-medium">acme.co</span>
-            </button>
-          </DropdownTrigger>
-          <DropdownMenu aria-label="Company Links">
-            <DropdownItem key="twitter">Twitter</DropdownItem>
-            <DropdownItem key="facebook">Facebook</DropdownItem>
-            <DropdownItem key="instagram">Instagram</DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
-      </div>
+              <SidebarItem
+                isActive={pathname === "/payments"}
+                title="Payments"
+                icon={<PaymentsIcon />}
+              />
+              <CollapseItems
+                icon={<BalanceIcon />}
+                items={["Banks Accounts", "Credit Cards", "Loans"]}
+                title="Balances"
+              />
+              <SidebarItem
+                isActive={pathname === "/customers"}
+                title="Customers"
+                icon={<CustomersIcon />}
+              />
+              <SidebarItem
+                isActive={pathname === "/products"}
+                title="Products"
+                icon={<ProductsIcon />}
+              />
+              <SidebarItem
+                isActive={pathname === "/reports"}
+                title="Reports"
+                icon={<ReportsIcon />}
+              />
+            </SidebarMenu>
 
-      <div className="mb-4">
-        <Link
-          href="/home"
-          className="block rounded px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-        >
-          Home
-        </Link>
-      </div>
+            <SidebarMenu title="General">
+              <SidebarItem
+                isActive={pathname === "/developers"}
+                title="Developers"
+                icon={<DevIcon />}
+              />
+              <SidebarItem
+                isActive={pathname === "/view"}
+                title="View Test Data"
+                icon={<ViewIcon />}
+              />
+              <SidebarItem
+                isActive={pathname === "/settings"}
+                title="Settings"
+                icon={<SettingsIcon />}
+              />
+            </SidebarMenu>
 
-      <div className="mb-6">
-        <h3 className="mb-2 px-4 text-xs font-semibold uppercase text-zinc-500">
-          Main Menu
-        </h3>
-        <nav className="flex flex-col gap-1">
-          <Link
-            href="/accounts"
-            className="rounded px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-          >
-            Accounts
-          </Link>
-          <Link
-            href="/payments"
-            className="rounded px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-          >
-            Payments
-          </Link>
-          <Link
-            href="/balances"
-            className="rounded px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-          >
-            Balances
-          </Link>
-          <Link
-            href="/customers"
-            className="rounded px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-          >
-            Customers
-          </Link>
-          <Link
-            href="/products"
-            className="rounded px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-          >
-            Products
-          </Link>
-          <Link
-            href="/reports"
-            className="rounded px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-          >
-            Reports
-          </Link>
-        </nav>
-      </div>
+            <SidebarMenu title="Updates">
+              <SidebarItem
+                isActive={pathname === "/changelog"}
+                title="Changelog"
+                icon={<ChangeLogIcon />}
+              />
+            </SidebarMenu>
+          </div>
 
-      <div className="mb-6">
-        <h3 className="mb-2 px-4 text-xs font-semibold uppercase text-zinc-500">
-          Developers
-        </h3>
-        <Link
-          href="/test-data"
-          className="block rounded px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-        >
-          G View Test Data
-        </Link>
-      </div>
-
-      <div>
-        <h3 className="mb-2 px-4 text-xs font-semibold uppercase text-zinc-500">
-          Update
-        </h3>
-        <Link
-          href="/changelog"
-          className="block rounded px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-        >
-          Changelog
-        </Link>
+          <div className="flex justify-center gap-6 border-t border-gray-200 p-4">
+            <Tooltip content="Settings" placement="top">
+              <button
+                aria-label="Settings Button"
+                className="text-gray-600 hover:text-gray-900"
+              >
+                <SettingsIcon />
+              </button>
+            </Tooltip>
+            <Tooltip content="Adjustments" placement="top">
+              <button
+                aria-label="Adjustments Button"
+                className="text-gray-600 hover:text-gray-900"
+              >
+                <FilterIcon />
+              </button>
+            </Tooltip>
+            <Tooltip content="Profile" placement="top">
+              <Avatar
+                aria-label="Profile Button"
+                src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                size="sm"
+                className="cursor-pointer"
+              />
+            </Tooltip>
+          </div>
+        </div>
       </div>
     </aside>
   );
-}
+};

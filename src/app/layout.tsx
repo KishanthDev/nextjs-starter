@@ -4,7 +4,7 @@ import classNames from "classnames";
 import type { Metadata } from "next";
 import "./globals.css";
 
-import Sidebar from "@/components/sidebar/SideBar";
+import { SidebarWrapper } from "@/components/sidebar/SideBar";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
@@ -38,7 +38,7 @@ export default function RootLayout({
       >
         <Providers>
           <div className="flex h-screen">
-            <Sidebar />
+            <SidebarWrapper />
             <div className="flex flex-1 flex-col">
               <Navbar />
               <main className="flex-1 overflow-y-auto p-4">{children}</main>
