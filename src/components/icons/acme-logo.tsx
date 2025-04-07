@@ -1,9 +1,13 @@
 import React from "react";
 import { Svg } from "../styles/svg";
 
-export const AcmeLogo = () => (
+interface AcmeLogoProps {
+  className?: string;
+}
+
+export const AcmeLogo: React.FC<AcmeLogoProps> = ({ className }) => (
   <Svg
-    className="h-6 w-6"
+    className={`h-6 w-6 ${className || ''}`}
     fill="none"
     height="42"
     viewBox="0 0 32 32"

@@ -1,14 +1,19 @@
 import React from "react";
 import { Svg } from "../styles/svg";
 
-export const AcmeIcon = () => (
+interface IconProps {
+  className?: string;
+}
+
+export const AcmeIcon = ({ className }: IconProps) => (
+
   <Svg
     width="42"
     height="42"
     viewBox="0 0 56 56"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6"
+    className={className}
   >
     <rect x="0.5" y="0.5" width="55" height="55" rx="7.5" />
     <path
