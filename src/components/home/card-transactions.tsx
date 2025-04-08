@@ -18,7 +18,7 @@ export const CardTransactions = () => {
       <CardBody className="py-10">
         <Flex className="justify-center gap-5">
           <h3
-            className={`text-center text-lg font-semibold ${
+            className={`text-center text-2xl font-semibold ${
               isDark ? "text-white" : "text-black"
             }`}
           >
@@ -41,7 +41,7 @@ export const CardTransactions = () => {
                 />
               </div>
               <span
-                className={`min-w-0 flex-1 truncate whitespace-nowrap text-sm font-bold ${
+                className={`min-w-0 flex-1 truncate whitespace-nowrap text-medium font-bold ${
                   isDark ? "text-white" : "text-gray-800"
                 }`}
               >

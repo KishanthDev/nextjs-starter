@@ -6,16 +6,15 @@ import { Community } from "../icons/community";
 import { useTheme } from "next-themes";
 
 export const CardBalance2 = () => {
-  const { theme } = useTheme(); // Get the current theme from next-themes
+  const { theme } = useTheme();
   const isDark = theme === "dark";
 
   return (
     <Card
-      className={`w-full rounded-xl px-4 shadow-lg ${
-        isDark ? "bg-zinc-900" : "bg-default-100"
-      }`}
+      className={`w-full h-full rounded-xl shadow-lg ${isDark ? "bg-zinc-900" : "bg-default-100"
+        }`}
     >
-      <CardBody className="flex flex-col gap-4 py-4">
+      <CardBody className="flex flex-col gap-4 p-4 sm:gap-3 sm:p-5 h-full">
         {/* Header Section */}
         <div className="flex items-start gap-3">
           <Community
@@ -23,9 +22,8 @@ export const CardBalance2 = () => {
           />
           <div className="flex flex-col">
             <span
-              className={`text-base font-semibold ${
-                isDark ? "text-white" : "text-gray-800"
-              }`}
+              className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-800"
+                }`}
             >
               Health Insurance
             </span>
@@ -38,38 +36,34 @@ export const CardBalance2 = () => {
         </div>
 
         {/* Balance Section */}
-        <div className="flex flex-wrap items-center justify-between gap-4 sm:justify-start">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
           <span
-            className={`text-xl font-semibold ${
-              isDark ? "text-white" : "text-black"
-            }`}
+            className={`text-lg font-semibold ${isDark ? "text-white" : "text-black"
+              }`}
           >
             $12,138
           </span>
           <span
-            className={`text-sm font-medium ${
-              isDark ? "text-red-400" : "text-red-600"
-            }`}
+            className={`text-sm font-medium ${isDark ? "text-red-700" : "text-red-700"
+              }`}
           >
             + 4.5%
           </span>
         </div>
 
         {/* Stats Section */}
-        <div className="flex flex-wrap items-center justify-between gap-4 sm:gap-0">
+        <div className="grid grid-cols-3 gap-2 sm:flex sm:justify-between flex-1">
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1">
               <span
-                className={`text-sm font-semibold ${
-                  isDark ? "text-green-400" : "text-green-600"
-                }`}
+                className={`text-sm font-semibold ${isDark ? "text-green-400" : "text-green-600"
+                  }`}
               >
                 ↓
               </span>
               <span
-                className={`text-base font-semibold ${
-                  isDark ? "text-white" : "text-gray-700"
-                }`}
+                className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-700"
+                  }`}
               >
                 11,930
               </span>
@@ -84,16 +78,14 @@ export const CardBalance2 = () => {
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1">
               <span
-                className={`text-sm font-semibold ${
-                  isDark ? "text-red-400" : "text-red-600"
-                }`}
+                className={`text-sm font-semibold ${isDark ? "text-red-700" : "text-red-700"
+                  }`}
               >
                 ↑
               </span>
               <span
-                className={`text-base font-semibold ${
-                  isDark ? "text-white" : "text-gray-700"
-                }`}
+                className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-700"
+                  }`}
               >
                 54,120
               </span>
@@ -108,16 +100,14 @@ export const CardBalance2 = () => {
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1">
               <span
-                className={`text-sm font-semibold ${
-                  isDark ? "text-green-400" : "text-green-600"
-                }`}
+                className={`text-sm font-semibold ${isDark ? "text-green-400" : "text-green-600"
+                  }`}
               >
                 ⭐
               </span>
               <span
-                className={`text-base font-semibold ${
-                  isDark ? "text-white" : "text-gray-700"
-                }`}
+                className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-700"
+                  }`}
               >
                 150
               </span>

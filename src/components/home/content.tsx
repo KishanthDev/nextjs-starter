@@ -38,13 +38,13 @@ export const Content = () => {
           Available Balance
         </h3>
         <Flex className="flex-col gap-4 lg:flex-row lg:justify-start">
-          <div className="w-full lg:w-1/3">
+          <div className="w-full lg:flex-1">
             <CardBalance1 />
           </div>
-          <div className="w-full lg:w-1/3">
+          <div className="w-full lg:flex-1">
             <CardBalance2 />
           </div>
-          <div className="w-full lg:w-1/3">
+          <div className="w-full lg:flex-1">
             <CardBalance3 />
           </div>
         </Flex>
