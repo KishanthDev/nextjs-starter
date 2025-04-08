@@ -40,9 +40,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Layout>
-            {children}
-          </Layout>
+          <Layout>{children}</Layout>
         </ThemeProvider>
         <Analytics />
       </body>
