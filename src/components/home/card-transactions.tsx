@@ -11,14 +11,16 @@ export const CardTransactions = () => {
 
   return (
     <Card
-      className={`max-w-[375px] rounded-xl px-6 shadow-2xl transition-shadow duration-300 hover:shadow-[0_10px_40px_rgba(0,0,0,0.2)] ${isDark ? "bg-zinc-900" : "bg-default-100"
-        }`}
+      className={`w-full rounded-xl px-6 shadow-2xl transition-shadow duration-300 hover:shadow-[0_10px_40px_rgba(0,0,0,0.2)] ${
+        isDark ? "bg-zinc-900" : "bg-default-100"
+      }`}
     >
       <CardBody className="py-10">
         <Flex className="justify-center gap-5">
           <h3
-            className={`text-center text-lg font-semibold ${isDark ? "text-white" : "text-black"
-              }`}
+            className={`text-center text-lg font-semibold ${
+              isDark ? "text-white" : "text-black"
+            }`}
           >
             Latest Transactions
           </h3>
@@ -28,31 +30,34 @@ export const CardTransactions = () => {
           {transactions.map(({ name, amount, date }, index) => (
             <Flex
               key={index}
-              className="items-center justify-between gap-6"
+              className="items-center justify-between gap-4"
               align="center"
             >
-              <div className="rounded-full bg-gradient-to-tr from-blue-500 to-blue-300 p-[2px]">
+              <div className="flex-shrink-0 rounded-full bg-gradient-to-tr from-blue-500 to-blue-300 p-[2px]">
                 <Avatar
                   size="lg"
                   src={`https://i.pravatar.cc/150?u=a042581f4e29026024d&img=${index}`}
-                  className={`${isDark ? "bg-zinc-800" : "bg-white"}`}
+                  className={`${isDark ? "bg-zinc-800" : "bg-white"} h-12 w-12`}
                 />
               </div>
               <span
-                className={`text-sm font-bold whitespace-nowrap ${isDark ? "text-white" : "text-gray-800"
-                  }`}
+                className={`min-w-0 flex-1 truncate whitespace-nowrap text-sm font-bold ${
+                  isDark ? "text-white" : "text-gray-800"
+                }`}
               >
                 {name}
               </span>
               <span
-                className={`text-xs font-bold ${isDark ? "text-green-400" : "text-green-600"
-                  }`}
+                className={`whitespace-nowrap text-xs font-bold ${
+                  isDark ? "text-green-400" : "text-green-600"
+                }`}
               >
                 {amount}
               </span>
               <span
-                className={`text-xs font-bold ${isDark ? "text-gray-400" : "text-default-500"
-                  }`}
+                className={`whitespace-nowrap text-xs font-bold ${
+                  isDark ? "text-gray-400" : "text-default-500"
+                }`}
               >
                 {date}
               </span>

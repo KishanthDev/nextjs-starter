@@ -11,8 +11,9 @@ export const CardBalance2 = () => {
 
   return (
     <Card
-      className={`w-full rounded-xl px-4 shadow-lg ${isDark ? "bg-zinc-900" : "bg-default-100"
-        }`}
+      className={`w-full rounded-xl px-4 shadow-lg ${
+        isDark ? "bg-zinc-900" : "bg-default-100"
+      }`}
     >
       <CardBody className="flex flex-col gap-4 py-4">
         {/* Header Section */}
@@ -22,8 +23,9 @@ export const CardBalance2 = () => {
           />
           <div className="flex flex-col">
             <span
-              className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-800"
-                }`}
+              className={`text-base font-semibold ${
+                isDark ? "text-white" : "text-gray-800"
+              }`}
             >
               Health Insurance
             </span>
@@ -38,14 +40,16 @@ export const CardBalance2 = () => {
         {/* Balance Section */}
         <div className="flex flex-wrap items-center justify-between gap-4 sm:justify-start">
           <span
-            className={`text-xl font-semibold ${isDark ? "text-white" : "text-black"
-              }`}
+            className={`text-xl font-semibold ${
+              isDark ? "text-white" : "text-black"
+            }`}
           >
             $12,138
           </span>
           <span
-            className={`text-sm font-medium ${isDark ? "text-red-400" : "text-red-600"
-              }`}
+            className={`text-sm font-medium ${
+              isDark ? "text-red-400" : "text-red-600"
+            }`}
           >
             + 4.5%
           </span>
@@ -56,14 +60,16 @@ export const CardBalance2 = () => {
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1">
               <span
-                className={`text-sm font-semibold ${isDark ? "text-green-400" : "text-green-600"
-                  }`}
+                className={`text-sm font-semibold ${
+                  isDark ? "text-green-400" : "text-green-600"
+                }`}
               >
                 ↓
               </span>
               <span
-                className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-700"
-                  }`}
+                className={`text-base font-semibold ${
+                  isDark ? "text-white" : "text-gray-700"
+                }`}
               >
                 11,930
               </span>
@@ -78,14 +84,16 @@ export const CardBalance2 = () => {
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1">
               <span
-                className={`text-sm font-semibold ${isDark ? "text-red-400" : "text-red-600"
-                  }`}
+                className={`text-sm font-semibold ${
+                  isDark ? "text-red-400" : "text-red-600"
+                }`}
               >
                 ↑
               </span>
               <span
-                className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-700"
-                  }`}
+                className={`text-base font-semibold ${
+                  isDark ? "text-white" : "text-gray-700"
+                }`}
               >
                 54,120
               </span>
@@ -100,14 +108,16 @@ export const CardBalance2 = () => {
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1">
               <span
-                className={`text-sm font-semibold ${isDark ? "text-green-400" : "text-green-600"
-                  }`}
+                className={`text-sm font-semibold ${
+                  isDark ? "text-green-400" : "text-green-600"
+                }`}
               >
                 ⭐
               </span>
               <span
-                className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-700"
-                  }`}
+                className={`text-base font-semibold ${
+                  isDark ? "text-white" : "text-gray-700"
+                }`}
               >
                 150
               </span>
