@@ -29,52 +29,56 @@ export const TableWrapper = () => {
   const paginatedUsers = users.slice(start, end);
 
   return (
-    <div className="w-full transition-all duration-300 ease-in-out">
-      <Table
-        aria-label="Example table with custom cells"
-        isHeaderSticky
-        removeWrapper
-        classNames={{
-          base: "w-full",
-          table: "min-w-full",
-        }}
-        selectionMode="multiple"
-        bottomContent={
-          <Pagination
-            isCompact
-            showControls
-            total={pages}
-            page={page}
-            onChange={(p) => setPage(p)}
-            classNames={{
-              item: "data-[active=true]:text-blue-600 data-[active=true]:shadow-[0_4px_12px_rgba(59,130,246,0.3)] data-[active=true]:bg-blue-50",
-            }}
-            className="self-center"
-          />
-        }
-      >
-        <TableHeader>
-          {columns.map((column) => (
-            <TableColumn
-              key={column.uid}
-              align={column.uid === "actions" ? "center" : "start"}
-            >
-              {column.name}
-            </TableColumn>
-          ))}
-        </TableHeader>
+    <Table
+      aria-label="Example table with custom cells"
+      isHeaderSticky
+      removeWrapper
+      classNames={{
+        base: "min-w-[768px] w-full", // Ensures minimum width for scrolling
+        table: "w-full",
+        th: "text-xs sm:text-sm px-2 sm:px-4 py-2",
+        td: "text-xs sm:text-sm px-2 sm:px-4 py-2",
+        wrapper: "max-h-[calc(100vh-200px)]",
+      }}
+      selectionMode="multiple"
+      bottomContent={
+        <Pagination
+          isCompact
+          showControls
+          total={pages}
+          page={page}
+          onChange={(p) => setPage(p)}
+          classNames={{
+            wrapper: "mx-auto mt-4",
+            item: "data-[active=true]:text-blue-600 data-[active=true]:shadow-[0_4px_12px_rgba(59,130,246,0.3)] data-[active=true]:bg-blue-50 text-xs sm:text-sm",
+          }}
+          className="self-center"
+        />
+      }
+    >
+      <TableHeader>
+        {columns.map((column) => (
+          <TableColumn
+            key={column.uid}
+            align={column.uid === "actions" ? "center" : "start"}
+          >
+            {column.name}
+          </TableColumn>
+        ))}
+      </TableHeader>
 
-        <TableBody items={paginatedUsers}>
-          {(item) => (
-            <TableRow key={item.id}>
-              {(columnKey) => (
-                <TableCell>{RenderCell({ user: item, columnKey })}</TableCell>
-              )}
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
-    </div>
+      <TableBody items={paginatedUsers}>
+        {(item) => (
+          <TableRow key={item.id}>
+            {(columnKey) => (
+              <TableCell>
+                {RenderCell({ user: item, columnKey })}
+              </TableCell>
+            )}
+          </TableRow>
+        )}
+      </TableBody>
+    </Table>
   );
 };
 

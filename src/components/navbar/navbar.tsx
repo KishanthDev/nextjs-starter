@@ -15,6 +15,7 @@ import { BurguerButton } from "./burguer-button";
 import { NotificationsDropdown } from "./notifications-dropdown";
 import { UserDropdown } from "./user-dropdown";
 import { useSidebarContext } from "../layout/layout-context";
+import { useTheme } from "next-themes";
 
 interface Props {
   children: React.ReactNode;
@@ -22,6 +23,8 @@ interface Props {
 
 export const NavbarWrapper = ({ children }: Props) => {
   const { collapsed, setCollapsed } = useSidebarContext();
+  const { theme } = useTheme(); // Get the current theme from next-themes
+  const isDark = theme === "dark";
 
   const menuItems = [
     "Profile",
@@ -37,10 +40,18 @@ export const NavbarWrapper = ({ children }: Props) => {
   ];
 
   return (
-    <Box className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden bg-white dark:bg-black">
+    <Box
+      className={`relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ${
+        isDark ? "bg-black" : "bg-white"
+      }`}
+    >
       <Navbar
         isBordered
-        className="w-full border-b border-border bg-white py-4 dark:bg-black"
+        className={`w-full border-b py-4 ${
+          isDark
+            ? "border-gray-700 bg-black text-white"
+            : "border-border bg-white text-black"
+        }`}
         isMenuOpen={collapsed}
         onMenuOpenChange={setCollapsed}
       >
@@ -56,7 +67,7 @@ export const NavbarWrapper = ({ children }: Props) => {
             <Link
               href="https://github.com/"
               target="_blank"
-              className="text-black dark:text-white"
+              className={isDark ? "text-white" : "text-black"}
             >
               <GithubIcon />
             </Link>
@@ -65,7 +76,9 @@ export const NavbarWrapper = ({ children }: Props) => {
         </NavbarContent>
 
         {/* Mobile Menu */}
-        <NavbarMenu className="bg-white dark:bg-black">
+        <NavbarMenu
+          className={isDark ? "bg-black text-white" : "bg-white text-black"}
+        >
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={item}>
               <Link
@@ -76,7 +89,7 @@ export const NavbarWrapper = ({ children }: Props) => {
                       ? "secondary"
                       : "foreground"
                 }
-                className="w-full text-black dark:text-white"
+                className={`w-full ${isDark ? "text-white" : "text-black"}`}
                 href="#"
                 size="lg"
               >

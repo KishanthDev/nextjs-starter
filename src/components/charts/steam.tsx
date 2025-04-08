@@ -115,15 +115,14 @@ const options: ApexOptions = {
 
 export const Steam = () => (
   <div className="w-full overflow-x-auto sm:overflow-visible">
-    <div id="chart" className="min-w-[350px] sm:min-w-0 sm:w-full">
+    <div id="chart" className="min-w-[350px] sm:w-full sm:min-w-0">
       <Chart
         options={options}
         series={series}
         type="area"
-        height={300} 
+        height={300}
         width="100%"
       />
     </div>
   </div>
 );
-
