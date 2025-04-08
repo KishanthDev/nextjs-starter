@@ -9,7 +9,7 @@ export const CardBalance2 = () => (
     <CardBody className="flex flex-col gap-6 py-10">
       {/* Header Section */}
       <div className="flex items-start gap-4">
-        <Community className="cursor-pointer text-gray-700 " />
+        <Community className="cursor-pointer text-gray-700" />
         <div className="flex flex-col">
           <span className="text-base font-semibold text-gray-800">
             Health Insurance
