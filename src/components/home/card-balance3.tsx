@@ -7,7 +7,7 @@ import { Box } from "../styles/box";
 import { Flex } from "../styles/flex";
 
 export const CardBalance3 = () => (
-  <Card className="rounded-xl bg-green-600 px-4 w-full">
+  <Card className="w-full rounded-xl bg-green-600 px-4 shadow-xl">
     <CardBody className="py-4">
       <Flex className="gap-3">
         <Community className="h-6 w-6" />

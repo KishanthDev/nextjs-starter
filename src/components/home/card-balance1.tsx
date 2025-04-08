@@ -5,7 +5,7 @@ import { Card, CardBody } from "@nextui-org/react";
 import { Community } from "../icons/community";
 
 export const CardBalance1 = () => (
-  <Card className="rounded-xl bg-blue-600 px-4 text-white shadow-lg w-full">
+  <Card className="w-full rounded-xl bg-blue-600 px-4 text-white shadow-lg">
     <CardBody className="flex flex-col gap-3 py-4">
       {/* Top Section */}
       <div className="flex items-start gap-3">
