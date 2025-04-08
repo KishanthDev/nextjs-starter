@@ -1,58 +1,74 @@
+import React, { useState } from "react";
 import {
-  Table,
-  TableHeader,
-  TableColumn,
-  TableBody,
-  TableRow,
-  TableCell,
-  Pagination,
+    Table,
+    TableHeader,
+    TableColumn,
+    TableBody,
+    TableRow,
+    TableCell,
+    Pagination,
 } from "@nextui-org/react";
-import React from "react";
 import { columns, users } from "./data";
 import { RenderCell } from "./render-cell";
 
-export const TableWrapper = () => (
-  <div className="w-full [&_.nextui-table-container]:shadow-none">
-    <Table
-      aria-label="Example table with custom cells"
-      isHeaderSticky
-      removeWrapper
-      classNames={{
-        base: "w-full",
-        table: "min-w-full",
-      }}
-      selectionMode="multiple"
-      bottomContent={
-        <Pagination
-          isCompact
-          showControls
-          total={5}
-          page={1}
-          onChange={(page) => console.log({ page })}
-          className="self-center"
-        />
-      }
-    >
-      <TableHeader>
-        {columns.map((column) => (
-          <TableColumn
-            key={column.uid}
-            align={column.uid === "actions" ? "center" : "start"}
-          >
-            {column.name}
-          </TableColumn>
-        ))}
-      </TableHeader>
+const ITEMS_PER_PAGE = 8;
 
-      <TableBody items={users}>
-        {(item) => (
-          <TableRow key={item.id}>
-            {(columnKey) => (
-              <TableCell>{RenderCell({ user: item, columnKey })}</TableCell>
-            )}
-          </TableRow>
-        )}
-      </TableBody>
-    </Table>
-  </div>
-);
+export const TableWrapper = () => {
+    const [page, setPage] = useState(1);
+
+    const pages = Math.ceil(users.length / ITEMS_PER_PAGE);
+    const start = (page - 1) * ITEMS_PER_PAGE;
+    const end = start + ITEMS_PER_PAGE;
+    const paginatedUsers = users.slice(start, end);
+
+    return (
+        <div className="w-full transition-all duration-300 ease-in-out">
+            <Table
+                aria-label="Example table with custom cells"
+                isHeaderSticky
+                removeWrapper
+                classNames={{
+                    base: "w-full",
+                    table: "min-w-full",
+                }}
+                selectionMode="multiple"
+                bottomContent={
+                    <Pagination
+                        isCompact
+                        showControls
+                        total={pages}
+                        page={page}
+                        onChange={(p) => setPage(p)}
+                        classNames={{
+                            item: "data-[active=true]:text-blue-600 data-[active=true]:shadow-[0_4px_12px_rgba(59,130,246,0.3)] data-[active=true]:bg-blue-50",
+                        }}
+                        className="self-center"
+                    />
+                }
+            >
+                <TableHeader>
+                    {columns.map((column) => (
+                        <TableColumn
+                            key={column.uid}
+                            align={column.uid === "actions" ? "center" : "start"}
+                        >
+                            {column.name}
+                        </TableColumn>
+                    ))}
+                </TableHeader>
+
+                <TableBody items={paginatedUsers}>
+                    {(item) => (
+                        <TableRow key={item.id}>
+                            {(columnKey) => (
+                                <TableCell>
+                                    {RenderCell({ user: item, columnKey })}
+                                </TableCell>
+                            )}
+                        </TableRow>
+                    )}
+                </TableBody>
+            </Table>
+        </div>
+    );
+};
