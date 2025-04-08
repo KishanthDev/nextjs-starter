@@ -8,7 +8,7 @@ import {
   User,
 } from "@nextui-org/react";
 import React from "react";
-import {DarkModeSwitch} from "./darkmodeswitch";
+import { DarkModeSwitch } from "./darkmodeswitch";
 
 // Custom Divider Component
 const Divider = () => (
