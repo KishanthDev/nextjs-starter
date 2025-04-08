@@ -11,10 +11,11 @@ export const CardBalance3 = () => {
 
   return (
     <Card
-      className={`w-full h-full rounded-xl shadow-lg ${isDark ? "bg-green-500" : "bg-green-500"
-        }`}
+      className={`h-full w-full rounded-xl shadow-lg ${
+        isDark ? "bg-green-500" : "bg-green-500"
+      }`}
     >
-      <CardBody className="flex flex-col gap-4 p-4 sm:gap-3 sm:p-5 h-full">
+      <CardBody className="flex h-full flex-col gap-4 p-4 sm:gap-3 sm:p-5">
         {/* Header */}
         <div className="flex items-start gap-3">
           <Community className="h-6 w-6 text-white" />
@@ -30,24 +31,28 @@ export const CardBalance3 = () => {
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
           <span className="text-lg font-semibold text-white">$3,910</span>
           <span
-            className={`text-sm font-medium ${isDark ? "text-red-700" : "text-red-700"
-              }`}
+            className={`text-sm font-medium ${
+              isDark ? "text-red-700" : "text-red-700"
+            }`}
           >
             + 4.5%
           </span>
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-2 sm:flex sm:justify-between flex-1">
+        <div className="grid flex-1 grid-cols-3 gap-2 sm:flex sm:justify-between">
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1">
               <span
-                className={`text-sm font-semibold ${isDark ? "text-red-700" : "text-red-700"
-                  }`}
+                className={`text-sm font-semibold ${
+                  isDark ? "text-red-700" : "text-red-700"
+                }`}
               >
                 ↓
               </span>
-              <span className="text-base font-semibold text-white">100,930</span>
+              <span className="text-base font-semibold text-white">
+                100,930
+              </span>
             </div>
             <span className="text-xs text-white opacity-70">USD</span>
           </div>
@@ -55,8 +60,9 @@ export const CardBalance3 = () => {
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1">
               <span
-                className={`text-sm font-semibold ${isDark ? "text-red-700" : "text-red-700"
-                  }`}
+                className={`text-sm font-semibold ${
+                  isDark ? "text-red-700" : "text-red-700"
+                }`}
               >
                 ↑
               </span>
@@ -68,8 +74,9 @@ export const CardBalance3 = () => {
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1">
               <span
-                className={`text-sm font-semibold ${isDark ? "text-green-200" : "text-green-300"
-                  }`}
+                className={`text-sm font-semibold ${
+                  isDark ? "text-green-200" : "text-green-300"
+                }`}
               >
                 ⭐
               </span>

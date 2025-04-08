@@ -11,10 +11,11 @@ export const CardBalance1 = () => {
 
   return (
     <Card
-      className={`w-full h-full rounded-xl shadow-lg ${isDark ? "bg-blue-600" : "bg-blue-600"
-        }`}
+      className={`h-full w-full rounded-xl shadow-lg ${
+        isDark ? "bg-blue-600" : "bg-blue-600"
+      }`}
     >
-      <CardBody className="flex flex-col gap-4 p-4 sm:gap-3 sm:p-5 h-full">
+      <CardBody className="flex h-full flex-col gap-4 p-4 sm:gap-3 sm:p-5">
         {/* Top Section */}
         <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:gap-3">
           <Community className="h-6 w-6 text-white" />
@@ -37,11 +38,13 @@ export const CardBalance1 = () => {
         </div>
 
         {/* Metrics Section */}
-        <div className="grid grid-cols-3 gap-2 sm:flex sm:justify-between flex-1">
+        <div className="grid flex-1 grid-cols-3 gap-2 sm:flex sm:justify-between">
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1">
               <span className="text-sm font-semibold text-green-400">↓</span>
-              <span className="text-base font-semibold text-white">100,930</span>
+              <span className="text-base font-semibold text-white">
+                100,930
+              </span>
             </div>
             <span className="text-xs text-white opacity-70">USD</span>
           </div>

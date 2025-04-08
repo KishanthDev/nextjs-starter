@@ -51,8 +51,8 @@ export const Steam = () => {
           fontFamily: "Inter, sans-serif",
         },
       },
-      axisBorder: { color: isDark ? "#4b5563" : "#e5e7eb" }, // gray-600 (dark), gray-200 (light)
-      axisTicks: { color: isDark ? "#4b5563" : "#e5e7eb" },
+      axisBorder: { color: isDark ? "#6b7280" : "#e5e7eb" }, // gray-500 (dark), gray-200 (light)
+      axisTicks: { color: isDark ? "#6b7280" : "#e5e7eb" },
     },
     yaxis: {
       labels: {
@@ -66,7 +66,7 @@ export const Steam = () => {
     },
     grid: {
       show: true,
-      borderColor: isDark ? "#4b5563" : "#e5e7eb", // gray-600 (dark), gray-200 (light)
+      borderColor: isDark ? "#6b7280" : "#e5e7eb", // gray-500 (dark), gray-200 (light)
       strokeDashArray: 0,
       position: "back",
     },
@@ -124,7 +124,11 @@ export const Steam = () => {
 
   return (
     <div className="w-full overflow-x-auto sm:overflow-visible">
-      <div id="chart" className="min-w-[350px] sm:w-full sm:min-w-0">
+      <div
+        id="chart"
+        className={`min-w-[350px] sm:w-full sm:min-w-0 ${isDark ? "bg-gray-900" : "bg-white"
+          }`}
+      >
         <Chart
           options={options}
           series={series}

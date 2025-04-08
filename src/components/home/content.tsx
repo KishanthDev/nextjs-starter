@@ -61,7 +61,7 @@ export const Content = () => {
         </h3>
         <Box
           className={`w-full rounded-2xl px-4 py-6 shadow-lg sm:px-6 sm:py-8 ${
-            isDark ? "bg-default-200" : "bg-default-100"
+            isDark ? "bg-gray-900" : "bg-default-100"
           }`}
         >
           <Chart />
