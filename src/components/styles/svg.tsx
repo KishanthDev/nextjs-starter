@@ -16,7 +16,7 @@ interface RectProps extends React.SVGProps<SVGRectElement> {
 // Unstyled Svg component with type for className
 const UnstyledSvg: React.FC<SvgProps> = ({ className, ...props }) => (
   <svg
-    className={`h-full w-full fill-none ${className}`} // Apply Tailwind classes here
+    className={`fill-none ${className}`} // Apply Tailwind classes here
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   />

@@ -22,16 +22,25 @@ const Chart = dynamic(
 export const Content = () => (
   <Box className="h-full overflow-hidden px-4 py-6 lg:px-12">
     {/* Balance Cards */}
-    <Box className="mb-10">
-      <h3 className="mb-6 text-center text-xl font-semibold lg:text-left">
-        Available Balance
-      </h3>
-      <Flex className="no-wrap flex justify-center gap-6 lg:justify-start">
-        <CardBalance1 />
-        <CardBalance2 />
-        <CardBalance3 />
-      </Flex>
-    </Box>
+        <Box className="mb-10">
+            <h3 className="mb-6 text-center text-xl font-semibold lg:text-left">
+                Available Balance
+            </h3>
+
+            <Flex className="flex flex-col gap-4 lg:flex-row lg:justify-start">
+                <div className="flex-1">
+                    <CardBalance1 />
+                </div>
+                <div className="flex-1">
+                    <CardBalance2 />
+                </div>
+                <div className="flex-1">
+                    <CardBalance3 />
+                </div>
+            </Flex>
+        </Box>
+
+
 
     {/* Statistics Chart */}
     <Box className="mb-10">
