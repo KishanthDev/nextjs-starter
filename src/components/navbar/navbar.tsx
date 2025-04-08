@@ -37,10 +37,10 @@ export const NavbarWrapper = ({ children }: Props) => {
   ];
 
   return (
-    <Box className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden dark:bg-black bg-white">
+    <Box className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden bg-white dark:bg-black">
       <Navbar
         isBordered
-        className="w-full border-b border-border bg-white dark:bg-black py-4"
+        className="w-full border-b border-border bg-white py-4 dark:bg-black"
         isMenuOpen={collapsed}
         onMenuOpenChange={setCollapsed}
       >
@@ -53,7 +53,11 @@ export const NavbarWrapper = ({ children }: Props) => {
         <NavbarContent justify="end" className="flex gap-6">
           <NotificationsDropdown />
           <NavbarItem>
-            <Link href="https://github.com/" target="_blank" className="text-black dark:text-white">
+            <Link
+              href="https://github.com/"
+              target="_blank"
+              className="text-black dark:text-white"
+            >
               <GithubIcon />
             </Link>
           </NavbarItem>

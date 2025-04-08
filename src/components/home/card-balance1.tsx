@@ -8,21 +8,21 @@ export const CardBalance1 = () => (
   <Card className="w-full rounded-xl bg-blue-600 text-white shadow-lg dark:bg-blue-900">
     <CardBody className="flex flex-col gap-4 p-4 sm:gap-3 sm:p-5">
       {/* Top Section */}
-      <div className="flex flex-col sm:flex-row sm:items-start sm:gap-3 gap-2">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:gap-3">
         <Community className="h-6 w-6 text-white dark:text-white" />
         <div className="flex flex-col">
-          <span className="text-base sm:text-lg font-semibold text-white">
+          <span className="text-base font-semibold text-white sm:text-lg">
             Auto Insurance
           </span>
-          <span className="text-sm sm:text-base text-white opacity-80">
+          <span className="text-sm text-white opacity-80 sm:text-base">
             1311 Cars
           </span>
         </div>
       </div>
 
       {/* Balance Section */}
-      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-        <span className="text-lg sm:text-xl font-semibold">$45,910</span>
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+        <span className="text-lg font-semibold sm:text-xl">$45,910</span>
         <span className="text-sm font-medium text-green-400">+ 4.5%</span>
       </div>
 

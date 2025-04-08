@@ -20,7 +20,7 @@ const Chart = dynamic(
 );
 
 export const Content = () => (
-  <Box className="h-full overflow-y-auto px-4 py-6 lg:px-12 dark:bg-black bg-white">
+  <Box className="h-full overflow-y-auto bg-white px-4 py-6 dark:bg-black lg:px-12">
     {/* Balance Cards */}
     <Box className="mb-10">
       <h3 className="mb-6 text-center text-2xl font-semibold text-black dark:text-white lg:text-left">
@@ -45,7 +45,7 @@ export const Content = () => (
       <h3 className="mb-6 text-center text-2xl font-semibold text-black dark:text-white lg:text-left">
         Statistics
       </h3>
-      <Box className="w-full rounded-2xl bg-default-100 dark:bg-default-200 px-4 sm:px-6 py-6 sm:py-8 shadow-lg">
+      <Box className="w-full rounded-2xl bg-default-100 px-4 py-6 shadow-lg dark:bg-default-200 sm:px-6 sm:py-8">
         <Chart />
       </Box>
     </Box>
@@ -56,7 +56,7 @@ export const Content = () => (
         Section
       </h3>
 
-      <Flex className="flex-col gap-6 items-center lg:flex-row lg:items-start">
+      <Flex className="flex-col items-center gap-6 lg:flex-row lg:items-start">
         <CardAgents />
         <CardTransactions />
       </Flex>
@@ -65,11 +65,11 @@ export const Content = () => (
     {/* Latest Users Table */}
     <Box className="mt-8">
       <Flex justify="between" wrap="wrap" className="mb-6 items-center">
-        <h3 className="text-2xl font-semibold text-center lg:text-left text-black dark:text-white">
+        <h3 className="text-center text-2xl font-semibold text-black dark:text-white lg:text-left">
           Latest Users
         </h3>
         <NextLink href="/accounts" passHref>
-          <span className="cursor-pointer text-primary hover:underline text-sm mt-2 lg:mt-0">
+          <span className="mt-2 cursor-pointer text-sm text-primary hover:underline lg:mt-0">
             View All
           </span>
         </NextLink>

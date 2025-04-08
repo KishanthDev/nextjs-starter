@@ -21,7 +21,7 @@ export const CardBalance2 = () => (
       </div>
 
       {/* Balance Section */}
-      <div className="flex flex-wrap items-center gap-4 sm:justify-start justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-4 sm:justify-start">
         <span className="text-xl font-semibold text-black dark:text-white">
           $12,138
         </span>
@@ -34,24 +34,36 @@ export const CardBalance2 = () => (
       <div className="flex flex-wrap items-center justify-between gap-4 sm:gap-0">
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-1">
-            <span className="text-sm font-semibold text-green-600 dark:text-green-400">↓</span>
-            <span className="text-base font-semibold text-gray-700 dark:text-white">11,930</span>
+            <span className="text-sm font-semibold text-green-600 dark:text-green-400">
+              ↓
+            </span>
+            <span className="text-base font-semibold text-gray-700 dark:text-white">
+              11,930
+            </span>
           </div>
           <span className="text-xs text-gray-500 dark:text-gray-400">USD</span>
         </div>
 
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-1">
-            <span className="text-sm font-semibold text-red-600 dark:text-red-400">↑</span>
-            <span className="text-base font-semibold text-gray-700 dark:text-white">54,120</span>
+            <span className="text-sm font-semibold text-red-600 dark:text-red-400">
+              ↑
+            </span>
+            <span className="text-base font-semibold text-gray-700 dark:text-white">
+              54,120
+            </span>
           </div>
           <span className="text-xs text-gray-500 dark:text-gray-400">USD</span>
         </div>
 
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-1">
-            <span className="text-sm font-semibold text-green-600 dark:text-green-400">⭐</span>
-            <span className="text-base font-semibold text-gray-700 dark:text-white">150</span>
+            <span className="text-sm font-semibold text-green-600 dark:text-green-400">
+              ⭐
+            </span>
+            <span className="text-base font-semibold text-gray-700 dark:text-white">
+              150
+            </span>
           </div>
           <span className="text-xs text-gray-500 dark:text-gray-400">VIP</span>
         </div>
