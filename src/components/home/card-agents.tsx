@@ -12,13 +12,13 @@ const pictureUsers = [
 ];
 
 export const CardAgents = () => (
-  <Card className="h-[275px] w-[375px] rounded-xl bg-default-50 shadow-md">
+  <Card className="h-[275px] w-[375px] rounded-xl bg-default-50 shadow-2xl hover:shadow-[0_10px_40px_rgba(0,0,0,0.2)] transition-shadow duration-300">
     <CardBody className="flex flex-col items-center justify-center gap-4 p-6">
       {/* Title */}
       <div className="flex w-full justify-center">
-        <div className="flex items-center justify-center gap-2 rounded-md border-2 border-dashed border-default-300 px-4 py-2">
+        <div className="flex items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-default-300 px-4 py-2">
           <span className="text-xl">⭐</span>
-          <h3 className="m-0 text-lg font-semibold">Agents</h3>
+          <h3 className="m-0 text-lg font-bold">Agents</h3>
         </div>
       </div>
 
@@ -27,20 +27,27 @@ export const CardAgents = () => (
         Meet your agenda and see their ranks to get the best results
       </p>
 
-      {/* Manual Avatar Group */}
+      {/* Avatar Group with gradient borders and hover-right effect */}
       <div className="flex -space-x-4 pt-2">
         {pictureUsers.map((url, index) => (
-          <Avatar
+          <div
             key={index}
-            src={url}
-            size="lg"
-            isBordered
-            color="primary"
-            className="ring-2 ring-white"
-          />
+            className="relative z-10 transition-transform hover:translate-x-[-0.75rem] hover:z-50 duration-300"
+          >
+            <div className="h-10 w-10 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-[2px]">
+              <div className="h-full w-full rounded-full bg-white">
+                <Avatar
+                  src={url}
+                  size="lg"
+                  className="h-full w-full rounded-full"
+                />
+              </div>
+            </div>
+          </div>
         ))}
-        {/* Extra count (if needed) */}
-        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-sm text-white ring-2 ring-white">
+
+        {/* Extra count */}
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-xs text-white ring-2 ring-white">
           +{12 - pictureUsers.length}
         </div>
       </div>

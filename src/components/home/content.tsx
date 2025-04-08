@@ -51,15 +51,16 @@ export const Content = () => (
     </Box>
 
     {/* Section: Agents & Transactions */}
-    <Box className="mb-10">
-      <h3 className="mb-6 text-center text-xl font-semibold lg:text-left">
-        Section
-      </h3>
-      <Flex className="flex-col justify-between gap-6 lg:flex-row">
-        <CardAgents />
-        <CardTransactions />
-      </Flex>
-    </Box>
+        <Box className="mb-10">
+            <h3 className="mb-6 text-center text-3xl font-bold">Section</h3>
+
+            <Flex className="flex-col items-center justify-center gap-5 lg:flex-row lg:items-start">
+                <CardAgents  />
+                <CardTransactions  />
+            </Flex>
+        </Box>
+
+
 
     {/* Latest Users Table */}
     <Box className="mt-8">

@@ -5,7 +5,7 @@ import { Card, CardBody, Avatar } from "@nextui-org/react";
 import { Flex } from "../styles/flex";
 
 export const CardTransactions = () => (
-  <Card className="max-w-[375px] rounded-xl bg-default-100 px-6">
+  <Card className="max-w-[375px] rounded-xl bg-default-100 px-6 shadow-2xl hover:shadow-[0_10px_40px_rgba(0,0,0,0.2)] transition-shadow duration-300">
     <CardBody className="py-10">
       <Flex className="justify-center gap-5">
         <h3 className="text-center text-lg font-semibold">
