@@ -27,8 +27,9 @@ export const SidebarWrapper = () => {
 
   return (
     <aside
-      className={`h-screen transition-all duration-200 ${collapsed ? "w-64" : "w-0 md:w-64"
-        }`}
+      className={`h-screen transition-all duration-200 ${
+        collapsed ? "w-64" : "w-0 md:w-64"
+      }`}
     >
       {/* Overlay for mobile when sidebar is open */}
       {collapsed && (
@@ -39,8 +40,9 @@ export const SidebarWrapper = () => {
       )}
 
       <div
-        className={`flex flex-col h-full w-64 border-r border-gray-200 bg-white ${collapsed ? "translate-x-0" : "-translate-x-full md:translate-x-0"
-          } md:fixed md:top-0 md:h-screen`}
+        className={`flex h-full w-64 flex-col border-r border-gray-200 bg-white ${
+          collapsed ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+        } md:fixed md:top-0 md:h-screen`}
       >
         <div className="border-b border-gray-200 p-4">
           <CompaniesDropdown />
