@@ -1,32 +1,27 @@
-"use client"; // For client-side hooks
+"use client";
 
 import {
-  Input,
   Link,
   Navbar,
-  NavbarBrand,
   NavbarContent,
   NavbarItem,
   NavbarMenu,
   NavbarMenuItem,
-  NavbarMenuToggle,
 } from "@nextui-org/react";
 import React from "react";
-import { FeedbackIcon } from "../icons/navbar/feedback-icon";
 import { GithubIcon } from "../icons/navbar/github-icon";
-import { SearchIcon } from "../icons/search-icon";
 import { Box } from "../styles/box";
-import { Flex } from "../styles/flex";
 import { BurguerButton } from "./burguer-button";
 import { NotificationsDropdown } from "./notifications-dropdown";
 import { UserDropdown } from "./user-dropdown";
+import { useSidebarContext } from "../layout/layout-context";
 
 interface Props {
   children: React.ReactNode;
 }
 
 export const NavbarWrapper = ({ children }: Props) => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const { collapsed, setCollapsed } = useSidebarContext();
 
   const menuItems = [
     "Profile",
@@ -45,51 +40,24 @@ export const NavbarWrapper = ({ children }: Props) => {
     <Box className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
       <Navbar
         isBordered
-        className="w-full justify-between border-b-1 border-border py-4"
-        onMenuOpenChange={setIsMenuOpen}
+        className="w-full border-b-1 border-border py-4"
+        isMenuOpen={collapsed}
+        onMenuOpenChange={setCollapsed}
       >
-        {/* Left Side: Icons with increased gap */}
-        <NavbarContent className="flex gap-6">
-          <NotificationsDropdown /> {/* No NavbarItem wrapper */}
+        {/* Left Side: Burger Menu for Mobile */}
+        <NavbarContent className="md:hidden">
+          <BurguerButton />
+        </NavbarContent>
+
+        {/* Right Side: Icons for all screen sizes */}
+        <NavbarContent justify="end" className="flex gap-6">
+          <NotificationsDropdown />
           <NavbarItem>
             <Link href="https://github.com/" target="_blank">
               <GithubIcon />
             </Link>
           </NavbarItem>
-          <UserDropdown /> {/* No NavbarItem wrapper */}
-        </NavbarContent>
-
-        {/* Mobile Menu Toggle */}
-        <NavbarContent className="md:hidden">
-          <NavbarMenuToggle />
-        </NavbarContent>
-
-        {/* Burger Button for Desktop */}
-        <NavbarContent className="hidden md:flex">
-          <BurguerButton />
-        </NavbarContent>
-
-        {/* Search Input for Mobile */}
-        <NavbarContent className="w-full md:hidden">
-          <Input
-            isClearable
-            startContent={
-              <SearchIcon
-                className="text-accents6"
-                size={16}
-                fill="currentColor"
-              />
-            }
-            classNames={{
-              inputWrapper: "w-full transition-all duration-200",
-              input: "text-small",
-            }}
-            placeholder="Search..."
-          />
-        </NavbarContent>
-
-        <NavbarContent justify="end">
-          {/* Add items here if needed */}
+          <UserDropdown />
         </NavbarContent>
 
         {/* Mobile Menu */}
