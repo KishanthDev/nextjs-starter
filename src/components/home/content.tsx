@@ -23,7 +23,7 @@ export const Content = () => (
   <Box className="h-full overflow-hidden px-4 py-6 lg:px-12">
     {/* Balance Cards */}
     <Box className="mb-10">
-      <h3 className="mb-6 text-center text-xl font-semibold lg:text-left">
+      <h3 className="mb-6 text-center text-2xl font-semibold lg:text-left">
         Available Balance
       </h3>
 
@@ -42,7 +42,7 @@ export const Content = () => (
 
     {/* Statistics Chart */}
     <Box className="mb-10">
-      <h3 className="mb-6 text-center text-xl font-semibold lg:text-left">
+      <h3 className="mb-6 text-center text-2xl font-semibold lg:text-left">
         Statistics
       </h3>
       <Box className="w-full rounded-2xl bg-default-100 px-6 py-8 shadow-lg">
@@ -51,21 +51,19 @@ export const Content = () => (
     </Box>
 
     {/* Section: Agents & Transactions */}
-        <Box className="mb-10">
-            <h3 className="mb-6 text-center text-3xl font-bold">Section</h3>
+    <Box className="mb-10">
+      <h3 className="mb-6 text-center text-2xl font-semibold">Section</h3>
 
-            <Flex className="flex-col items-center justify-center gap-5 lg:flex-row lg:items-start">
-                <CardAgents  />
-                <CardTransactions  />
-            </Flex>
-        </Box>
-
-
+      <Flex className="flex-col items-center justify-center gap-5 lg:flex-row lg:items-start">
+        <CardAgents />
+        <CardTransactions />
+      </Flex>
+    </Box>
 
     {/* Latest Users Table */}
     <Box className="mt-8">
       <Flex justify="between" wrap="wrap" className="mb-6 items-center">
-        <h3 className="text-center text-xl font-semibold lg:text-left">
+        <h3 className="text-center text-2xl font-semibold lg:text-left">
           Latest Users
         </h3>
         <NextLink href="/accounts" passHref>

@@ -12,7 +12,7 @@ const pictureUsers = [
 ];
 
 export const CardAgents = () => (
-  <Card className="h-[275px] w-[375px] rounded-xl bg-default-50 shadow-2xl hover:shadow-[0_10px_40px_rgba(0,0,0,0.2)] transition-shadow duration-300">
+  <Card className="h-[275px] w-[375px] rounded-xl bg-default-50 shadow-2xl transition-shadow duration-300 hover:shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
     <CardBody className="flex flex-col items-center justify-center gap-4 p-6">
       {/* Title */}
       <div className="flex w-full justify-center">
@@ -32,7 +32,7 @@ export const CardAgents = () => (
         {pictureUsers.map((url, index) => (
           <div
             key={index}
-            className="relative z-10 transition-transform hover:translate-x-[-0.75rem] hover:z-50 duration-300"
+            className="relative z-10 transition-transform duration-300 hover:z-50 hover:translate-x-[-0.75rem]"
           >
             <div className="h-10 w-10 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-[2px]">
               <div className="h-full w-full rounded-full bg-white">
