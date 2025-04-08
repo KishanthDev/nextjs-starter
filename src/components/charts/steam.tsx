@@ -17,14 +17,8 @@ const options: ApexOptions = {
   chart: {
     type: "area",
     animations: {
-      animateGradually: {
-        enabled: true,
-        delay: 150,
-      },
-      dynamicAnimation: {
-        enabled: true,
-        speed: 300,
-      },
+      animateGradually: { enabled: true, delay: 150 },
+      dynamicAnimation: { enabled: true, speed: 300 },
     },
     sparkline: { enabled: false },
     brush: { enabled: false },
@@ -33,21 +27,26 @@ const options: ApexOptions = {
     foreColor: "var(--nextui-colors-accents9)",
     stacked: true,
     toolbar: { show: false },
+    zoom: { enabled: false },
+  },
+  annotations: {
+    yaxis: [
+      { y: 200, borderColor: "#334155" },
+      { y: 150, borderColor: "#334155" },
+      { y: 100, borderColor: "#334155" },
+      { y: 50, borderColor: "#334155" },
+    ],
   },
   xaxis: {
-    categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+    categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997],
     labels: {
       style: {
         colors: "var(--nextui-colors-accents8)",
         fontFamily: "Inter, sans-serif",
       },
     },
-    axisBorder: {
-      color: "var(--nextui-colors-border)",
-    },
-    axisTicks: {
-      color: "var(--nextui-colors-border)",
-    },
+    axisBorder: { color: "var(--nextui-colors-border)" },
+    axisTicks: { color: "var(--nextui-colors-border)" },
   },
   yaxis: {
     labels: {
@@ -56,23 +55,61 @@ const options: ApexOptions = {
         fontFamily: "Inter, sans-serif",
       },
     },
+    axisBorder: { show: false },
+    axisTicks: { show: false },
   },
-  tooltip: { enabled: false },
   grid: {
     show: true,
     borderColor: "var(--nextui-colors-border)",
     strokeDashArray: 0,
-    position: "back", // ✅ Correctly typed
+    position: "back",
   },
   stroke: {
     curve: "smooth",
+    width: 2,
+    colors: ["#3b82f6", "#10b981"], // Blue and Green
   },
   fill: {
-    type: "solid",
-    colors: ["red"],
+    type: "gradient",
+    gradient: {
+      type: "vertical",
+      shadeIntensity: 1,
+      opacityFrom: 0.4,
+      opacityTo: 0.05,
+      colorStops: [
+        [
+          {
+            offset: 0,
+            color: "#93c5fd", // light blue
+            opacity: 0.4,
+          },
+          {
+            offset: 100,
+            color: "#93c5fd",
+            opacity: 0.05,
+          },
+        ],
+        [
+          {
+            offset: 0,
+            color: "#6ee7b7", // light green
+            opacity: 0.4,
+          },
+          {
+            offset: 100,
+            color: "#6ee7b7",
+            opacity: 0.05,
+          },
+        ],
+      ],
+    },
   },
-  markers: {
-    size: 0,
+  markers: { size: 0 },
+  tooltip: { enabled: false },
+  legend: {
+    labels: {
+      colors: "var(--nextui-colors-foreground)",
+    },
   },
 };
 
