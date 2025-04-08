@@ -1,5 +1,5 @@
 "use client";
-import TableWrapper from "../table/table";
+import {TableWrapper} from "../table/table";
 import React from "react";
 import { Box } from "../styles/box";
 import dynamic from "next/dynamic";
