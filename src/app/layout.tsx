@@ -1,11 +1,9 @@
+import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
-import { Providers } from "./providers";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Layout } from "@/components/layout/layout";
 import classNames from "classnames";
 import type { Metadata } from "next";
-import "./globals.css";
-
-import { SidebarWrapper } from "@/components/sidebar/SideBar";
-import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "NextJs 15",
@@ -18,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/icon.png" />
@@ -36,15 +34,16 @@ export default function RootLayout({
           "debug-screens": process.env.NODE_ENV === "development",
         })}
       >
-        <Providers>
-          <div className="flex h-screen">
-            <SidebarWrapper />
-            <div className="flex flex-1 flex-col">
-              <Navbar />
-              <main className="flex-1 overflow-y-auto p-4">{children}</main>
-            </div>
-          </div>
-        </Providers>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Layout>
+            {children}
+          </Layout>
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>
