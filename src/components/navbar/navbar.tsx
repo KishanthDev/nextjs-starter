@@ -37,10 +37,10 @@ export const NavbarWrapper = ({ children }: Props) => {
   ];
 
   return (
-    <Box className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
+    <Box className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden dark:bg-black bg-white">
       <Navbar
         isBordered
-        className="w-full border-b-1 border-border py-4"
+        className="w-full border-b border-border bg-white dark:bg-black py-4"
         isMenuOpen={collapsed}
         onMenuOpenChange={setCollapsed}
       >
@@ -49,11 +49,11 @@ export const NavbarWrapper = ({ children }: Props) => {
           <BurguerButton />
         </NavbarContent>
 
-        {/* Right Side: Icons for all screen sizes */}
+        {/* Right Side: Icons */}
         <NavbarContent justify="end" className="flex gap-6">
           <NotificationsDropdown />
           <NavbarItem>
-            <Link href="https://github.com/" target="_blank">
+            <Link href="https://github.com/" target="_blank" className="text-black dark:text-white">
               <GithubIcon />
             </Link>
           </NavbarItem>
@@ -61,7 +61,7 @@ export const NavbarWrapper = ({ children }: Props) => {
         </NavbarContent>
 
         {/* Mobile Menu */}
-        <NavbarMenu>
+        <NavbarMenu className="bg-white dark:bg-black">
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={item}>
               <Link
@@ -72,7 +72,7 @@ export const NavbarWrapper = ({ children }: Props) => {
                       ? "secondary"
                       : "foreground"
                 }
-                className="w-full"
+                className="w-full text-black dark:text-white"
                 href="#"
                 size="lg"
               >
