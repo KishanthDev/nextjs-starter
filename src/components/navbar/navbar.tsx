@@ -14,7 +14,6 @@ import {
 import React from "react";
 import { FeedbackIcon } from "../icons/navbar/feedback-icon";
 import { GithubIcon } from "../icons/navbar/github-icon";
-import { SupportIcon } from "../icons/navbar/support-icon";
 import { SearchIcon } from "../icons/search-icon";
 import { Box } from "../styles/box";
 import { Flex } from "../styles/flex";
@@ -51,20 +50,13 @@ export const NavbarWrapper = ({ children }: Props) => {
       >
         {/* Left Side: Icons with increased gap */}
         <NavbarContent className="flex gap-6">
-          {" "}
-          {/* Increased from gap-4 to gap-6 */}
-          <div>
-            <NotificationsDropdown />{" "}
-            {/* White bg and larger icon handled inside */}
-          </div>
+          <NotificationsDropdown /> {/* No NavbarItem wrapper */}
           <NavbarItem>
             <Link href="https://github.com/" target="_blank">
-              <GithubIcon /> {/* Larger gray icon */}
+              <GithubIcon />
             </Link>
           </NavbarItem>
-          <NavbarItem>
-            <UserDropdown />
-          </NavbarItem>
+          <UserDropdown /> {/* No NavbarItem wrapper */}
         </NavbarContent>
 
         {/* Mobile Menu Toggle */}

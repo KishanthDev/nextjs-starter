@@ -12,14 +12,16 @@ import { NotificationIcon } from "../icons/navbar/notification-icon";
 export const NotificationsDropdown = () => (
   <Dropdown placement="bottom-end">
     <DropdownTrigger>
-      <NavbarItem>
-        <NotificationIcon /> {/* Larger gray icon */}
+      <NavbarItem className="bg-transparent p-0">
+        {" "}
+        {/* Prevent unwanted styling */}
+        <NotificationIcon />
       </NavbarItem>
     </DropdownTrigger>
     <DropdownMenu
       aria-label="Notifications"
       classNames={{
-        base: "w-[340px] bg-white", // Added bg-white
+        base: "w-[340px] bg-white shadow-xl rounded-lg p-2", // Added shadow, rounded corners, padding
         list: "py-0",
       }}
     >

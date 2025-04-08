@@ -1,12 +1,13 @@
+"use client";
 import React from "react";
 import { useSidebarContext } from "../layout/layout-context";
 import { StyledBurgerButton } from "./navbar.styles";
 
 export const BurguerButton = () => {
-  const { collapsed, setCollapsed } = useSidebarContext();
+  const { setCollapsed } = useSidebarContext();
 
   return (
-    <StyledBurgerButton open={collapsed} onClick={setCollapsed}>
+    <StyledBurgerButton onClick={setCollapsed}>
       <div />
       <div />
     </StyledBurgerButton>
