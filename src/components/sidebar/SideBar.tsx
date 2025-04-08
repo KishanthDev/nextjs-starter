@@ -38,18 +38,21 @@ export const SidebarWrapper = () => {
       )}
 
       <aside
-        className={`h-screen transition-all duration-200 ${collapsed ? "w-64" : "w-0 md:w-64"
-          } ${collapsed ? "z-20" : "z-0"} md:z-0`}
+        className={`h-screen transition-all duration-200 ${
+          collapsed ? "w-64" : "w-0 md:w-64"
+        } ${collapsed ? "z-20" : "z-0"} md:z-0`}
       >
         <div
-          className={`flex h-full w-64 flex-col border-r ${theme === "dark"
+          className={`flex h-full w-64 flex-col border-r ${
+            theme === "dark"
               ? "border-gray-700 bg-black text-white"
               : "border-gray-200 bg-white text-gray-900"
-            } ${collapsed ? "translate-x-0" : "-translate-x-full md:translate-x-0"} md:fixed md:left-0 md:top-0 md:h-screen`}
+          } ${collapsed ? "translate-x-0" : "-translate-x-full md:translate-x-0"} md:fixed md:left-0 md:top-0 md:h-screen`}
         >
           <div
-            className={`border-b p-4 ${theme === "dark" ? "border-gray-700" : "border-gray-200"
-              }`}
+            className={`border-b p-4 ${
+              theme === "dark" ? "border-gray-700" : "border-gray-200"
+            }`}
           >
             <CompaniesDropdown />
           </div>
@@ -125,18 +128,20 @@ export const SidebarWrapper = () => {
             </div>
 
             <div
-              className={`flex justify-center gap-6 border-t p-4 ${theme === "dark"
+              className={`flex justify-center gap-6 border-t p-4 ${
+                theme === "dark"
                   ? "border-gray-700 bg-black"
                   : "border-gray-200 bg-white"
-                }`}
+              }`}
             >
               <Tooltip content="Settings" placement="top">
                 <button
                   aria-label="Settings Button"
-                  className={`${theme === "dark"
+                  className={`${
+                    theme === "dark"
                       ? "text-gray-300 hover:text-white"
                       : "text-gray-600 hover:text-gray-900"
-                    }`}
+                  }`}
                 >
                   <SettingsIcon />
                 </button>
@@ -144,10 +149,11 @@ export const SidebarWrapper = () => {
               <Tooltip content="Adjustments" placement="top">
                 <button
                   aria-label="Adjustments Button"
-                  className={`${theme === "dark"
+                  className={`${
+                    theme === "dark"
                       ? "text-gray-300 hover:text-white"
                       : "text-gray-600 hover:text-gray-900"
-                    }`}
+                  }`}
                 >
                   <FilterIcon />
                 </button>
@@ -157,8 +163,9 @@ export const SidebarWrapper = () => {
                   aria-label="Profile Button"
                   src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
                   size="sm"
-                  className={`cursor-pointer ${theme === "dark" ? "ring-gray-600" : "ring-gray-300"
-                    }`}
+                  className={`cursor-pointer ${
+                    theme === "dark" ? "ring-gray-600" : "ring-gray-300"
+                  }`}
                 />
               </Tooltip>
             </div>

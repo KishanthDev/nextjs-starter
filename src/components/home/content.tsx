@@ -24,14 +24,16 @@ export const Content = () => {
 
   return (
     <Box
-      className={`h-full overflow-y-auto px-4 py-6 lg:px-12 ${isDark ? "bg-black" : "bg-white"
-        }`}
+      className={`h-full overflow-y-auto px-4 py-6 lg:px-12 ${
+        isDark ? "bg-black" : "bg-white"
+      }`}
     >
       {/* Balance Cards */}
       <Box className="mb-10">
         <h3
-          className={`mb-6 text-center text-2xl font-semibold lg:text-left ${isDark ? "text-white" : "text-black"
-            }`}
+          className={`mb-6 text-center text-2xl font-semibold lg:text-left ${
+            isDark ? "text-white" : "text-black"
+          }`}
         >
           Available Balance
         </h3>
@@ -51,14 +53,16 @@ export const Content = () => {
       {/* Statistics Chart */}
       <Box className="mb-10">
         <h3
-          className={`mb-6 text-center text-2xl font-semibold lg:text-left ${isDark ? "text-white" : "text-black"
-            }`}
+          className={`mb-6 text-center text-2xl font-semibold lg:text-left ${
+            isDark ? "text-white" : "text-black"
+          }`}
         >
           Statistics
         </h3>
         <Box
-          className={`w-full rounded-2xl px-4 py-6 shadow-lg sm:px-6 sm:py-8 ${isDark ? "bg-default-200" : "bg-default-100"
-            }`}
+          className={`w-full rounded-2xl px-4 py-6 shadow-lg sm:px-6 sm:py-8 ${
+            isDark ? "bg-default-200" : "bg-default-100"
+          }`}
         >
           <Chart />
         </Box>
@@ -67,8 +71,9 @@ export const Content = () => {
       {/* Section: Agents & Transactions */}
       <Box className="mb-10">
         <h3
-          className={`mb-6 text-center text-2xl font-semibold ${isDark ? "text-white" : "text-black"
-            }`}
+          className={`mb-6 text-center text-2xl font-semibold ${
+            isDark ? "text-white" : "text-black"
+          }`}
         >
           Section
         </h3>
@@ -82,15 +87,17 @@ export const Content = () => {
       <Box className="mt-8">
         <Flex justify="between" wrap="wrap" className="mb-6 items-center">
           <h3
-            className={`text-center text-2xl font-semibold lg:text-left ${isDark ? "text-white" : "text-black"
-              }`}
+            className={`text-center text-2xl font-semibold lg:text-left ${
+              isDark ? "text-white" : "text-black"
+            }`}
           >
             Latest Users
           </h3>
           <NextLink href="/accounts" passHref>
             <span
-              className={`mt-2 cursor-pointer text-sm hover:underline lg:mt-0 ${isDark ? "text-blue-400" : "text-primary"
-                }`}
+              className={`mt-2 cursor-pointer text-sm hover:underline lg:mt-0 ${
+                isDark ? "text-blue-400" : "text-primary"
+              }`}
             >
               View All
             </span>

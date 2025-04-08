@@ -59,33 +59,38 @@ export const CompaniesDropdown = () => {
         <Box className="cursor-pointer">
           <Flex align="center" className="gap-2">
             <div
-              className={`rounded border p-1 ${isDark ? "border-gray-700" : "border-black"
-                }`}
+              className={`rounded border p-1 ${
+                isDark ? "border-gray-700" : "border-black"
+              }`}
             >
               {company.logo}
             </div>
             <Box className="ml-1">
               <h3
-                className={`-mb-1 text-sm font-medium leading-5 ${isDark ? "text-zinc-200" : "text-zinc-700"
-                  }`}
+                className={`-mb-1 text-sm font-medium leading-5 ${
+                  isDark ? "text-zinc-200" : "text-zinc-700"
+                }`}
               >
                 {company.name}
               </h3>
               <span
-                className={`text-xs font-medium ${isDark ? "text-zinc-400" : "text-zinc-500"
-                  }`}
+                className={`text-xs font-medium ${
+                  isDark ? "text-zinc-400" : "text-zinc-500"
+                }`}
               >
                 {company.location}
               </span>
             </Box>
             <div
-              className={`rounded border p-1 ${isDark ? "border-gray-700" : "border-black"
-                }`}
+              className={`rounded border p-1 ${
+                isDark ? "border-gray-700" : "border-black"
+              }`}
             >
               <IconWrapper
                 icon={<BottomIcon />}
-                className={`h-3 w-3 transition-transform duration-200 ${isOpen ? "rotate-180" : ""
-                  } ${isDark ? "text-white" : "text-black"}`}
+                className={`h-3 w-3 transition-transform duration-200 ${
+                  isOpen ? "rotate-180" : ""
+                } ${isDark ? "text-white" : "text-black"}`}
               />
             </div>
           </Flex>
@@ -142,23 +147,26 @@ export const CompaniesDropdown = () => {
             ...companies[key as keyof typeof companies],
             logo: (
               <div
-                className={`rounded border p-1 ${isDark ? "border-gray-700" : "border-black"
-                  }`}
+                className={`rounded border p-1 ${
+                  isDark ? "border-gray-700" : "border-black"
+                }`}
               >
                 {companies[key as keyof typeof companies].logo}
               </div>
             ),
           });
         }}
-        className={`w-[200px] rounded-lg border py-1 shadow-sm ${isDark
+        className={`w-[200px] rounded-lg border py-1 shadow-sm ${
+          isDark
             ? "border-gray-700 bg-gray-900 text-white"
             : "border-gray-200 bg-white text-black"
-          } [&_.nextui-dropdown-item-content]:w-full [&_.nextui-dropdown-item-content]:font-semibold`}
+        } [&_.nextui-dropdown-item-content]:w-full [&_.nextui-dropdown-item-content]:font-semibold`}
       >
         <DropdownSection
           title="Companies"
-          className={`px-1 [&>h2]:px-2 [&>h2]:py-1 [&>h2]:text-xs [&>h2]:font-medium ${isDark ? "text-gray-400" : "text-gray-500"
-            }`}
+          className={`px-1 [&>h2]:px-2 [&>h2]:py-1 [&>h2]:text-xs [&>h2]:font-medium ${
+            isDark ? "text-gray-400" : "text-gray-500"
+          }`}
           showDivider
           dividerProps={{
             className: isDark ? "bg-gray-700" : "bg-gray-200",
@@ -215,16 +223,18 @@ export const CompaniesDropdown = () => {
               description={item.location}
               startContent={
                 <div
-                  className={`mr-2 rounded border p-1 ${isDark ? "border-gray-700" : "border-black"
-                    }`}
+                  className={`mr-2 rounded border p-1 ${
+                    isDark ? "border-gray-700" : "border-black"
+                  }`}
                 >
                   {item.icon}
                 </div>
               }
-              className={`px-2 py-1.5 text-sm ${isDark
-                  ? "hover:bg-gray-800 text-white [&_.nextui-dropdown-item-description]:text-gray-400"
-                  : "hover:bg-gray-50 text-black [&_.nextui-dropdown-item-description]:text-gray-500"
-                }`}
+              className={`px-2 py-1.5 text-sm ${
+                isDark
+                  ? "text-white hover:bg-gray-800 [&_.nextui-dropdown-item-description]:text-gray-400"
+                  : "text-black hover:bg-gray-50 [&_.nextui-dropdown-item-description]:text-gray-500"
+              }`}
             >
               {item.name}
             </DropdownItem>

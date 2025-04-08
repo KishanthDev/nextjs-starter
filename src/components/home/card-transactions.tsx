@@ -3,35 +3,66 @@
 import React from "react";
 import { Card, CardBody, Avatar } from "@nextui-org/react";
 import { Flex } from "../styles/flex";
+import { useTheme } from "next-themes";
 
-export const CardTransactions = () => (
-  <Card className="max-w-[375px] rounded-xl bg-default-100 px-6 shadow-2xl transition-shadow duration-300 hover:shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
-    <CardBody className="py-10">
-      <Flex className="justify-center gap-5">
-        <h3 className="text-center text-lg font-semibold">
-          Latest Transactions
-        </h3>
-      </Flex>
+export const CardTransactions = () => {
+  const { theme } = useTheme(); // Get the current theme from next-themes
+  const isDark = theme === "dark";
 
-      <Flex className="flex-col gap-6 py-4">
-        {transactions.map(({ name, amount, date }, index) => (
-          <Flex key={index} className="items-center justify-between gap-6">
-            <div className="rounded-full bg-gradient-to-tr from-pink-500 to-yellow-500 p-[2px]">
-              <Avatar
-                size="lg"
-                src={`https://i.pravatar.cc/150?u=a042581f4e29026024d&img=${index}`}
-                className="bg-white"
-              />
-            </div>
-            <span className="text-sm font-semibold">{name}</span>
-            <span className="text-xs text-green-600">{amount}</span>
-            <span className="text-xs text-default-500">{date}</span>
-          </Flex>
-        ))}
-      </Flex>
-    </CardBody>
-  </Card>
-);
+  return (
+    <Card
+      className={`max-w-[375px] rounded-xl px-6 shadow-2xl transition-shadow duration-300 hover:shadow-[0_10px_40px_rgba(0,0,0,0.2)] ${isDark ? "bg-zinc-900" : "bg-default-100"
+        }`}
+    >
+      <CardBody className="py-10">
+        <Flex className="justify-center gap-5">
+          <h3
+            className={`text-center text-lg font-semibold ${isDark ? "text-white" : "text-black"
+              }`}
+          >
+            Latest Transactions
+          </h3>
+        </Flex>
+
+        <Flex className="flex-col gap-6 py-4">
+          {transactions.map(({ name, amount, date }, index) => (
+            <Flex
+              key={index}
+              className="items-center justify-between gap-6"
+              align="center"
+            >
+              <div className="rounded-full bg-gradient-to-tr from-blue-500 to-blue-300 p-[2px]">
+                <Avatar
+                  size="lg"
+                  src={`https://i.pravatar.cc/150?u=a042581f4e29026024d&img=${index}`}
+                  className={`${isDark ? "bg-zinc-800" : "bg-white"}`}
+                />
+              </div>
+              <span
+                className={`text-sm font-bold whitespace-nowrap ${isDark ? "text-white" : "text-gray-800"
+                  }`}
+              >
+                {name}
+              </span>
+              <span
+                className={`text-xs font-bold ${isDark ? "text-green-400" : "text-green-600"
+                  }`}
+              >
+                {amount}
+              </span>
+              <span
+                className={`text-xs font-bold ${isDark ? "text-gray-400" : "text-default-500"
+                  }`}
+              >
+                {date}
+              </span>
+            </Flex>
+          ))}
+        </Flex>
+      </CardBody>
+    </Card>
+  );
+};
 
 const transactions = [
   { name: "Jose Perez", amount: "4500 USD", date: "9/20/2021" },
