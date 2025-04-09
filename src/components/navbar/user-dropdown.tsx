@@ -151,8 +151,7 @@ export const UserDropdown = () => {
               ? "text-white hover:bg-zinc-800"
               : "text-black hover:bg-gray-100"
           }`}
-        >
-        </DropdownItem>
+        ></DropdownItem>
       </DropdownMenu>
     </Dropdown>
   );

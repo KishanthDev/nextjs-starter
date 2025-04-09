@@ -43,15 +43,17 @@ export const NavbarWrapper = ({ children }: Props) => {
 
   return (
     <Box
-      className={`relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ${isDark ? "bg-black" : "bg-white"
-        }`}
+      className={`relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ${
+        isDark ? "bg-black" : "bg-white"
+      }`}
     >
       <Navbar
         isBordered
-        className={`w-full border-b py-4 ${isDark
+        className={`w-full border-b py-4 ${
+          isDark
             ? "border-gray-700 bg-black text-white"
             : "border-border bg-white text-black"
-          }`}
+        }`}
         isMenuOpen={collapsed}
         onMenuOpenChange={setCollapsed}
       >
@@ -70,7 +72,7 @@ export const NavbarWrapper = ({ children }: Props) => {
         </NavbarContent>
 
         {/* Right Side: Dark Mode, Fullscreen, User, Burger (Mobile) */}
-        <NavbarContent justify="end" className="gap-4 items-center">
+        <NavbarContent justify="end" className="items-center gap-4">
           <DarkModeSwitch />
           <FullScreenToggle />
           <UserDropdown />
