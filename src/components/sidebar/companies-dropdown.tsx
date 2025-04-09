@@ -60,22 +60,25 @@ export const CompaniesDropdown = () => {
             {company.logo} {/* Removed outer div to avoid double border */}
             <Box className="ml-1">
               <h3
-                className={`-mb-1 text-xl font-medium leading-5 ${isDark ? "text-zinc-200" : "text-zinc-700"
-                  }`}
+                className={`-mb-1 text-xl font-medium leading-5 ${
+                  isDark ? "text-zinc-200" : "text-zinc-700"
+                }`}
               >
                 {company.name}
               </h3>
               <span
-                className={`text-xs font-medium ${isDark ? "text-zinc-400" : "text-zinc-500"
-                  }`}
+                className={`text-xs font-medium ${
+                  isDark ? "text-zinc-400" : "text-zinc-500"
+                }`}
               >
                 {company.location}
               </span>
             </Box>
             <IconWrapper
               icon={<BottomIcon />}
-              className={`h-4 w-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""
-                } ${isDark ? "text-gray-500" : "text-black"}`}
+              className={`h-4 w-4 transition-transform duration-200 ${
+                isOpen ? "rotate-180" : ""
+              } ${isDark ? "text-gray-500" : "text-black"}`}
             />
           </Flex>
         </Box>
@@ -132,15 +135,17 @@ export const CompaniesDropdown = () => {
             logo: companies[key as keyof typeof companies].logo, // Use directly without extra div
           });
         }}
-        className={`w-[200px] rounded-lg border py-1 shadow-sm ${isDark
+        className={`w-[200px] rounded-lg border py-1 shadow-sm ${
+          isDark
             ? "border-gray-700 bg-gray-900 text-white"
             : "border-gray-200 bg-white text-black"
-          } [&_.nextui-dropdown-item-content]:w-full [&_.nextui-dropdown-item-content]:font-semibold`}
+        } [&_.nextui-dropdown-item-content]:w-full [&_.nextui-dropdown-item-content]:font-semibold`}
       >
         <DropdownSection
           title="Companies"
-          className={`px-1 [&>h2]:px-2 [&>h2]:py-1 [&>h2]:text-xs [&>h2]:font-medium ${isDark ? "text-gray-400" : "text-gray-500"
-            }`}
+          className={`px-1 [&>h2]:px-2 [&>h2]:py-1 [&>h2]:text-xs [&>h2]:font-medium ${
+            isDark ? "text-gray-400" : "text-gray-500"
+          }`}
           showDivider
           dividerProps={{
             className: isDark ? "bg-gray-700" : "bg-gray-200",
@@ -198,10 +203,11 @@ export const CompaniesDropdown = () => {
               startContent={
                 <div className="mr-2">{item.icon}</div> // Minimal wrapper without border
               }
-              className={`px-2 py-1.5 text-sm ${isDark
+              className={`px-2 py-1.5 text-sm ${
+                isDark
                   ? "text-white hover:bg-gray-800 [&_.nextui-dropdown-item-description]:text-gray-400"
                   : "text-black hover:bg-gray-50 [&_.nextui-dropdown-item-description]:text-gray-500"
-                }`}
+              }`}
             >
               {item.name}
             </DropdownItem>

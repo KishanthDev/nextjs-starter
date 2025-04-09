@@ -2,14 +2,19 @@ import React from "react";
 import { Box } from "../../styles/box";
 import { Svg } from "../../styles/svg";
 
-export const NotificationIcon = () => (
+
+interface NotificationIconProps {
+  className?: string; // Define className as an optional prop
+}
+
+export const NotificationIcon = ({ className }: NotificationIconProps) => (
   <Svg
     width="22" // Increased from 20 to 22
     height="22" // Increased from 20 to 22
     viewBox="0 0 28 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="cursor-pointer text-gray-500"
+    className={className} // Use className prop for styling
   >
     <Svg.Path
       fillRule="evenodd"
