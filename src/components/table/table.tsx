@@ -13,7 +13,6 @@ import { columns, users } from "./data";
 import { RenderCell } from "./render-cell";
 import dynamic from "next/dynamic";
 
-// Dynamically import TableWrapper with SSR disabled
 const DynamicTableWrapper = dynamic(() => Promise.resolve(TableWrapper), {
   ssr: false,
 });
@@ -22,6 +21,7 @@ const ITEMS_PER_PAGE = 8;
 
 export const TableWrapper = () => {
   const [page, setPage] = useState(1);
+  const [selectedKeys, setSelectedKeys] = useState<Set<string>>(new Set());
 
   const pages = Math.ceil(users.length / ITEMS_PER_PAGE);
   const start = (page - 1) * ITEMS_PER_PAGE;
@@ -34,13 +34,17 @@ export const TableWrapper = () => {
       isHeaderSticky
       removeWrapper
       classNames={{
-        base: "min-w-[768px] w-full", // Ensures minimum width for scrolling
+        base: "min-w-[768px] w-full",
         table: "w-full",
-        th: "text-xs sm:text-sm px-2 sm:px-4 py-2",
+        th: "text-xs sm:text-sm px-2 sm:px-4 py-3 h-12", // Increased height
         td: "text-xs sm:text-sm px-2 sm:px-4 py-2",
         wrapper: "max-h-[calc(100vh-200px)]",
+        // Style for selected rows
+        tr: "data-[selected=true]:bg-blue-50 data-[selected=true]:text-blue-800",
       }}
       selectionMode="multiple"
+      selectedKeys={selectedKeys}
+      onSelectionChange={(keys) => setSelectedKeys(new Set(keys as Set<string>))}
       bottomContent={
         <Pagination
           isCompact
@@ -61,6 +65,7 @@ export const TableWrapper = () => {
           <TableColumn
             key={column.uid}
             align={column.uid === "actions" ? "center" : "start"}
+            allowsSorting={column.uid !== "actions"}
           >
             {column.name}
           </TableColumn>
@@ -80,5 +85,4 @@ export const TableWrapper = () => {
   );
 };
 
-// Export the dynamic version as default
 export default DynamicTableWrapper;

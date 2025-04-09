@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@/lib/utils"; // if you're using a `cn()` utility to merge class names
+import { cn } from "@/lib/utils";
 
 interface IconButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -14,7 +14,7 @@ export const IconButton = ({
 }: IconButtonProps) => (
   <button
     className={cn(
-      "flex cursor-pointer items-center justify-center border-none bg-transparent outline-none transition-opacity hover:opacity-80 active:opacity-60",
+      "flex cursor-pointer items-center justify-center border-none bg-transparent outline-none transition-opacity hover:opacity-80 active:opacity-60 dark:text-gray-200",
       className
     )}
     {...props}
@@ -29,9 +29,9 @@ interface StyledBadgeProps {
 }
 
 const badgeVariants = {
-  active: "bg-green-100 text-green-800",
-  paused: "bg-red-100 text-red-800",
-  vacation: "bg-yellow-100 text-yellow-800",
+  active: "bg-green-200 dark:bg-green-800 text-green-700 dark:text-green-200",
+  paused: "bg-red-200 dark:bg-red-800 text-red-700 dark:text-red-200",
+  vacation: "bg-yellow-200 dark:bg-yellow-800 text-yellow-700 dark:text-yellow-200",
 };
 
 export const StyledBadge = ({ type, children }: StyledBadgeProps) => (

@@ -126,8 +126,9 @@ export const Steam = () => {
     <div className="w-full overflow-x-auto sm:overflow-visible">
       <div
         id="chart"
-        className={`min-w-[350px] sm:w-full sm:min-w-0 ${isDark ? "bg-gray-900" : "bg-white"
-          }`}
+        className={`min-w-[350px] sm:w-full sm:min-w-0 ${
+          isDark ? "bg-gray-900" : "bg-white"
+        }`}
       >
         <Chart
           options={options}
