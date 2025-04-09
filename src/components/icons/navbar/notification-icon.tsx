@@ -27,7 +27,7 @@ export const NotificationIcon = ({ className }: NotificationIconProps) => (
       width="15"
       height="16"
       rx="7.5"
-      fill="red"// Red color
+      fill="red" // Red color
     />
     {/* Number "2" Inside Badge */}
     <text

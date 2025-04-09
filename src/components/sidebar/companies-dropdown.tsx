@@ -76,7 +76,7 @@ export const CompaniesDropdown = () => {
             </Box>
             <IconWrapper
               icon={<BottomIcon />}
-              className={`text-gray-500 h-4 w-4 transition-transform duration-200 ${
+              className={`h-4 w-4 text-gray-500 transition-transform duration-200 ${
                 isOpen ? "rotate-180" : ""
               } ${isDark ? "text-gray-500" : "text-black"}`}
             />

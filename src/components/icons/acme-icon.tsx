@@ -23,7 +23,7 @@ export const AcmeIcon = ({ className }: IconProps) => {
         width="55"
         height="55"
         rx="7.5"
-        fill={theme === "dark" ? "black" : "white"}// Inner black background
+        fill={theme === "dark" ? "black" : "white"} // Inner black background
         stroke={theme === "dark" ? "#4B5563" : "gray"} // Border color
         strokeWidth="2" // Visible border
       />
