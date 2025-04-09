@@ -152,7 +152,6 @@ export const UserDropdown = () => {
               : "text-black hover:bg-gray-100"
           }`}
         >
-          <DarkModeSwitch />
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>

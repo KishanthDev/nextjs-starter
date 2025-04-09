@@ -19,7 +19,7 @@ export const Accounts = () => (
   <Flex
     direction="column"
     justify="center"
-    className="mt-2 mb-7 px-2 text-gray-900 dark:text-gray-100 sm:mt-4 sm:px-4"
+    className="mb-7 mt-2 px-2 text-gray-900 dark:text-gray-100 sm:mt-4 sm:px-4"
   >
     {/* Breadcrumbs */}
     <Breadcrumbs>

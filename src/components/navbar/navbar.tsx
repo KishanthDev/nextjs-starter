@@ -16,6 +16,8 @@ import { NotificationsDropdown } from "./notifications-dropdown";
 import { UserDropdown } from "./user-dropdown";
 import { useSidebarContext } from "../layout/layout-context";
 import { useTheme } from "next-themes";
+import { DarkModeSwitch } from "./darkmodeswitch";
+import FullScreenToggle from "./FullScreenToggle";
 
 interface Props {
   children: React.ReactNode;
@@ -23,7 +25,7 @@ interface Props {
 
 export const NavbarWrapper = ({ children }: Props) => {
   const { collapsed, setCollapsed } = useSidebarContext();
-  const { theme } = useTheme(); // Get the current theme from next-themes
+  const { theme } = useTheme();
   const isDark = theme === "dark";
 
   const menuItems = [
@@ -41,27 +43,20 @@ export const NavbarWrapper = ({ children }: Props) => {
 
   return (
     <Box
-      className={`relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ${
-        isDark ? "bg-black" : "bg-white"
-      }`}
+      className={`relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ${isDark ? "bg-black" : "bg-white"
+        }`}
     >
       <Navbar
         isBordered
-        className={`w-full border-b py-4 ${
-          isDark
+        className={`w-full border-b py-4 ${isDark
             ? "border-gray-700 bg-black text-white"
             : "border-border bg-white text-black"
-        }`}
+          }`}
         isMenuOpen={collapsed}
         onMenuOpenChange={setCollapsed}
       >
-        {/* Left Side: Burger Menu for Mobile */}
-        <NavbarContent className="md:hidden">
-          <BurguerButton />
-        </NavbarContent>
-
-        {/* Right Side: Icons */}
-        <NavbarContent justify="end" className="flex gap-6">
+        {/* Left Side: Notifications and GitHub */}
+        <NavbarContent justify="start" className="gap-4">
           <NotificationsDropdown />
           <NavbarItem>
             <Link
@@ -72,7 +67,17 @@ export const NavbarWrapper = ({ children }: Props) => {
               <GithubIcon />
             </Link>
           </NavbarItem>
+        </NavbarContent>
+
+        {/* Right Side: Dark Mode, Fullscreen, User, Burger (Mobile) */}
+        <NavbarContent justify="end" className="gap-4 items-center">
+          <DarkModeSwitch />
+          <FullScreenToggle />
           <UserDropdown />
+          {/* Only visible on mobile */}
+          <div className="md:hidden">
+            <BurguerButton />
+          </div>
         </NavbarContent>
 
         {/* Mobile Menu */}
