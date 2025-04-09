@@ -1,11 +1,14 @@
 import React from "react";
 import { Svg } from "../styles/svg";
+import { useTheme } from "next-themes"; // Importing useTheme from next-themes
 
 interface AcmeLogoProps {
   className?: string;
 }
 
-export const AcmeLogo: React.FC<AcmeLogoProps> = ({ className }) => (
+export const AcmeLogo: React.FC<AcmeLogoProps> = ({ className }) => {
+  const { theme } = useTheme(); 
+  return(
   <Svg
     className={`h-6 w-6 ${className || ""}`} // Base size, overridden by IconWrapper
     fill="none"
@@ -19,6 +22,7 @@ export const AcmeLogo: React.FC<AcmeLogoProps> = ({ className }) => (
       rx="8" // Slightly smaller radius for larger size
       width="100%"
       fill="black" // Inner black background
+      stroke={theme === "dark" ? "#4B5563" : "#000000"} 
       strokeWidth="2" // Visible border
     />
     <path
@@ -28,4 +32,4 @@ export const AcmeLogo: React.FC<AcmeLogoProps> = ({ className }) => (
       fillRule="evenodd"
     />
   </Svg>
-);
+)}
