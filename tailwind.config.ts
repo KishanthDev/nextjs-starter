@@ -10,7 +10,7 @@ const config: Config = {
     "./node_modules/@shadcn/ui/**/*.{ts,tsx}",
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: ["class", "class"],
+  darkMode:"class",
   debugScreens: {
     position: ["bottom", "left"],
     selector: ".debug-screens",

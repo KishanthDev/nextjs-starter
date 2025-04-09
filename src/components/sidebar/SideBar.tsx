@@ -27,6 +27,8 @@ export const SidebarWrapper = () => {
   const { collapsed, setCollapsed } = useSidebarContext();
   const { theme } = useTheme();
 
+  const isDark = theme === "dark";
+
   return (
     <>
       {collapsed && (
@@ -37,21 +39,18 @@ export const SidebarWrapper = () => {
       )}
 
       <aside
-        className={`h-screen transition-all duration-200 ${
-          collapsed ? "w-64" : "w-0 md:w-64"
-        } ${collapsed ? "z-20" : "z-0"} md:z-0`}
+        className={`h-screen transition-all duration-200 ${collapsed ? "w-64" : "w-0 md:w-64"
+          } ${collapsed ? "z-20" : "z-0"} md:z-0`}
       >
         <div
-          className={`flex h-full w-64 flex-col border-r ${
-            theme === "dark"
+          className={`flex h-full w-64 flex-col border-r ${isDark
               ? "border-gray-700 bg-black text-white"
               : "border-gray-200 bg-white text-gray-900"
-          } ${collapsed ? "translate-x-0" : "-translate-x-full md:translate-x-0"} md:fixed md:left-0 md:top-0 md:h-screen`}
+            } ${collapsed ? "translate-x-0" : "-translate-x-full md:translate-x-0"} md:fixed md:left-0 md:top-0 md:h-screen`}
         >
           <div
-            className={`border-b p-4 ${
-              theme === "dark" ? "border-gray-700" : "border-gray-200"
-            }`}
+            className={`border-b p-4 ${isDark ? "border-gray-700" : "border-gray-200"
+              }`}
           >
             <CompaniesDropdown />
           </div>
@@ -70,12 +69,13 @@ export const SidebarWrapper = () => {
                   isActive={pathname === "/accounts"}
                   title="Accounts"
                   icon={<AccountsIcon />}
-                  href="accounts"
+                  href="/accounts"
                 />
                 <SidebarItem
                   isActive={pathname === "/payments"}
                   title="Payments"
                   icon={<PaymentsIcon />}
+                  href="/payments"
                 />
                 <CollapseItems
                   icon={<BalanceIcon />}
@@ -86,16 +86,19 @@ export const SidebarWrapper = () => {
                   isActive={pathname === "/customers"}
                   title="Customers"
                   icon={<CustomersIcon />}
+                  href="/customers"
                 />
                 <SidebarItem
                   isActive={pathname === "/products"}
                   title="Products"
                   icon={<ProductsIcon />}
+                  href="/products"
                 />
                 <SidebarItem
                   isActive={pathname === "/reports"}
                   title="Reports"
                   icon={<ReportsIcon />}
+                  href="/reports"
                 />
               </SidebarMenu>
 
@@ -104,16 +107,19 @@ export const SidebarWrapper = () => {
                   isActive={pathname === "/developers"}
                   title="Developers"
                   icon={<DevIcon />}
+                  href="/developers"
                 />
                 <SidebarItem
                   isActive={pathname === "/view"}
                   title="View Test Data"
                   icon={<ViewIcon />}
+                  href="/view"
                 />
                 <SidebarItem
                   isActive={pathname === "/settings"}
                   title="Settings"
                   icon={<SettingsIcon />}
+                  href="/settings"
                 />
               </SidebarMenu>
 
@@ -122,49 +128,46 @@ export const SidebarWrapper = () => {
                   isActive={pathname === "/changelog"}
                   title="Changelog"
                   icon={<ChangeLogIcon />}
+                  href="/changelog"
                 />
               </SidebarMenu>
             </div>
 
             <div
-              className={`flex justify-center gap-6 border-t p-4 ${
-                theme === "dark"
-                  ? "border-gray-700 bg-black"
-                  : "border-gray-200 bg-white"
-              }`}
+              className={`flex justify-center gap-6 border-t p-4 ${isDark ? "border-gray-700 bg-black" : "border-gray-200 bg-white"
+                }`}
             >
               <Tooltip content="Settings" placement="top">
                 <button
                   aria-label="Settings Button"
-                  className={`${
-                    theme === "dark"
+                  className={`${isDark
                       ? "text-gray-300 hover:text-gray-100"
                       : "text-gray-600 hover:text-gray-900"
-                  }`}
+                    }`}
                 >
                   <SettingsIcon />
                 </button>
               </Tooltip>
+
               <Tooltip content="Adjustments" placement="top">
                 <button
                   aria-label="Adjustments Button"
-                  className={`${
-                    theme === "dark"
+                  className={`${isDark
                       ? "text-gray-300 hover:text-gray-100"
                       : "text-gray-600 hover:text-gray-900"
-                  }`}
+                    }`}
                 >
                   <FilterIcon />
                 </button>
               </Tooltip>
+
               <Tooltip content="Profile" placement="top">
                 <Avatar
                   aria-label="Profile Button"
                   src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
                   size="sm"
-                  className={`cursor-pointer ${
-                    theme === "dark" ? "ring-gray-600" : "ring-gray-300"
-                  }`}
+                  className={`cursor-pointer ring-2 ${isDark ? "ring-gray-600" : "ring-gray-300"
+                    }`}
                 />
               </Tooltip>
             </div>
