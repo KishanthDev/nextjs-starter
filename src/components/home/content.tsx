@@ -11,7 +11,7 @@ import { CardBalance3 } from "./card-balance3";
 import { CardAgents } from "./card-agents";
 import { CardTransactions } from "./card-transactions";
 import { useTheme } from "next-themes";
-
+import Link from "next/link";
 // Dynamic Chart Import
 const Chart = dynamic(
   () => import("../charts/steam").then((mod) => mod.Steam),
@@ -93,15 +93,14 @@ export const Content = () => {
           >
             Latest Users
           </h3>
-          <NextLink href="/accounts" passHref>
-            <span
-              className={`mt-2 cursor-pointer text-sm hover:underline lg:mt-0 ${
-                isDark ? "text-blue-400" : "text-primary"
-              }`}
-            >
-              View All
-            </span>
-          </NextLink>
+          <Link
+            href="/accounts"
+            className={`mt-2 cursor-pointer text-sm hover:underline lg:mt-0 ${
+              isDark ? "text-blue-400" : "text-primary"
+            }`}
+          >
+            View All
+          </Link>
         </Flex>
 
         {/* Horizontal Scrollable Table Container */}

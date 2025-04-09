@@ -36,7 +36,7 @@ export const TableWrapper = () => {
       classNames={{
         base: "min-w-[768px] w-full",
         table: "w-full",
-        th: "text-xs sm:text-sm px-2 sm:px-4 py-3 h-12", // Increased height
+        th: "text-xs sm:text-sm px-2 sm:px-4 py-3 h-12 z-0", // Increased height
         td: "text-xs sm:text-sm px-2 sm:px-4 py-2",
         wrapper: "max-h-[calc(100vh-200px)]",
         // Style for selected rows
