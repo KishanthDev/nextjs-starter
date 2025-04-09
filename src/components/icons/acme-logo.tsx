@@ -7,18 +7,24 @@ interface AcmeLogoProps {
 
 export const AcmeLogo: React.FC<AcmeLogoProps> = ({ className }) => (
   <Svg
-    className={`h-6 w-6 ${className || ""}`}
+    className={`h-6 w-6 ${className || ""}`} // Base size, overridden by IconWrapper
     fill="none"
     height="42"
     viewBox="0 0 32 32"
     width="42"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <rect height="100%" rx="16" width="100%" />
+    <rect
+      height="100%"
+      rx="8" // Slightly smaller radius for larger size
+      width="100%"
+      fill="black" // Inner black background
+      strokeWidth="2" // Visible border
+    />
     <path
       clipRule="evenodd"
       d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
-      fill="currentColor"
+      fill="currentColor" // White from IconWrapper
       fillRule="evenodd"
     />
   </Svg>

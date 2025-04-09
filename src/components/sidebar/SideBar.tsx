@@ -53,7 +53,7 @@ export const SidebarWrapper = () => {
             <CompaniesDropdown />
           </div>
 
-          <div className="flex flex-1 flex-col justify-between overflow-y-auto">
+          <div className="flex flex-1 flex-col justify-between overflow-y-auto scrollbar-hide">
             <div className="space-y-6 p-4">
               <SidebarItem
                 title="Home"
