@@ -20,26 +20,25 @@ export const AddUser: React.FC = () => {
 
   return (
     <div>
-          <Button
-              onPress={openModal}
-              className="bg-blue-600 text-white font-semibold text-sm px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition-all"
-          >
-              Add User
-          </Button>
-          <Modal
-              isOpen={isOpen}
-              onClose={closeModal}
-              size="xl"
-              backdrop="blur"
-              placement="center"
-              className="z-[9999]" // <-- Add this line
-              classNames={{
-                  base: "bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100",
-                  backdrop: "bg-black/50 z-[9998]", // <-- Ensure backdrop is behind modal
-                  closeButton: "hover:bg-gray-100 dark:hover:bg-gray-700",
-              }}
-          >
-
+      <Button
+        onPress={openModal}
+        className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow transition-all hover:bg-blue-700"
+      >
+        Add User
+      </Button>
+      <Modal
+        isOpen={isOpen}
+        onClose={closeModal}
+        size="xl"
+        backdrop="blur"
+        placement="center"
+        className="z-[9999]" // <-- Add this line
+        classNames={{
+          base: "bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100",
+          backdrop: "bg-black/50 z-[9998]", // <-- Ensure backdrop is behind modal
+          closeButton: "hover:bg-gray-100 dark:hover:bg-gray-700",
+        }}
+      >
         <ModalContent>
           {(onClose) => (
             <>
@@ -56,7 +55,6 @@ export const AddUser: React.FC = () => {
                   {/* Name Row */}
                   <Flex className="flex-wrap gap-4 lg:flex-nowrap">
                     <Input
-                      
                       variant="bordered"
                       fullWidth
                       size="lg"
