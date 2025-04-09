@@ -44,7 +44,9 @@ export const TableWrapper = () => {
       }}
       selectionMode="multiple"
       selectedKeys={selectedKeys}
-      onSelectionChange={(keys) => setSelectedKeys(new Set(keys as Set<string>))}
+      onSelectionChange={(keys) =>
+        setSelectedKeys(new Set(keys as Set<string>))
+      }
       bottomContent={
         <Pagination
           isCompact
