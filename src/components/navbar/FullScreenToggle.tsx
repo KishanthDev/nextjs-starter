@@ -25,6 +25,7 @@ const FullScreenToggle = () => {
   return (
     <button
       onClick={toggleFullscreen}
+      aria-label={isFullscreen ? "Exit full screen" : "Enter full screen"}
       className="flex items-center gap-2 rounded-lg bg-blue-600 px-2 py-2 font-medium text-white transition-all hover:bg-blue-700"
     >
       {isFullscreen ? <Minimize2 size={18} /> : <Fullscreen size={18} />}

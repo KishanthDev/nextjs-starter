@@ -85,7 +85,7 @@ export const CompaniesDropdown = () => {
       </DropdownTrigger>
 
       <DropdownMenu
-        aria-label="Select Company"
+        aria-labelledby="company-dropdown-label"
         onAction={(key) => {
           const companies = {
             "1": {
