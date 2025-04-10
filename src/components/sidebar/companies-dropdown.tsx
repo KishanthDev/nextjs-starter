@@ -56,22 +56,19 @@ export const CompaniesDropdown = () => {
     >
       <DropdownTrigger>
         <Box
-          className="cursor-pointer aria-expanded:scale-[0.97] aria-expanded:opacity-70"
+          as="button" // Make it a button element
+          type="button"
           aria-expanded={isOpen}
+          aria-haspopup="listbox"
+          className="cursor-pointer aria-expanded:scale-[0.97] aria-expanded:opacity-70 focus:outline-none"
         >
           <Flex align="center" className="gap-4">
-            {company.logo} {/* Removed outer div to avoid double border */}
-            <Box className="ml-1">
-              <h3
-                className={`-mb-1 text-xl font-medium leading-5 ${isDark ? "text-zinc-200" : "text-zinc-700"
-                  }`}
-              >
+            {company.logo}
+            <Box className="ml-1 text-left">
+              <h3 className={`-mb-1 text-xl font-medium leading-5 ${isDark ? "text-zinc-200" : "text-zinc-700"}`}>
                 {company.name}
               </h3>
-              <span
-                className={`text-xs font-medium ${isDark ? "text-zinc-400" : "text-zinc-500"
-                  }`}
-              >
+              <span className={`text-xs font-medium ${isDark ? "text-zinc-400" : "text-zinc-500"}`}>
                 {company.location}
               </span>
             </Box>
