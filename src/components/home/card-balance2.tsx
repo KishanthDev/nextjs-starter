@@ -11,9 +11,8 @@ export const CardBalance2 = () => {
 
   return (
     <Card
-      className={`h-full w-full rounded-xl shadow-lg ${
-        isDark ? "bg-zinc-900" : "bg-default-100"
-      }`}
+      className={`h-full w-full rounded-xl shadow-lg ${isDark ? "bg-zinc-900" : "bg-gray-100"
+        }`}
     >
       <CardBody className="flex h-full flex-col gap-4 p-4 sm:gap-3 sm:p-5">
         {/* Header Section */}
@@ -23,14 +22,14 @@ export const CardBalance2 = () => {
           />
           <div className="flex flex-col">
             <span
-              className={`text-base font-semibold ${
-                isDark ? "text-white" : "text-gray-800"
-              }`}
+              className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-800"
+                }`}
             >
               Health Insurance
             </span>
             <span
-              className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}
+              className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"
+                }`}
             >
               +2400 People
             </span>
@@ -40,42 +39,29 @@ export const CardBalance2 = () => {
         {/* Balance Section */}
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
           <span
-            className={`text-lg font-semibold ${
-              isDark ? "text-white" : "text-black"
-            }`}
+            className={`text-lg font-semibold ${isDark ? "text-white" : "text-black"
+              }`}
           >
-            $12,138
+            $12,000
           </span>
-          <span
-            className={`text-sm font-medium ${
-              isDark ? "text-red-700" : "text-red-700"
-            }`}
-          >
-            + 4.5%
-          </span>
+          <span className="text-sm font-medium text-green-600">+ 2.1%</span>
         </div>
 
         {/* Stats Section */}
         <div className="grid flex-1 grid-cols-3 gap-2 sm:flex sm:justify-between">
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1">
+              <span className="text-sm font-semibold text-red-400">↓</span>
               <span
-                className={`text-sm font-semibold ${
-                  isDark ? "text-green-400" : "text-green-600"
-                }`}
+                className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-900"
+                  }`}
               >
-                ↓
-              </span>
-              <span
-                className={`text-base font-semibold ${
-                  isDark ? "text-white" : "text-gray-700"
-                }`}
-              >
-                11,930
+                89,100
               </span>
             </div>
             <span
-              className={`text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}
+              className={`text-xs ${isDark ? "text-gray-400" : "text-gray-600"
+                }`}
             >
               USD
             </span>
@@ -83,23 +69,17 @@ export const CardBalance2 = () => {
 
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1">
+              <span className="text-sm font-semibold text-green-400">↑</span>
               <span
-                className={`text-sm font-semibold ${
-                  isDark ? "text-red-700" : "text-red-700"
-                }`}
+                className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-900"
+                  }`}
               >
-                ↑
-              </span>
-              <span
-                className={`text-base font-semibold ${
-                  isDark ? "text-white" : "text-gray-700"
-                }`}
-              >
-                54,120
+                67,230
               </span>
             </div>
             <span
-              className={`text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}
+              className={`text-xs ${isDark ? "text-gray-400" : "text-gray-600"
+                }`}
             >
               USD
             </span>
@@ -107,25 +87,19 @@ export const CardBalance2 = () => {
 
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1">
+              <span className="text-sm font-semibold text-yellow-300">⭐</span>
               <span
-                className={`text-sm font-semibold ${
-                  isDark ? "text-green-400" : "text-green-600"
-                }`}
+                className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-900"
+                  }`}
               >
-                ⭐
-              </span>
-              <span
-                className={`text-base font-semibold ${
-                  isDark ? "text-white" : "text-gray-700"
-                }`}
-              >
-                150
+                312
               </span>
             </div>
             <span
-              className={`text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}
+              className={`text-xs ${isDark ? "text-gray-400" : "text-gray-600"
+                }`}
             >
-              VIP
+              Premium
             </span>
           </div>
         </div>

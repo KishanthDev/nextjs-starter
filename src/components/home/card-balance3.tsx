@@ -3,86 +3,52 @@
 import React from "react";
 import { Card, CardBody } from "@nextui-org/react";
 import { Community } from "../icons/community";
-import { useTheme } from "next-themes";
-
 export const CardBalance3 = () => {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
-
   return (
-    <Card
-      className={`h-full w-full rounded-xl shadow-lg ${
-        isDark ? "bg-green-500" : "bg-green-500"
-      }`}
-    >
+    <Card className="h-full w-full rounded-xl shadow-lg bg-green-600">
       <CardBody className="flex h-full flex-col gap-4 p-4 sm:gap-3 sm:p-5">
-        {/* Header */}
         <div className="flex items-start gap-3">
-          <Community className="h-6 w-6 text-white" />
+          <Community className="h-6 w-6 text-gray-900" />
           <div className="flex flex-col">
-            <span className="text-base font-semibold text-white">
+            <span className="text-base font-semibold text-gray-900">
               Balance Insurance
             </span>
-            <span className="text-sm text-white opacity-80">1311 Cars</span>
+            <span className="text-sm text-gray-900">1311 Cars</span>
           </div>
         </div>
 
-        {/* Balance */}
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
-          <span className="text-lg font-semibold text-white">$3,910</span>
-          <span
-            className={`text-sm font-medium ${
-              isDark ? "text-red-700" : "text-red-700"
-            }`}
-          >
-            + 4.5%
-          </span>
+          <span className="text-lg font-semibold text-gray-900">$3,910</span>
+          <span className="text-sm font-medium text-gray-900">+ 4.5%</span>
         </div>
 
-        {/* Stats */}
         <div className="grid flex-1 grid-cols-3 gap-2 sm:flex sm:justify-between">
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1">
-              <span
-                className={`text-sm font-semibold ${
-                  isDark ? "text-red-700" : "text-red-700"
-                }`}
-              >
-                ↓
-              </span>
-              <span className="text-base font-semibold text-white">
+              <span className="text-sm font-semibold text-gray-900">↓</span>
+              <span className="text-base font-semibold text-gray-900">
                 100,930
               </span>
             </div>
-            <span className="text-xs text-white opacity-70">USD</span>
+            <span className="text-xs text-gray-900">USD</span>
           </div>
 
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1">
-              <span
-                className={`text-sm font-semibold ${
-                  isDark ? "text-red-700" : "text-red-700"
-                }`}
-              >
-                ↑
+              <span className="text-sm font-semibold text-gray-900">↑</span>
+              <span className="text-base font-semibold text-gray-900">
+                54,120
               </span>
-              <span className="text-base font-semibold text-white">54,120</span>
             </div>
-            <span className="text-xs text-white opacity-70">USD</span>
+            <span className="text-xs text-gray-900">USD</span>
           </div>
 
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-1">
-              <span
-                className={`text-sm font-semibold ${
-                  isDark ? "text-green-200" : "text-green-300"
-                }`}
-              >
-                ⭐
-              </span>
-              <span className="text-base font-semibold text-white">125</span>
+              <span className="text-sm font-semibold text-yellow-300">⭐</span>
+              <span className="text-base font-semibold text-gray-900">125</span>
             </div>
-            <span className="text-xs text-white opacity-70">VIP</span>
+            <span className="text-xs text-gray-900">VIP</span>
           </div>
         </div>
       </CardBody>
