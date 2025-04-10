@@ -53,19 +53,28 @@ export const RenderCell = ({ user, columnKey }: Props) => {
       return (
         <div className="flex items-center justify-center gap-2">
           <Tooltip content="Details" placement="top">
-            <IconButton onClick={() => console.log("View user", user.id)}>
+            <IconButton
+              onClick={() => console.log("View user", user.id)}
+              aria-label="View details"
+            >
               <EyeIcon size={20} fill="#979797" />
             </IconButton>
           </Tooltip>
 
           <Tooltip content="Edit user" placement="top">
-            <IconButton onClick={() => console.log("Edit user", user.id)}>
+            <IconButton
+              onClick={() => console.log("Edit user", user.id)}
+              aria-label="Edit user"
+            >
               <EditIcon size={20} fill="#979797" />
             </IconButton>
           </Tooltip>
 
           <Tooltip content="Delete user" placement="top">
-            <IconButton onClick={() => console.log("Delete user", user.id)}>
+            <IconButton
+              onClick={() => console.log("Delete user", user.id)}
+              aria-label="Delete user"
+            >
               <DeleteIcon size={20} fill="#FF0080" />
             </IconButton>
           </Tooltip>

@@ -11,8 +11,9 @@ export const CardBalance1 = () => {
 
   return (
     <Card
-      className={`h-full w-full rounded-xl shadow-lg ${isDark ? "bg-blue-700" : "bg-blue-600"
-        }`}
+      className={`h-full w-full rounded-xl shadow-lg ${
+        isDark ? "bg-blue-700" : "bg-blue-600"
+      }`}
     >
       <CardBody className="flex h-full flex-col gap-4 p-4 sm:gap-3 sm:p-5">
         {/* Top Section */}
