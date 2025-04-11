@@ -36,64 +36,53 @@ export const NavbarWrapper = ({ children }: Props) => {
 
   return (
     <Box
-      className={`relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ${
-        isDark ? "bg-black" : "bg-white"
-      }`}
+      className={`relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ${isDark ? "bg-black" : "bg-white"}`}
     >
       <Navbar
         isBordered
-        className={`w-full border-b py-4 ${
-          isDark
-            ? "border-gray-700 bg-black text-white"
-            : "border-border bg-white text-black"
-        }`}
+        className={`w-full border-b py-4 ${isDark ? "border-gray-700 bg-black text-white" : "border-border bg-white text-black"}`}
         isMenuOpen={collapsed}
         onMenuOpenChange={setCollapsed}
       >
         {/* Left Side: Notifications and GitHub */}
-        <NavbarContent as="ul" justify="start" className="list-none gap-4">
-          <li>
+        <NavbarContent justify="start">
+          <ul className="flex gap-4 list-none m-0 p-0">
+            {/* Remove <li> around NotificationsDropdown */}
             <NotificationsDropdown />
-          </li>
-          <li>
-            <Link
-              href="https://github.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={isDark ? "text-white" : "text-black"}
-              aria-label="Visit our GitHub page (opens in new tab)"
-            >
-              <GithubIcon />
-              <span className="sr-only">GitHub</span>
-            </Link>
-          </li>
+            <li>
+              <Link
+                href="https://github.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={isDark ? "text-white" : "text-black"}
+                aria-label="Visit our GitHub page (opens in new tab)"
+              >
+                <GithubIcon />
+                <span className="sr-only">GitHub</span>
+              </Link>
+            </li>
+          </ul>
         </NavbarContent>
 
-        {/* Right Side: Dark Mode, Fullscreen, User, Burger (Mobile) */}
-        <NavbarContent
-          as="ul"
-          justify="end"
-          className="list-none items-center gap-4"
-        >
-          <li>
-            <DarkModeSwitch />
-          </li>
-          <li>
-            <FullScreenToggle />
-          </li>
-          <li>
+        {/* Right Side: Dark Mode, Fullscreen, User, Burger */}
+        <NavbarContent justify="end">
+          <ul className="flex items-center gap-4 list-none m-0 p-0">
+            <li>
+              <DarkModeSwitch />
+            </li>
+            <li>
+              <FullScreenToggle />
+            </li>
+            {/* Remove <li> around UserDropdown */}
             <UserDropdown />
-          </li>
-          {/* Only visible on mobile */}
-          <li className="md:hidden">
-            <BurguerButton />
-          </li>
+            <li className="md:hidden">
+              <BurguerButton />
+            </li>
+          </ul>
         </NavbarContent>
 
         {/* Mobile Menu */}
-        <NavbarMenu
-          className={isDark ? "bg-black text-white" : "bg-white text-black"}
-        >
+        <NavbarMenu className={isDark ? "bg-black text-white" : "bg-white text-black"}>
           <ul className="m-0 list-none p-0">
             {menuItems.map((item, index) => (
               <li key={item} className="w-full">
