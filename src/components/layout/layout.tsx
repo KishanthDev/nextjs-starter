@@ -6,7 +6,6 @@ import { NavbarWrapper } from "../navbar/navbar";
 import { SidebarWrapper } from "../sidebar/SideBar";
 import { SidebarContext } from "./layout-context";
 import { WrapperLayout } from "./layout.styles";
-import { useTheme } from "next-themes";
 
 interface Props {
   children: React.ReactNode;
@@ -16,7 +15,7 @@ export const Layout = ({ children }: Props) => {
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
   const [, setLocked] = useLockedBody(false);
   const [mounted, setMounted] = React.useState(false);
-  
+
   const handleToggleSidebar = () => {
     setSidebarOpen((prev) => {
       const next = !prev;

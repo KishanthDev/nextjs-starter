@@ -19,6 +19,9 @@ export const NavbarWrapper = ({ children }: Props) => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
+  const baseBtnClass =
+    "inline-flex h-9 w-9 items-center justify-center rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-gray-800";
+
   return (
     <Box
       className={`relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ${
@@ -32,39 +35,41 @@ export const NavbarWrapper = ({ children }: Props) => {
             ? "border-gray-700 bg-black text-white"
             : "border-border bg-white text-black"
         }`}
-        isMenuOpen={false} // Disable default menu since sidebar handles navigation
+        isMenuOpen={false}
       >
         {/* Left Side: Burger Icon */}
         <NavbarContent justify="start" className="block xl:hidden">
           <BurguerButton />
         </NavbarContent>
 
-        {/* Right Side: Other Icons */}
+        {/* Right Side: Icons */}
         <NavbarContent justify="end">
-          <ul className="m-0 flex list-none items-center gap-2 p-0 sm:gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
             <NotificationsDropdown />
-            <li>
-              <Link
-                href="https://github.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={isDark ? "text-white" : "text-black"}
-                aria-label="Visit our GitHub page (opens in new tab)"
-              >
-                <GithubIcon />
-                <span className="sr-only">GitHub</span>
-              </Link>
-            </li>
-            <li>
+
+            <Link
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className={baseBtnClass}
+            >
+              <GithubIcon />
+            </Link>
+
+            <div className={baseBtnClass}>
               <DarkModeSwitch />
-            </li>
-            <li>
+            </div>
+
+            <div className={baseBtnClass}>
               <FullScreenToggle />
-            </li>
+            </div>
+
             <UserDropdown />
-          </ul>
+          </div>
         </NavbarContent>
       </Navbar>
+
       {children}
     </Box>
   );

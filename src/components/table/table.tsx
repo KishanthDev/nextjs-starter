@@ -17,11 +17,11 @@ const ITEMS_PER_PAGE = 8;
 
 const CustomPagination = ({
   total,
-  page,
+  currentPage,
   onChange,
 }: {
   total: number;
-  page: number;
+  currentPage: number;
   onChange: (page: number) => void;
 }) => {
   const pages = Array.from({ length: total }, (_, i) => i + 1);
@@ -30,8 +30,8 @@ const CustomPagination = ({
     <ul className="relative mx-auto mt-4 flex max-w-fit items-center gap-1 overflow-visible rounded-medium">
       <li>
         <Button
-          isDisabled={page === 1}
-          onPress={() => onChange(page - 1)}
+          isDisabled={currentPage === 1}
+          onPress={() => onChange(currentPage - 1)}
           className="h-8 w-8 bg-default-100 text-[10px] sm:h-9 sm:w-9 sm:text-xs"
         >
           &lt;
@@ -41,9 +41,8 @@ const CustomPagination = ({
         <li key={p}>
           <Button
             onPress={() => onChange(p)}
-            className={`h-8 w-8 text-[10px] sm:h-9 sm:w-9 sm:text-xs ${
-              p === page ? "bg-blue-50 text-blue-600 shadow" : "bg-default-100"
-            }`}
+            className={`h-8 w-8 text-[10px] sm:h-9 sm:w-9 sm:text-xs ${p === currentPage ? "bg-blue-50 text-blue-600 shadow" : "bg-default-100"
+              }`}
           >
             {p}
           </Button>
@@ -51,8 +50,8 @@ const CustomPagination = ({
       ))}
       <li>
         <Button
-          isDisabled={page === total}
-          onPress={() => onChange(page + 1)}
+          isDisabled={currentPage === total}
+          onPress={() => onChange(currentPage + 1)}
           className="h-8 w-8 bg-default-100 text-[10px] sm:h-9 sm:w-9 sm:text-xs"
         >
           &gt;
@@ -61,6 +60,7 @@ const CustomPagination = ({
     </ul>
   );
 };
+
 
 export const TableWrapper = () => {
   const [page, setPage] = useState(1);
@@ -93,7 +93,7 @@ export const TableWrapper = () => {
         bottomContent={
           <CustomPagination
             total={pages}
-            page={page}
+            currentPage={page}
             onChange={(p) => setPage(p)}
           />
         }
