@@ -7,7 +7,6 @@ import { Box } from "../styles/box";
 import { BurguerButton } from "./burguer-button";
 import { NotificationsDropdown } from "./notifications-dropdown";
 import { UserDropdown } from "./user-dropdown";
-import { useSidebarContext } from "../layout/layout-context";
 import { useTheme } from "next-themes";
 import { DarkModeSwitch } from "./darkmodeswitch";
 import FullScreenToggle from "./FullScreenToggle";
@@ -17,7 +16,6 @@ interface Props {
 }
 
 export const NavbarWrapper = ({ children }: Props) => {
-  const { collapsed } = useSidebarContext();
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
@@ -40,7 +38,6 @@ export const NavbarWrapper = ({ children }: Props) => {
         <NavbarContent justify="start" className="block xl:hidden">
           <BurguerButton />
         </NavbarContent>
-
 
         {/* Right Side: Other Icons */}
         <NavbarContent justify="end">

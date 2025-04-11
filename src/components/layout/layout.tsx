@@ -14,10 +14,9 @@ interface Props {
 
 export const Layout = ({ children }: Props) => {
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
-  const [_, setLocked] = useLockedBody(false);
+  const [, setLocked] = useLockedBody(false);
   const [mounted, setMounted] = React.useState(false);
-  const { theme, systemTheme } = useTheme();
-
+  
   const handleToggleSidebar = () => {
     setSidebarOpen((prev) => {
       const next = !prev;
@@ -31,8 +30,6 @@ export const Layout = ({ children }: Props) => {
   }, []);
 
   if (!mounted) return null;
-
-  const currentTheme = theme === "system" ? systemTheme : theme;
 
   return (
     <SidebarContext.Provider

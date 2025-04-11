@@ -1,7 +1,2 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-echo "🧹 Running ESLint..."
-npx eslint "src/**/*.{js,ts,tsx}" --fix
-
-echo "✅ ESLint finished!"
+pnpm lint

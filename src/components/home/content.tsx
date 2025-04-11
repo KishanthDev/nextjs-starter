@@ -112,6 +112,7 @@ export const Content = () => {
 
         {/* Latest Users Table (if needed) */}
         {/* <TableWrapper /> */}
+        <TableWrapper />
       </Box>
     </Box>
   );

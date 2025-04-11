@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "eslint . --ext .js,.ts,.tsx --ignore-path .eslintignore --fix",
     "format": "prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "postinstall": "husky install"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [

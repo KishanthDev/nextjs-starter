@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import {
   Table,
@@ -11,67 +12,48 @@ import {
 } from "@nextui-org/react";
 import { columns, users } from "./data";
 import { RenderCell } from "./render-cell";
-import dynamic from "next/dynamic";
-
-const DynamicTableWrapper = dynamic(() => Promise.resolve(TableWrapper), {
-  ssr: false,
-});
 
 const ITEMS_PER_PAGE = 8;
 
-// Define the props interface for CustomPagination
-interface CustomPaginationProps {
-  total: number;
-  page: number;
-  onChange: (page: number) => void;
-}
-
-// Custom Pagination Component with typed props
-const CustomPagination: React.FC<CustomPaginationProps> = ({
+const CustomPagination = ({
   total,
   page,
   onChange,
+}: {
+  total: number;
+  page: number;
+  onChange: (page: number) => void;
 }) => {
   const pages = Array.from({ length: total }, (_, i) => i + 1);
 
   return (
-    <ul className="relative mx-auto mt-4 flex h-fit max-w-fit flex-nowrap items-center gap-0 overflow-visible rounded-medium shadow-sm">
-      {/* Previous Button */}
+    <ul className="relative mx-auto mt-4 flex max-w-fit items-center gap-1 overflow-visible rounded-medium">
       <li>
         <Button
           isDisabled={page === 1}
           onPress={() => onChange(page - 1)}
-          className="h-9 w-9 min-w-9 rounded-medium bg-default-100 text-xs hover:bg-default-200 active:bg-default-300 sm:text-sm"
-          aria-label="Previous page"
+          className="h-8 w-8 bg-default-100 text-[10px] sm:h-9 sm:w-9 sm:text-xs"
         >
           &lt;
         </Button>
       </li>
-
-      {/* Page Numbers */}
       {pages.map((p) => (
         <li key={p}>
           <Button
             onPress={() => onChange(p)}
-            className={`h-9 w-9 min-w-9 rounded-medium text-xs sm:text-sm ${
-              p === page
-                ? "bg-blue-50 text-blue-600 shadow-[0_4px_12px_rgba(59,130,246,0.3)]"
-                : "bg-default-100 hover:bg-default-200 active:bg-default-300"
+            className={`h-8 w-8 text-[10px] sm:h-9 sm:w-9 sm:text-xs ${
+              p === page ? "bg-blue-50 text-blue-600 shadow" : "bg-default-100"
             }`}
-            aria-label={`Page ${p}`}
           >
             {p}
           </Button>
         </li>
       ))}
-
-      {/* Next Button */}
       <li>
         <Button
           isDisabled={page === total}
           onPress={() => onChange(page + 1)}
-          className="h-9 w-9 min-w-9 rounded-medium bg-default-100 text-xs hover:bg-default-200 active:bg-default-300 sm:text-sm"
-          aria-label="Next page"
+          className="h-8 w-8 bg-default-100 text-[10px] sm:h-9 sm:w-9 sm:text-xs"
         >
           &gt;
         </Button>
@@ -90,54 +72,56 @@ export const TableWrapper = () => {
   const paginatedUsers = users.slice(start, end);
 
   return (
-    <Table
-      aria-label="Example table with custom cells"
-      isHeaderSticky
-      removeWrapper
-      classNames={{
-        base: "min-w-[768px] w-full",
-        table: "w-full",
-        th: "text-xs sm:text-sm px-2 sm:px-4 py-3 h-12 z-0",
-        td: "text-xs sm:text-sm px-2 sm:px-4 py-2",
-        wrapper: "max-h-[calc(100vh-200px)]",
-        tr: "data-[selected=true]:bg-blue-50 data-[selected=true]:text-blue-800",
-      }}
-      selectionMode="multiple"
-      selectedKeys={selectedKeys}
-      onSelectionChange={(keys) =>
-        setSelectedKeys(new Set(keys as Set<string>))
-      }
-      bottomContent={
-        <CustomPagination
-          total={pages}
-          page={page}
-          onChange={(p) => setPage(p)}
-        />
-      }
-    >
-      <TableHeader>
-        {columns.map((column) => (
-          <TableColumn
-            key={column.uid}
-            align={column.uid === "actions" ? "center" : "start"}
-            allowsSorting={column.uid !== "actions"}
-          >
-            {column.name}
-          </TableColumn>
-        ))}
-      </TableHeader>
+    <div className="w-full overflow-x-auto">
+      <Table
+        aria-label="Responsive horizontal scroll table"
+        isHeaderSticky
+        removeWrapper
+        classNames={{
+          base: "min-w-[700px] w-full",
+          table: "w-full text-[10px] sm:text-sm",
+          th: "px-2 sm:px-4 py-2 sm:py-3",
+          td: "px-2 sm:px-4 py-2",
+          wrapper: "max-h-[calc(100vh-200px)] overflow-x-auto scrollbar-hide",
+          tr: "data-[selected=true]:bg-blue-50 data-[selected=true]:text-blue-800",
+        }}
+        selectionMode="multiple"
+        selectedKeys={selectedKeys}
+        onSelectionChange={(keys) =>
+          setSelectedKeys(new Set(keys as Set<string>))
+        }
+        bottomContent={
+          <CustomPagination
+            total={pages}
+            page={page}
+            onChange={(p) => setPage(p)}
+          />
+        }
+      >
+        <TableHeader>
+          {columns.map((column) => (
+            <TableColumn
+              key={column.uid}
+              align={column.uid === "actions" ? "center" : "start"}
+              allowsSorting={column.uid !== "actions"}
+            >
+              {column.name}
+            </TableColumn>
+          ))}
+        </TableHeader>
 
-      <TableBody items={paginatedUsers}>
-        {(item) => (
-          <TableRow key={item.id}>
-            {(columnKey) => (
-              <TableCell>{RenderCell({ user: item, columnKey })}</TableCell>
-            )}
-          </TableRow>
-        )}
-      </TableBody>
-    </Table>
+        <TableBody items={paginatedUsers}>
+          {(item) => (
+            <TableRow key={item.id}>
+              {(columnKey) => (
+                <TableCell>{RenderCell({ user: item, columnKey })}</TableCell>
+              )}
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
+    </div>
   );
 };
 
-export default DynamicTableWrapper;
+export default TableWrapper;

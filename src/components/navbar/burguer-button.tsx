@@ -5,7 +5,7 @@ import { useSidebarContext } from "../layout/layout-context";
 import { StyledBurgerButton } from "./navbar.styles";
 
 export const BurguerButton = () => {
-  const { collapsed, setCollapsed } = useSidebarContext();
+  const { setCollapsed } = useSidebarContext();
 
   return (
     <StyledBurgerButton onClick={setCollapsed} aria-label="Toggle sidebar">
