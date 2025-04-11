@@ -1,6 +1,6 @@
 "use client";
 
-import { Link, Navbar, NavbarContent, NavbarMenu } from "@nextui-org/react";
+import { Link, Navbar, NavbarContent } from "@nextui-org/react";
 import React from "react";
 import { GithubIcon } from "../icons/navbar/github-icon";
 import { Box } from "../styles/box";
@@ -17,37 +17,29 @@ interface Props {
 }
 
 export const NavbarWrapper = ({ children }: Props) => {
-  const { collapsed, setCollapsed } = useSidebarContext();
+  const { collapsed } = useSidebarContext();
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
-
   return (
     <Box
-      className={`relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ${isDark ? "bg-black" : "bg-white"}`}
+      className={`relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ${isDark ? "bg-black" : "bg-white"
+        }`}
     >
       <Navbar
         isBordered
-        className={`w-full border-b py-4 ${isDark ? "border-gray-700 bg-black text-white" : "border-border bg-white text-black"}`}
-        isMenuOpen={collapsed}
-        onMenuOpenChange={setCollapsed}
+        className={`w-full border-b py-4 ${isDark ? "border-gray-700 bg-black text-white" : "border-border bg-white text-black"
+          }`}
+        isMenuOpen={false} // Disable default menu since sidebar handles navigation
       >
-        {/* Left Side: Notifications and GitHub */}
+        {/* Left Side: Burger Icon */}
         <NavbarContent justify="start">
-          <ul className="m-0 flex list-none gap-4 p-0">
-            {/* Remove <li> around NotificationsDropdown */}
+          <BurguerButton />
+        </NavbarContent>
+
+        {/* Right Side: Other Icons */}
+        <NavbarContent justify="end">
+          <ul className="m-0 flex list-none items-center gap-2 sm:gap-4 p-0">
             <NotificationsDropdown />
             <li>
               <Link
@@ -61,51 +53,15 @@ export const NavbarWrapper = ({ children }: Props) => {
                 <span className="sr-only">GitHub</span>
               </Link>
             </li>
-          </ul>
-        </NavbarContent>
-
-        {/* Right Side: Dark Mode, Fullscreen, User, Burger */}
-        <NavbarContent justify="end">
-          <ul className="m-0 flex list-none items-center gap-4 p-0">
             <li>
               <DarkModeSwitch />
             </li>
             <li>
               <FullScreenToggle />
             </li>
-            {/* Remove <li> around UserDropdown */}
             <UserDropdown />
-            <li className="md:hidden">
-              <BurguerButton />
-            </li>
           </ul>
         </NavbarContent>
-
-        {/* Mobile Menu */}
-        <NavbarMenu
-          className={isDark ? "bg-black text-white" : "bg-white text-black"}
-        >
-          <ul className="m-0 list-none p-0">
-            {menuItems.map((item, index) => (
-              <li key={item} className="w-full">
-                <Link
-                  color={
-                    index === menuItems.length - 1
-                      ? "danger"
-                      : index === 2
-                        ? "secondary"
-                        : "foreground"
-                  }
-                  className={`w-full ${isDark ? "text-white" : "text-black"}`}
-                  href="#"
-                  size="lg"
-                >
-                  {item}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </NavbarMenu>
       </Navbar>
       {children}
     </Box>

@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { useLockedBody } from "../hooks/useBodyLock";
 import { NavbarWrapper } from "../navbar/navbar";
@@ -18,19 +19,20 @@ export const Layout = ({ children }: Props) => {
   const { theme, systemTheme } = useTheme();
 
   const handleToggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
-    setLocked(!sidebarOpen);
+    setSidebarOpen((prev) => {
+      const next = !prev;
+      setLocked(next);
+      return next;
+    });
   };
 
-  // Ensure component only renders after hydration
   React.useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null; // prevents flash and SSR mismatch
+  if (!mounted) return null;
 
   const currentTheme = theme === "system" ? systemTheme : theme;
-  console.log("Layout theme:", currentTheme); // optional debug
 
   return (
     <SidebarContext.Provider
