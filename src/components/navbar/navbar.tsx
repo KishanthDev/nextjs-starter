@@ -46,7 +46,7 @@ export const NavbarWrapper = ({ children }: Props) => {
       >
         {/* Left Side: Notifications and GitHub */}
         <NavbarContent justify="start">
-          <ul className="flex gap-4 list-none m-0 p-0">
+          <ul className="m-0 flex list-none gap-4 p-0">
             {/* Remove <li> around NotificationsDropdown */}
             <NotificationsDropdown />
             <li>
@@ -66,7 +66,7 @@ export const NavbarWrapper = ({ children }: Props) => {
 
         {/* Right Side: Dark Mode, Fullscreen, User, Burger */}
         <NavbarContent justify="end">
-          <ul className="flex items-center gap-4 list-none m-0 p-0">
+          <ul className="m-0 flex list-none items-center gap-4 p-0">
             <li>
               <DarkModeSwitch />
             </li>
@@ -82,7 +82,9 @@ export const NavbarWrapper = ({ children }: Props) => {
         </NavbarContent>
 
         {/* Mobile Menu */}
-        <NavbarMenu className={isDark ? "bg-black text-white" : "bg-white text-black"}>
+        <NavbarMenu
+          className={isDark ? "bg-black text-white" : "bg-white text-black"}
+        >
           <ul className="m-0 list-none p-0">
             {menuItems.map((item, index) => (
               <li key={item} className="w-full">
