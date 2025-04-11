@@ -8,10 +8,7 @@ export const BurguerButton = () => {
   const { collapsed, setCollapsed } = useSidebarContext();
 
   return (
-    <StyledBurgerButton
-      onClick={setCollapsed}
-      aria-label="Toggle sidebar"
-    >
+    <StyledBurgerButton onClick={setCollapsed} aria-label="Toggle sidebar">
       <div />
       <div />
       <div />

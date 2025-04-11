@@ -39,17 +39,16 @@ export const SidebarWrapper = () => {
       )}
 
       <aside
-        className={`h-screen transition-all duration-200 ${
-          collapsed ? "w-64" : "w-0 md:w-64"
-        } ${collapsed ? "z-20" : "z-0"} md:z-0`}
+        className={`h-screen transition-all duration-200 ${collapsed ? "w-64" : "w-0 xl:w-64"
+          } ${collapsed ? "z-20" : "z-0"} xl:z-0`}
       >
         <div
-          className={`flex h-full w-64 flex-col border-r ${
-            isDark
+          className={`flex h-full w-64 flex-col border-r ${isDark
               ? "border-gray-700 bg-black text-white"
               : "border-gray-200 bg-white text-gray-900"
-          } ${collapsed ? "translate-x-0" : "-translate-x-full md:translate-x-0"} md:fixed md:left-0 md:top-0 md:h-screen`}
+            } ${collapsed ? "translate-x-0" : "-translate-x-full xl:translate-x-0"} xl:fixed xl:left-0 xl:top-0 xl:h-screen`}
         >
+
           <div
             className={`border-b p-4 ${
               isDark ? "border-gray-700" : "border-gray-200"

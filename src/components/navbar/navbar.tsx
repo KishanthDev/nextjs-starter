@@ -23,23 +23,28 @@ export const NavbarWrapper = ({ children }: Props) => {
 
   return (
     <Box
-      className={`relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ${isDark ? "bg-black" : "bg-white"
-        }`}
+      className={`relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ${
+        isDark ? "bg-black" : "bg-white"
+      }`}
     >
       <Navbar
         isBordered
-        className={`w-full border-b py-4 ${isDark ? "border-gray-700 bg-black text-white" : "border-border bg-white text-black"
-          }`}
+        className={`w-full border-b py-4 ${
+          isDark
+            ? "border-gray-700 bg-black text-white"
+            : "border-border bg-white text-black"
+        }`}
         isMenuOpen={false} // Disable default menu since sidebar handles navigation
       >
         {/* Left Side: Burger Icon */}
-        <NavbarContent justify="start">
+        <NavbarContent justify="start" className="block xl:hidden">
           <BurguerButton />
         </NavbarContent>
 
+
         {/* Right Side: Other Icons */}
         <NavbarContent justify="end">
-          <ul className="m-0 flex list-none items-center gap-2 sm:gap-4 p-0">
+          <ul className="m-0 flex list-none items-center gap-2 p-0 sm:gap-4">
             <NotificationsDropdown />
             <li>
               <Link
