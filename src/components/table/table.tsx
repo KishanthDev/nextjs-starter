@@ -41,8 +41,11 @@ const CustomPagination = ({
         <li key={p}>
           <Button
             onPress={() => onChange(p)}
-            className={`h-8 w-8 text-[10px] sm:h-9 sm:w-9 sm:text-xs ${p === currentPage ? "bg-blue-50 text-blue-600 shadow" : "bg-default-100"
-              }`}
+            className={`h-8 w-8 text-[10px] sm:h-9 sm:w-9 sm:text-xs ${
+              p === currentPage
+                ? "bg-blue-50 text-blue-600 shadow"
+                : "bg-default-100"
+            }`}
           >
             {p}
           </Button>
@@ -60,7 +63,6 @@ const CustomPagination = ({
     </ul>
   );
 };
-
 
 export const TableWrapper = () => {
   const [page, setPage] = useState(1);
