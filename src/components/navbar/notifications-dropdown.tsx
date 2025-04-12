@@ -20,7 +20,7 @@ export const NotificationsDropdown = () => {
     <Dropdown placement="bottom-end">
       <DropdownTrigger>
         <button
-          className="bg-transparent p-0 cursor-pointer"
+          className="cursor-pointer bg-transparent p-0"
           aria-label="Notifications"
         >
           <NotificationIcon

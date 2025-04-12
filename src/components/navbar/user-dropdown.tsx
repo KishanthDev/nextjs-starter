@@ -26,7 +26,7 @@ export const UserDropdown = () => {
           type="button"
           aria-haspopup="true" // Simplified to boolean-like string
           aria-label="User menu"
-          className="bg-transparent p-0 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-full"
+          className="cursor-pointer rounded-full bg-transparent p-0 focus:outline-none focus:ring-2 focus:ring-primary-500"
         >
           <Avatar
             isBordered
@@ -61,7 +61,9 @@ export const UserDropdown = () => {
         <DropdownItem
           key="settings"
           className={`text-base ${
-            isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"
+            isDark
+              ? "text-white hover:bg-zinc-800"
+              : "text-black hover:bg-gray-100"
           }`}
         >
           My Settings
@@ -69,7 +71,9 @@ export const UserDropdown = () => {
         <DropdownItem
           key="team_settings"
           className={`text-base ${
-            isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"
+            isDark
+              ? "text-white hover:bg-zinc-800"
+              : "text-black hover:bg-gray-100"
           }`}
         >
           Team Settings
@@ -80,7 +84,9 @@ export const UserDropdown = () => {
         <DropdownItem
           key="analytics"
           className={`text-base ${
-            isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"
+            isDark
+              ? "text-white hover:bg-zinc-800"
+              : "text-black hover:bg-gray-100"
           }`}
         >
           Analytics
@@ -88,7 +94,9 @@ export const UserDropdown = () => {
         <DropdownItem
           key="system"
           className={`text-base ${
-            isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"
+            isDark
+              ? "text-white hover:bg-zinc-800"
+              : "text-black hover:bg-gray-100"
           }`}
         >
           System
@@ -99,7 +107,9 @@ export const UserDropdown = () => {
         <DropdownItem
           key="configurations"
           className={`text-base ${
-            isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"
+            isDark
+              ? "text-white hover:bg-zinc-800"
+              : "text-black hover:bg-gray-100"
           }`}
         >
           Configurations
@@ -107,7 +117,9 @@ export const UserDropdown = () => {
         <DropdownItem
           key="help_and_feedback"
           className={`text-base ${
-            isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"
+            isDark
+              ? "text-white hover:bg-zinc-800"
+              : "text-black hover:bg-gray-100"
           }`}
         >
           Help & Feedback
@@ -118,7 +130,9 @@ export const UserDropdown = () => {
         <DropdownItem
           key="logout"
           className={`text-base ${
-            isDark ? "text-red-400 hover:bg-zinc-800" : "text-danger hover:bg-gray-100"
+            isDark
+              ? "text-red-400 hover:bg-zinc-800"
+              : "text-danger hover:bg-gray-100"
           }`}
           color="danger"
         >
