@@ -23,10 +23,10 @@ export const Steam = () => {
     chart: {
       type: "area",
       animations: {
-        animateGradually: { enabled: true, delay: 150 },
-        dynamicAnimation: { enabled: true, speed: 300 },
+        animateGradually: { enabled: false }, // Disable gradual animation to reduce reflows
+        dynamicAnimation: { enabled: false }, // Disable dynamic animation
       },
-      sparkline: { enabled: false },
+      sparkline: { enabled: false }, // If sparkline is not needed, turn it off
       brush: { enabled: false },
       id: "basic-bar",
       fontFamily: "Inter, sans-serif",
@@ -37,7 +37,7 @@ export const Steam = () => {
     },
     annotations: {
       yaxis: [
-        { y: 200, borderColor: isDark ? "#64748b" : "#334155" }, // slate-500 (dark), slate-700 (light)
+        { y: 200, borderColor: isDark ? "#64748b" : "#334155" },
         { y: 150, borderColor: isDark ? "#64748b" : "#334155" },
         { y: 100, borderColor: isDark ? "#64748b" : "#334155" },
         { y: 50, borderColor: isDark ? "#64748b" : "#334155" },
@@ -47,17 +47,17 @@ export const Steam = () => {
       categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997],
       labels: {
         style: {
-          colors: isDark ? "#9ca3af" : "#64748b", // gray-400 (dark), slate-500 (light)
+          colors: isDark ? "#9ca3af" : "#64748b",
           fontFamily: "Inter, sans-serif",
         },
       },
-      axisBorder: { color: isDark ? "#6b7280" : "#e5e7eb" }, // gray-500 (dark), gray-200 (light)
+      axisBorder: { color: isDark ? "#6b7280" : "#e5e7eb" },
       axisTicks: { color: isDark ? "#6b7280" : "#e5e7eb" },
     },
     yaxis: {
       labels: {
         style: {
-          colors: isDark ? "#9ca3af" : "#64748b", // gray-400 (dark), slate-500 (light)
+          colors: isDark ? "#9ca3af" : "#64748b",
           fontFamily: "Inter, sans-serif",
         },
       },
@@ -65,8 +65,8 @@ export const Steam = () => {
       axisTicks: { show: false },
     },
     grid: {
-      show: true,
-      borderColor: isDark ? "#6b7280" : "#e5e7eb", // gray-500 (dark), gray-200 (light)
+      show: false, // Disable grid lines to reduce DOM elements
+      borderColor: isDark ? "#6b7280" : "#e5e7eb",
       strokeDashArray: 0,
       position: "back",
     },
@@ -76,45 +76,13 @@ export const Steam = () => {
       colors: ["#3b82f6", "#10b981"], // Blue and Green (unchanged)
     },
     fill: {
-      type: "gradient",
-      gradient: {
-        type: "vertical",
-        shadeIntensity: 1,
-        opacityFrom: 0.4,
-        opacityTo: 0.05,
-        colorStops: [
-          [
-            {
-              offset: 0,
-              color: isDark ? "#60a5fa" : "#93c5fd", // lighter blue (dark), light blue (light)
-              opacity: 0.4,
-            },
-            {
-              offset: 100,
-              color: isDark ? "#60a5fa" : "#93c5fd",
-              opacity: 0.05,
-            },
-          ],
-          [
-            {
-              offset: 0,
-              color: isDark ? "#34d399" : "#6ee7b7", // lighter green (dark), light green (light)
-              opacity: 0.4,
-            },
-            {
-              offset: 100,
-              color: isDark ? "#34d399" : "#6ee7b7",
-              opacity: 0.05,
-            },
-          ],
-        ],
-      },
+      type: "solid", // Simplified fill, remove gradient
     },
-    markers: { size: 0 },
-    tooltip: { enabled: false },
+    markers: { size: 0 }, // Remove markers
+    tooltip: { enabled: false }, // Disable tooltips
     legend: {
       labels: {
-        colors: isDark ? "#d4d4d8" : "#1f2937", // zinc-300 (dark), gray-800 (light)
+        colors: isDark ? "#d4d4d8" : "#1f2937",
       },
     },
     dataLabels: {
@@ -126,9 +94,8 @@ export const Steam = () => {
     <div className="w-full overflow-x-auto sm:overflow-visible">
       <div
         id="chart"
-        className={`min-w-[350px] sm:w-full sm:min-w-0 ${
-          isDark ? "bg-gray-900" : "bg-white"
-        }`}
+        className={`min-w-[350px] sm:w-full sm:min-w-0 ${isDark ? "bg-gray-900" : "bg-white"
+          }`}
       >
         <Chart
           options={options}

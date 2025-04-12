@@ -24,15 +24,17 @@ export const NavbarWrapper = ({ children }: Props) => {
 
   return (
     <Box
-      className={`relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ${isDark ? "bg-black" : "bg-white"
-        }`}
+      className={`relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ${
+        isDark ? "bg-black" : "bg-white"
+      }`}
     >
       <Navbar
         isBordered
-        className={`w-full border-b py-4 xl:py-8 relative ${isDark
+        className={`relative w-full border-b py-4 xl:py-8 ${
+          isDark
             ? "border-gray-700 bg-black text-white"
             : "border-border bg-white text-black"
-          }`}
+        }`}
         isMenuOpen={false}
       >
         {/* Left Side: Burger Icon (mobile) */}
@@ -64,7 +66,7 @@ export const NavbarWrapper = ({ children }: Props) => {
         </NavbarContent>
 
         {/* DESKTOP: Left Top - Notifications + GitHub */}
-        <div className="hidden xl:flex gap-4 items-center absolute left-4 top-1/2 -translate-y-1/2 z-50">
+        <div className="absolute left-4 top-1/2 z-50 hidden -translate-y-1/2 items-center gap-4 xl:flex">
           <NotificationsDropdown />
           <Link
             href="https://github.com/"
@@ -78,7 +80,7 @@ export const NavbarWrapper = ({ children }: Props) => {
         </div>
 
         {/* DESKTOP: Right Top - DarkMode, Fullscreen, User */}
-        <div className="hidden xl:flex gap-4 items-center absolute right-4 top-1/2 -translate-y-1/2 z-50">
+        <div className="absolute right-4 top-1/2 z-50 hidden -translate-y-1/2 items-center gap-4 xl:flex">
           <div className={baseBtnClass}>
             <DarkModeSwitch />
           </div>
