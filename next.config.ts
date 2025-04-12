@@ -38,14 +38,15 @@ const nextConfig: NextConfig = withPWA({
     ignoreDuringBuilds: true,
   },
   experimental: {
+    legacyBrowsers: false,
+    browsersListForSwc: true,
     optimizePackageImports: [
       "@nextui-org/react",
       "react-apexcharts",
-      "@heroui/react",
+      "@heroui/react"
     ],
   },
   webpack: (config: Configuration) => {
-    // Initialize optimization if undefined
     config.optimization = config.optimization || {};
     config.optimization.splitChunks = {
       cacheGroups: {
