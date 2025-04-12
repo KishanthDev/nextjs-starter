@@ -1,14 +1,13 @@
-"use client";
-
 import React from "react";
-import { Avatar, Card, CardBody } from "@nextui-org/react";
+import { Card, CardBody } from "@nextui-org/react";
+import Image from "next/image";
 
 const pictureUsers = [
   "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+  "https://i.pravatar.cc/150?u=a0425814e29026702d",
+  "https://i.pravatar.cc/150?u=a042581d4ef9026700d",
   "https://i.pravatar.cc/150?u=a042581f4e29026704d",
-  "https://i.pravatar.cc/150?u=a04258114e29026702d",
-  "https://i.pravatar.cc/150?u=a048581f4e29026701d",
-  "https://i.pravatar.cc/150?u=a092581d4ef9026700d",
+  "https://i.pravatar.cc/150?u=a042581f4e29026024d&img=0",
 ];
 
 export const CardAgents = () => (
@@ -37,9 +36,12 @@ export const CardAgents = () => (
             >
               <div className="h-10 w-10 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-[2px]">
                 <div className="h-full w-full rounded-full bg-white">
-                  <Avatar
+                  <Image
                     src={url}
-                    size="lg"
+                    alt="avatar"
+                    layout="responsive"
+                    width={150}
+                    height={150}
                     className="h-full w-full rounded-full"
                   />
                 </div>

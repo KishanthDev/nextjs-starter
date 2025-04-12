@@ -33,6 +33,9 @@ const withPWA = require("next-pwa")({
 });
 
 const nextConfig: NextConfig = withPWA({
+  images: {
+    domains: ['i.pravatar.cc'], // Add your external image domain here
+  },
   eslint: {
     dirs: ["src"],
     ignoreDuringBuilds: true,
@@ -43,8 +46,8 @@ const nextConfig: NextConfig = withPWA({
     optimizePackageImports: [
       "@nextui-org/react",
       "react-apexcharts",
-      "@heroui/react"
-    ],
+      "@heroui/react",
+    ]
   },
   webpack: (config: Configuration) => {
     config.optimization = config.optimization || {};
