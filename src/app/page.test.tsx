@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import Home from "@/app/page";
 
 // Mock the Content component to avoid testing its internal logic if needed
-jest.mock("../../components/home/content", () => ({
+jest.mock("../components/home/content", () => ({
   Content: () => <div>Content Component</div>,
 }));
 

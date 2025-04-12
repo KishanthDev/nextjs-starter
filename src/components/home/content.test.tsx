@@ -3,25 +3,25 @@ import { Content } from "../../components/home/content";
 import "@testing-library/jest-dom";
 
 // Mock the dynamically imported components
-jest.mock("../../components/charts/steam", () => ({
+jest.mock("../components/charts/steam", () => ({
   Steam: () => <div data-testid="mock-chart">Chart</div>,
 }));
-jest.mock("../../components/table/table", () => ({
+jest.mock("../components/table/table", () => ({
   TableWrapper: () => <div data-testid="mock-table">Table</div>,
 }));
-jest.mock("../../components/home/card-balance1", () => ({
+jest.mock("../components/home/card-balance1", () => ({
   CardBalance1: () => <div data-testid="balance1">Balance1</div>,
 }));
-jest.mock("../../components/home/card-balance2", () => ({
+jest.mock("../components/home/card-balance2", () => ({
   CardBalance2: () => <div data-testid="balance2">Balance2</div>,
 }));
-jest.mock("../../components/home/card-balance3", () => ({
+jest.mock("../components/home/card-balance3", () => ({
   CardBalance3: () => <div data-testid="balance3">Balance3</div>,
 }));
-jest.mock("../../components/home/card-agents", () => ({
+jest.mock("../components/home/card-agents", () => ({
   CardAgents: () => <div data-testid="agents">Agents</div>,
 }));
-jest.mock("../../components/home/card-transactions", () => ({
+jest.mock("../components/home/card-transactions", () => ({
   CardTransactions: () => <div data-testid="transactions">Transactions</div>,
 }));
 
