@@ -37,8 +37,11 @@ export const Layout = ({ children }: Props) => {
         setCollapsed: handleToggleSidebar,
       }}
     >
+      {/* OUTSIDE THE FLEX LAYOUT: Sidebar is FIXED */}
+      <SidebarWrapper />
+
+      {/* FLEX LAYOUT: Main content */}
       <WrapperLayout>
-        <SidebarWrapper />
         <div className="flex min-h-screen w-full flex-1 flex-col overflow-hidden">
           <NavbarWrapper>{children}</NavbarWrapper>
         </div>
