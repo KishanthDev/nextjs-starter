@@ -1,4 +1,7 @@
 # .eslintignore
 public/
 next.config.js
-*.config.js
+*.config.js+
+/coverage/
+jest.setup.js
+jest.config.js

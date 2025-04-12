@@ -6,7 +6,6 @@ import {
   DropdownMenu,
   DropdownItem,
   DropdownSection,
-  NavbarItem,
 } from "@nextui-org/react";
 import React from "react";
 import { NotificationIcon } from "../icons/navbar/notification-icon";
