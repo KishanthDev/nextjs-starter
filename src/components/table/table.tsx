@@ -71,48 +71,50 @@ export const TableWrapper = () => {
   const paginatedUsers = users.slice(start, end);
 
   return (
-    <div className="w-full">
-      <Table
-        aria-label="Table"
-        isHeaderSticky
-        removeWrapper
-        classNames={{
-          table: "w-full text-sm",
-          th: "px-4 py-3",
-          td: "px-4 py-2",
-        }}
-        selectionMode="multiple"
-        selectedKeys={selectedKeys}
-        onSelectionChange={(keys) =>
-          setSelectedKeys(new Set(keys as Set<string>))
-        }
-        bottomContent={
-          pages > 1 && (
-            <CustomPagination
-              total={pages}
-              currentPage={page}
-              onChange={(p) => setPage(p)}
-            />
-          )
-        }
-      >
-        <TableHeader>
-          {columns.map((column) => (
-            <TableColumn key={column.uid} align="start">
-              {column.name}
-            </TableColumn>
-          ))}
-        </TableHeader>
-        <TableBody items={paginatedUsers}>
-          {(item) => (
-            <TableRow key={item.id}>
-              {(columnKey) => (
-                <TableCell>{RenderCell({ user: item, columnKey })}</TableCell>
-              )}
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
+    <div className="w-full overflow-x-auto">
+      <div className="min-w-[600px]">
+        <Table
+          aria-label="Table"
+          isHeaderSticky
+          removeWrapper
+          classNames={{
+            table: "w-full text-sm",
+            th: "px-4 py-3",
+            td: "px-4 py-2",
+          }}
+          selectionMode="multiple"
+          selectedKeys={selectedKeys}
+          onSelectionChange={(keys) =>
+            setSelectedKeys(new Set(keys as Set<string>))
+          }
+          bottomContent={
+            pages > 1 && (
+              <CustomPagination
+                total={pages}
+                currentPage={page}
+                onChange={(p) => setPage(p)}
+              />
+            )
+          }
+        >
+          <TableHeader>
+            {columns.map((column) => (
+              <TableColumn key={column.uid} align="start">
+                {column.name}
+              </TableColumn>
+            ))}
+          </TableHeader>
+          <TableBody items={paginatedUsers}>
+            {(item) => (
+              <TableRow key={item.id}>
+                {(columnKey) => (
+                  <TableCell>{RenderCell({ user: item, columnKey })}</TableCell>
+                )}
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </div>
     </div>
   );
 };
