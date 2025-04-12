@@ -20,33 +20,30 @@ export const NavbarWrapper = ({ children }: Props) => {
   const isDark = theme === "dark";
 
   const baseBtnClass =
-    "inline-flex h-9 w-9 items-center justify-center rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-gray-800";
+    "inline-flex h-10 w-10 items-center justify-center rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-gray-800";
 
   return (
     <Box
-      className={`relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ${
-        isDark ? "bg-black" : "bg-white"
-      }`}
+      className={`relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ${isDark ? "bg-black" : "bg-white"
+        }`}
     >
       <Navbar
         isBordered
-        className={`w-full border-b py-4 ${
-          isDark
+        className={`w-full border-b py-4 xl:py-8 relative ${isDark
             ? "border-gray-700 bg-black text-white"
             : "border-border bg-white text-black"
-        }`}
+          }`}
         isMenuOpen={false}
       >
-        {/* Left Side: Burger Icon */}
+        {/* Left Side: Burger Icon (mobile) */}
         <NavbarContent justify="start" className="block xl:hidden">
           <BurguerButton />
         </NavbarContent>
 
-        {/* Right Side: Icons */}
-        <NavbarContent justify="end">
+        {/* Right Side: All icons (mobile/tablet) */}
+        <NavbarContent justify="end" className="block xl:hidden">
           <div className="flex items-center gap-3 sm:gap-4">
             <NotificationsDropdown />
-
             <Link
               href="https://github.com/"
               target="_blank"
@@ -56,18 +53,40 @@ export const NavbarWrapper = ({ children }: Props) => {
             >
               <GithubIcon />
             </Link>
-
             <div className={baseBtnClass}>
               <DarkModeSwitch />
             </div>
-
             <div className={baseBtnClass}>
               <FullScreenToggle />
             </div>
-
             <UserDropdown />
           </div>
         </NavbarContent>
+
+        {/* DESKTOP: Left Top - Notifications + GitHub */}
+        <div className="hidden xl:flex gap-4 items-center absolute left-4 top-1/2 -translate-y-1/2 z-50">
+          <NotificationsDropdown />
+          <Link
+            href="https://github.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className={baseBtnClass}
+          >
+            <GithubIcon />
+          </Link>
+        </div>
+
+        {/* DESKTOP: Right Top - DarkMode, Fullscreen, User */}
+        <div className="hidden xl:flex gap-4 items-center absolute right-4 top-1/2 -translate-y-1/2 z-50">
+          <div className={baseBtnClass}>
+            <DarkModeSwitch />
+          </div>
+          <div className={baseBtnClass}>
+            <FullScreenToggle />
+          </div>
+          <UserDropdown />
+        </div>
       </Navbar>
 
       {children}
