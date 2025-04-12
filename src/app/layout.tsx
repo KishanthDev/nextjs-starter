@@ -16,8 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-      </head>
+      <head></head>
       <body
         className={classNames("antialiased", {
           "debug-screens": process.env.NODE_ENV === "development",
