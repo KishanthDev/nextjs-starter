@@ -1,29 +1,51 @@
 "use client";
 
-import { TableWrapper } from "../table/table";
 import React from "react";
 import { Box } from "../styles/box";
 import dynamic from "next/dynamic";
 import { Flex } from "../styles/flex";
-import { CardBalance1 } from "./card-balance1";
-import { CardBalance2 } from "./card-balance2";
-import { CardBalance3 } from "./card-balance3";
-import { CardAgents } from "./card-agents";
-import { CardTransactions } from "./card-transactions";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 
-// Dynamically import chart
+// Dynamic imports using named exports
 const Chart = dynamic(
   () => import("../charts/steam").then((mod) => mod.Steam),
-  {
-    ssr: false,
-  }
+  { ssr: false }
+);
+const TableWrapper = dynamic(
+  () => import("../table/table").then((mod) => mod.TableWrapper),
+  { ssr: false }
+);
+const CardBalance1 = dynamic(
+  () => import("./card-balance1").then((mod) => mod.CardBalance1),
+  { ssr: false }
+);
+const CardBalance2 = dynamic(
+  () => import("./card-balance2").then((mod) => mod.CardBalance2),
+  { ssr: false }
+);
+const CardBalance3 = dynamic(
+  () => import("./card-balance3").then((mod) => mod.CardBalance3),
+  { ssr: false }
+);
+const CardAgents = dynamic(
+  () => import("./card-agents").then((mod) => mod.CardAgents),
+  { ssr: false }
+);
+const CardTransactions = dynamic(
+  () => import("./card-transactions").then((mod) => mod.CardTransactions),
+  { ssr: false }
 );
 
 export const Content = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
+
+  const balances = [
+    <CardBalance1 key="cb1" />,
+    <CardBalance2 key="cb2" />,
+    <CardBalance3 key="cb3" />,
+  ];
 
   return (
     <Box
@@ -34,31 +56,23 @@ export const Content = () => {
       {/* Available Balance */}
       <Box className="mb-10">
         <h3
-          className={`mb-6 text-center text-2xl font-semibold lg:text-left ${
-            isDark ? "text-white" : "text-black"
-          }`}
+          className={`mb-6 text-center text-2xl font-semibold lg:text-left ${isDark ? "text-white" : "text-black"}`}
         >
           Available Balance
         </h3>
-        <Flex className="min-w-0 flex-col gap-4 lg:flex-row lg:justify-between">
-          <div className="w-full min-w-0 lg:w-1/3">
-            <CardBalance1 />
-          </div>
-          <div className="w-full min-w-0 lg:w-1/3">
-            <CardBalance2 />
-          </div>
-          <div className="w-full min-w-0 lg:w-1/3">
-            <CardBalance3 />
-          </div>
+        <Flex className="flex-col gap-4 lg:flex-row lg:justify-between">
+          {balances.map((Component, index) => (
+            <Box key={index} className="w-full min-w-0 lg:w-1/3">
+              {Component}
+            </Box>
+          ))}
         </Flex>
       </Box>
 
       {/* Statistics Chart */}
       <Box className="mb-10">
         <h3
-          className={`mb-6 text-center text-2xl font-semibold lg:text-left ${
-            isDark ? "text-white" : "text-black"
-          }`}
+          className={`mb-6 text-center text-2xl font-semibold lg:text-left ${isDark ? "text-white" : "text-black"}`}
         >
           Statistics
         </h3>
@@ -74,44 +88,35 @@ export const Content = () => {
       {/* Section: Agents & Transactions */}
       <Box className="mb-10">
         <h3
-          className={`mb-6 text-center text-2xl font-semibold ${
-            isDark ? "text-white" : "text-black"
-          }`}
+          className={`mb-6 text-center text-2xl font-semibold ${isDark ? "text-white" : "text-black"}`}
         >
           Section
         </h3>
-        <Flex className="min-w-0 flex-col gap-6 lg:flex-row lg:items-start">
-          <div className="w-full min-w-0 lg:w-1/2">
+        <Flex className="flex-col gap-6 lg:flex-row lg:items-start">
+          <Box className="w-full lg:w-1/2">
             <CardAgents />
-          </div>
-          <div className="w-full min-w-0 lg:w-1/2">
+          </Box>
+          <Box className="w-full lg:w-1/2">
             <CardTransactions />
-          </div>
+          </Box>
         </Flex>
       </Box>
 
-      {/* Latest Users Table Header */}
+      {/* Latest Users Table */}
       <Box className="mt-8">
         <Flex justify="between" wrap="wrap" className="mb-6 items-center">
           <h3
-            className={`text-center text-2xl font-semibold lg:text-left ${
-              isDark ? "text-white" : "text-black"
-            }`}
+            className={`text-center text-2xl font-semibold lg:text-left ${isDark ? "text-white" : "text-black"}`}
           >
             Latest Users
           </h3>
           <Link
             href="/accounts"
-            className={`mt-2 text-sm hover:underline lg:mt-0 ${
-              isDark ? "text-blue-400" : "text-primary"
-            }`}
+            className={`mt-2 text-sm hover:underline lg:mt-0 ${isDark ? "text-blue-400" : "text-primary"}`}
           >
             View All
           </Link>
         </Flex>
-
-        {/* Latest Users Table (if needed) */}
-        {/* <TableWrapper /> */}
         <TableWrapper />
       </Box>
     </Box>

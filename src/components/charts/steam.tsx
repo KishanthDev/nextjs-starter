@@ -1,10 +1,15 @@
 "use client";
 import React from "react";
-import Chart from "react-apexcharts";
+import dynamic from "next/dynamic";
 import { ApexOptions } from "apexcharts";
 import { useTheme } from "next-themes";
 
+const Chart = dynamic(() => import("react-apexcharts"), {
+  ssr: false,
+});
+
 export const Steam = React.memo(() => {
+  Steam.displayName = "Steam";
   const { theme } = useTheme();
   const isDark = theme === "dark";
 

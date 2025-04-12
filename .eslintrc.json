@@ -15,6 +15,7 @@
   "plugins": ["prettier"], //* "prettier" plugin should be last in order, In case if you are adding any other plugins
   "rules": {
     "react/react-in-jsx-scope": ["off"],
+    "@typescript-eslint/no-require-imports": "off",
     "react/jsx-uses-react": ["off"],
     "@typescript-eslint/no-unused-vars": "warn",
     "import/no-extraneous-dependencies": "warn",
@@ -110,5 +111,13 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "@typescript-eslint/comma-dangle": ["off"]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["next.config.*"],
+      "rules": {
+        "@typescript-eslint/no-require-imports": "off"
+      }
+    }
+  ]
 }

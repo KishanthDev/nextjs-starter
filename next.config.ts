@@ -1,12 +1,34 @@
-/* eslint-disable */
 import type { NextConfig } from "next";
+import type { Configuration } from "webpack";
 
-const runtimeCaching = require("next-pwa/cache");
 const withPWA = require("next-pwa")({
   dest: "public",
-  register: true,
+  register: false,
   skipWaiting: true,
-  runtimeCaching,
+  runtimeCaching: [
+    {
+      urlPattern: /^https?.*\.(png|jpg|jpeg|svg|gif|woff2)$/,
+      handler: "CacheFirst",
+      options: {
+        cacheName: "static-assets",
+        expiration: {
+          maxEntries: 50,
+          maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
+        },
+      },
+    },
+    {
+      urlPattern: /^https?.*\/api\/.*$/,
+      handler: "NetworkFirst",
+      options: {
+        cacheName: "api",
+        expiration: {
+          maxEntries: 20,
+          maxAgeSeconds: 60 * 60, // 1 hour
+        },
+      },
+    },
+  ],
   disable: process.env.NODE_ENV === "development",
 });
 
@@ -14,6 +36,27 @@ const nextConfig: NextConfig = withPWA({
   eslint: {
     dirs: ["src"],
     ignoreDuringBuilds: true,
+  },
+  experimental: {
+    optimizePackageImports: [
+      "@nextui-org/react",
+      "react-apexcharts",
+      "@heroui/react",
+    ],
+  },
+  webpack: (config: Configuration) => {
+    // Initialize optimization if undefined
+    config.optimization = config.optimization || {};
+    config.optimization.splitChunks = {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/](react|react-dom|next|@nextui-org|@heroui|react-apexcharts)[\\/]/,
+          name: "vendor",
+          chunks: "all",
+        },
+      },
+    };
+    return config;
   },
 });
 

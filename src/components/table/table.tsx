@@ -40,8 +40,9 @@ const CustomPagination = ({
         <li key={p}>
           <Button
             onPress={() => onChange(p)}
-            className={`h-8 w-8 ${p === currentPage ? "bg-blue-50 text-blue-600" : "bg-default-100"
-              }`}
+            className={`h-8 w-8 ${
+              p === currentPage ? "bg-blue-50 text-blue-600" : "bg-default-100"
+            }`}
           >
             {p}
           </Button>

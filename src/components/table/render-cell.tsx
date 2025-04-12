@@ -18,13 +18,19 @@ export const RenderCell = ({ user, columnKey }: Props) => {
     case "name":
       return (
         <div className="flex items-center gap-2">
-          <img src={user.avatar} alt={user.name} className="h-8 w-8 rounded-md" />
+          <img
+            src={user.avatar}
+            alt={user.name}
+            className="h-8 w-8 rounded-md"
+          />
           <span className="text-sm font-medium">{user.name}</span>
         </div>
       );
 
     case "role":
-      return <span className="text-sm font-semibold capitalize">{user.role}</span>;
+      return (
+        <span className="text-sm font-semibold capitalize">{user.role}</span>
+      );
 
     case "status":
       return (
@@ -36,13 +42,22 @@ export const RenderCell = ({ user, columnKey }: Props) => {
     case "actions":
       return (
         <div className="flex gap-2">
-          <IconButton onClick={() => console.log("View user", user.id)} aria-label="View">
+          <IconButton
+            onClick={() => console.log("View user", user.id)}
+            aria-label="View"
+          >
             <EyeIcon size={20} fill="#979797" />
           </IconButton>
-          <IconButton onClick={() => console.log("Edit user", user.id)} aria-label="Edit">
+          <IconButton
+            onClick={() => console.log("Edit user", user.id)}
+            aria-label="Edit"
+          >
             <EditIcon size={20} fill="#979797" />
           </IconButton>
-          <IconButton onClick={() => console.log("Delete user", user.id)} aria-label="Delete">
+          <IconButton
+            onClick={() => console.log("Delete user", user.id)}
+            aria-label="Delete"
+          >
             <DeleteIcon size={20} fill="#FF0080" />
           </IconButton>
         </div>

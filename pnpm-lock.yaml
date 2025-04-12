@@ -87,6 +87,9 @@ importers:
       '@types/react-dom':
         specifier: ^19.0.4
         version: 19.1.1(@types/react@19.1.0)
+      '@types/webpack':
+        specifier: ^5.28.5
+        version: 5.28.5
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -2967,6 +2970,9 @@ packages:
 
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
+
+  '@types/webpack@5.28.5':
+    resolution: {integrity: sha512-wR87cgvxj3p6D0Crt1r5avwqffqPXUkNlnQ1mjU93G7gCuFjufZR4I6j8cz5g1F1tTYpfOOFvly+cmIQwL9wvw==}
 
   '@typescript-eslint/eslint-plugin@8.29.0':
     resolution: {integrity: sha512-PAIpk/U7NIS6H7TEtN45SPGLQaHNgB7wSjsQV/8+KYokAb2T/gloOA/Bee2yd4/yKVhPKe5LlaUGhAZk5zmSaQ==}
@@ -10041,6 +10047,17 @@ snapshots:
   '@types/stylis@4.2.5': {}
 
   '@types/trusted-types@2.0.7': {}
+
+  '@types/webpack@5.28.5':
+    dependencies:
+      '@types/node': 22.14.0
+      tapable: 2.2.1
+      webpack: 5.98.0
+    transitivePeerDependencies:
+      - '@swc/core'
+      - esbuild
+      - uglify-js
+      - webpack-cli
 
   '@typescript-eslint/eslint-plugin@8.29.0(@typescript-eslint/parser@8.29.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3)':
     dependencies:
