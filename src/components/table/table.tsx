@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import {
   Table,
@@ -13,7 +12,7 @@ import {
 import { columns, users } from "./data";
 import { RenderCell } from "./render-cell";
 
-const ITEMS_PER_PAGE = 8;
+const ITEMS_PER_PAGE = 5; // Reduced from 8
 
 const CustomPagination = ({
   total,
@@ -24,15 +23,15 @@ const CustomPagination = ({
   currentPage: number;
   onChange: (page: number) => void;
 }) => {
-  const pages = Array.from({ length: total }, (_, i) => i + 1);
+  const pages = Array.from({ length: Math.min(total, 5) }, (_, i) => i + 1); // Limit to 5 pages
 
   return (
-    <ul className="relative mx-auto mt-4 flex max-w-fit items-center gap-1 overflow-visible rounded-medium">
+    <ul className="mx-auto mt-4 flex max-w-fit gap-1 rounded-medium">
       <li>
         <Button
           isDisabled={currentPage === 1}
           onPress={() => onChange(currentPage - 1)}
-          className="h-8 w-8 bg-default-100 text-[10px] sm:h-9 sm:w-9 sm:text-xs"
+          className="h-8 w-8 bg-default-100"
         >
           &lt;
         </Button>
@@ -41,11 +40,8 @@ const CustomPagination = ({
         <li key={p}>
           <Button
             onPress={() => onChange(p)}
-            className={`h-8 w-8 text-[10px] sm:h-9 sm:w-9 sm:text-xs ${
-              p === currentPage
-                ? "bg-blue-50 text-blue-600 shadow"
-                : "bg-default-100"
-            }`}
+            className={`h-8 w-8 ${p === currentPage ? "bg-blue-50 text-blue-600" : "bg-default-100"
+              }`}
           >
             {p}
           </Button>
@@ -55,7 +51,7 @@ const CustomPagination = ({
         <Button
           isDisabled={currentPage === total}
           onPress={() => onChange(currentPage + 1)}
-          className="h-8 w-8 bg-default-100 text-[10px] sm:h-9 sm:w-9 sm:text-xs"
+          className="h-8 w-8 bg-default-100"
         >
           &gt;
         </Button>
@@ -74,18 +70,15 @@ export const TableWrapper = () => {
   const paginatedUsers = users.slice(start, end);
 
   return (
-    <div className="w-full overflow-x-auto">
+    <div className="w-full">
       <Table
-        aria-label="Responsive horizontal scroll table"
+        aria-label="Table"
         isHeaderSticky
         removeWrapper
         classNames={{
-          base: "min-w-[700px] w-full",
-          table: "w-full text-[10px] sm:text-sm",
-          th: "px-2 sm:px-4 py-2 sm:py-3",
-          td: "px-2 sm:px-4 py-2",
-          wrapper: "max-h-[calc(100vh-200px)] overflow-x-auto scrollbar-hide",
-          tr: "data-[selected=true]:bg-blue-50 data-[selected=true]:text-blue-800",
+          table: "w-full text-sm",
+          th: "px-4 py-3",
+          td: "px-4 py-2",
         }}
         selectionMode="multiple"
         selectedKeys={selectedKeys}
@@ -93,25 +86,22 @@ export const TableWrapper = () => {
           setSelectedKeys(new Set(keys as Set<string>))
         }
         bottomContent={
-          <CustomPagination
-            total={pages}
-            currentPage={page}
-            onChange={(p) => setPage(p)}
-          />
+          pages > 1 && (
+            <CustomPagination
+              total={pages}
+              currentPage={page}
+              onChange={(p) => setPage(p)}
+            />
+          )
         }
       >
         <TableHeader>
           {columns.map((column) => (
-            <TableColumn
-              key={column.uid}
-              align={column.uid === "actions" ? "center" : "start"}
-              allowsSorting={column.uid !== "actions"}
-            >
+            <TableColumn key={column.uid} align="start">
               {column.name}
             </TableColumn>
           ))}
         </TableHeader>
-
         <TableBody items={paginatedUsers}>
           {(item) => (
             <TableRow key={item.id}>
