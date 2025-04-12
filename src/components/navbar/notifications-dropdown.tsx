@@ -19,11 +19,14 @@ export const NotificationsDropdown = () => {
   return (
     <Dropdown placement="bottom-end">
       <DropdownTrigger>
-        <NavbarItem className="bg-transparent p-0">
+        <button
+          className="bg-transparent p-0 cursor-pointer"
+          aria-label="Notifications"
+        >
           <NotificationIcon
             className={isDark ? "text-gray-300" : "text-gray-600"}
           />
-        </NavbarItem>
+        </button>
       </DropdownTrigger>
       <DropdownMenu
         aria-label="Notifications"

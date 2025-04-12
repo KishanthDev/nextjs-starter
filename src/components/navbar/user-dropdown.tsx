@@ -6,7 +6,6 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
-  NavbarItem,
   User,
 } from "@nextui-org/react";
 import React from "react";
@@ -22,23 +21,28 @@ export const UserDropdown = () => {
 
   return (
     <Dropdown placement="bottom-end">
-      <NavbarItem className="bg-transparent p-0">
-        <DropdownTrigger>
+      <DropdownTrigger>
+        <button
+          type="button"
+          aria-haspopup="true" // Simplified to boolean-like string
+          aria-label="User menu"
+          className="bg-transparent p-0 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-full"
+        >
           <Avatar
             isBordered
-            as="button"
+            as="span"
             color="secondary"
             size="md"
             src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+            alt=""
             className={`ring-2 ${isDark ? "ring-gray-600" : "ring-gray-300"}`}
           />
-        </DropdownTrigger>
-      </NavbarItem>
+        </button>
+      </DropdownTrigger>
+
       <DropdownMenu
         aria-label="User menu actions"
-        className={`w-64 rounded-lg p-2 shadow-xl ${
-          isDark ? "bg-zinc-900 text-white" : "bg-white text-black"
-        }`}
+        className={`w-64 rounded-lg p-2 shadow-xl ${isDark ? "bg-zinc-900 text-white" : "bg-white text-black"}`}
       >
         <DropdownItem key="profile" className="h-16">
           <User
@@ -46,21 +50,18 @@ export const UserDropdown = () => {
             description="zoey@example.com"
             classNames={{
               name: `font-bold text-base ${isDark ? "text-white" : "text-black"}`,
-              description: `font-medium text-sm ${
-                isDark ? "text-gray-400" : "text-default-500"
-              }`,
+              description: `font-medium text-sm ${isDark ? "text-gray-400" : "text-default-500"}`,
             }}
           />
         </DropdownItem>
+
         <DropdownItem key="divider1" className="p-0" aria-hidden="true">
           <Divider />
         </DropdownItem>
         <DropdownItem
           key="settings"
           className={`text-base ${
-            isDark
-              ? "text-white hover:bg-zinc-800"
-              : "text-black hover:bg-gray-100"
+            isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"
           }`}
         >
           My Settings
@@ -68,9 +69,7 @@ export const UserDropdown = () => {
         <DropdownItem
           key="team_settings"
           className={`text-base ${
-            isDark
-              ? "text-white hover:bg-zinc-800"
-              : "text-black hover:bg-gray-100"
+            isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"
           }`}
         >
           Team Settings
@@ -81,9 +80,7 @@ export const UserDropdown = () => {
         <DropdownItem
           key="analytics"
           className={`text-base ${
-            isDark
-              ? "text-white hover:bg-zinc-800"
-              : "text-black hover:bg-gray-100"
+            isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"
           }`}
         >
           Analytics
@@ -91,9 +88,7 @@ export const UserDropdown = () => {
         <DropdownItem
           key="system"
           className={`text-base ${
-            isDark
-              ? "text-white hover:bg-zinc-800"
-              : "text-black hover:bg-gray-100"
+            isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"
           }`}
         >
           System
@@ -104,9 +99,7 @@ export const UserDropdown = () => {
         <DropdownItem
           key="configurations"
           className={`text-base ${
-            isDark
-              ? "text-white hover:bg-zinc-800"
-              : "text-black hover:bg-gray-100"
+            isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"
           }`}
         >
           Configurations
@@ -114,9 +107,7 @@ export const UserDropdown = () => {
         <DropdownItem
           key="help_and_feedback"
           className={`text-base ${
-            isDark
-              ? "text-white hover:bg-zinc-800"
-              : "text-black hover:bg-gray-100"
+            isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"
           }`}
         >
           Help & Feedback
@@ -127,9 +118,7 @@ export const UserDropdown = () => {
         <DropdownItem
           key="logout"
           className={`text-base ${
-            isDark
-              ? "text-red-400 hover:bg-zinc-800"
-              : "text-danger hover:bg-gray-100"
+            isDark ? "text-red-400 hover:bg-zinc-800" : "text-danger hover:bg-gray-100"
           }`}
           color="danger"
         >
