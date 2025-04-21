@@ -18,13 +18,19 @@ export const SidebarItem = ({ title, icon, href, isActive, onClick }: SidebarIte
   const classNames = clsx(
     "flex items-center rounded-md p-2 text-sm font-medium transition-all duration-300 ease-in-out",
     {
-      "bg-gray-200 dark:bg-gray-800": isActive,
+      "bg-white/20 dark:bg-white/10": isActive, // White background for active item
       "hover:bg-gray-100 dark:hover:bg-gray-700": !isActive,
     }
   );
 
   const iconWrapper = (
-    <span className="min-w-[24px] h-6 w-6 flex items-center justify-center">
+    <span className={clsx(
+      "min-w-[24px] h-6 w-6 flex items-center justify-center transition-colors duration-300",
+      {
+        "text-white dark:text-white": isActive, // White icon for active item
+        "text-gray-600 dark:text-gray-400": !isActive,
+      }
+    )}>
       {icon}
     </span>
   );
@@ -34,6 +40,8 @@ export const SidebarItem = ({ title, icon, href, isActive, onClick }: SidebarIte
     {
       "opacity-0 scale-95 w-0 overflow-hidden": collapsed,
       "opacity-100 scale-100 ml-3 w-auto": !collapsed,
+      "font-bold text-white dark:text-white": isActive, // White bold text for active item
+      "text-gray-700 dark:text-gray-300": !isActive,
     }
   );
 

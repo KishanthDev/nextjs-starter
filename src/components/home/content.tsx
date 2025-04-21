@@ -86,39 +86,7 @@ export const Content = () => {
       </Box>
 
       {/* Section: Agents & Transactions */}
-      <Box className="mb-10">
-        <h3
-          className={`mb-6 text-center text-2xl font-semibold ${isDark ? "text-white" : "text-black"}`}
-        >
-          Section
-        </h3>
-        <Flex className="flex-col gap-6 lg:flex-row lg:items-start">
-          <Box className="w-full lg:w-1/2">
-            <CardAgents />
-          </Box>
-          <Box className="w-full lg:w-1/2">
-            <CardTransactions />
-          </Box>
-        </Flex>
-      </Box>
-
-      {/* Latest Users Table */}
-      <Box className="mt-8">
-        <Flex justify="between" wrap="wrap" className="mb-6 items-center">
-          <h3
-            className={`text-center text-2xl font-semibold lg:text-left ${isDark ? "text-white" : "text-black"}`}
-          >
-            Latest Users
-          </h3>
-          <Link
-            href="/accounts"
-            className={`mt-2 text-sm hover:underline lg:mt-0 ${isDark ? "text-blue-400" : "text-primary"}`}
-          >
-            View All
-          </Link>
-        </Flex>
-        <TableWrapper />
-      </Box>
+      
     </Box>
   );
 };

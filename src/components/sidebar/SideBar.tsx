@@ -6,7 +6,7 @@ import { SidebarItem } from "./sidebar-item";
 import { useSidebarContext } from "../layout/layout-context";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle,LayoutDashboard,TableOfContents } from "lucide-react";
 
 export const SidebarWrapper = () => {
   const pathname = usePathname();
@@ -35,14 +35,14 @@ export const SidebarWrapper = () => {
 
             <SidebarItem
               title={collapsed ? "" : "Dashboard"}
-              icon={<HomeIcon />}
+              icon={<LayoutDashboard />}
               isActive={pathname === "/"}
               href="/"
             />
             <SidebarItem
               isActive={pathname === "/content"}
               title={collapsed ? "" : "Content"}
-              icon={<PaymentsIcon />}
+              icon={<TableOfContents />}
               href="/content"
             />
             <SidebarItem
