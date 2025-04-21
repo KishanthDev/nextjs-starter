@@ -51,10 +51,9 @@ export const Layout = ({ children }: Props) => {
         </div>
 
         {/* Main content and sidebar */}
-        <div className="flex flex-1 pt-16"> {/* pt-16 for navbar height */}
-          {/* Fixed Sidebar */}
+        <div className="flex flex-1 pt-[53px]">
           <div
-            className={`fixed top-16 left-0 z-50 transition-all duration-300 ease-in-out ${sidebarOpen ? "w-50" : "w-20"
+            className={`fixed left-0 z-50 transition-all duration-300 ease-in-out ${sidebarOpen ? "w-50" : "w-20"
               }`}
           >
             <SidebarWrapper />

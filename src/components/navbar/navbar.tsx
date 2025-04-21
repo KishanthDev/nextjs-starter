@@ -7,7 +7,7 @@ import { useTheme } from "next-themes";
 import { DarkModeSwitch } from "./darkmodeswitch";
 import FullScreenToggle from "./FullScreenToggle";
 import { useSidebarContext } from "../layout/layout-context";
-import { Menu, SquareMenu } from "lucide-react";
+import { Menu } from "lucide-react";
 
 interface Props {
   children: React.ReactNode;
@@ -19,7 +19,7 @@ export const NavbarWrapper = ({ children }: Props) => {
   const { collapsed, setCollapsed } = useSidebarContext();
 
   const baseBtnClass =
-    "inline-flex h-10 w-10 items-center justify-center rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-gray-800";
+    "inline-flex h-9 w-10 items-center justify-center rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-gray-800";
 
   return (
     <Box
@@ -28,9 +28,9 @@ export const NavbarWrapper = ({ children }: Props) => {
     >
       <Navbar
         isBordered
-        className={`relative w-full border-b py-2 xl:py-2 ${isDark
-          ? "border-gray-700 bg-black text-white"
-          : "border-border bg-white text-black"
+        className={`relative w-full py-2 shadow-lg ${isDark
+            ? "bg-black text-white border-b border-gray-700"
+            : "bg-white text-black border-b border-gray-300"
           }`}
         isMenuOpen={false}
       >
@@ -41,7 +41,8 @@ export const NavbarWrapper = ({ children }: Props) => {
             aria-label="Toggle Sidebar"
           >
             {collapsed ? <Menu /> : <Menu />}
-          </button><span className="text-primary font-bold">Chat App</span>
+          </button>
+          <span className="text-primary font-bold">Chat App</span>
         </NavbarContent>
 
         <NavbarContent justify="end" className="block xl:hidden">
