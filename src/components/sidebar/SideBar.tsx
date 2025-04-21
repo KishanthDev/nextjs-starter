@@ -25,7 +25,7 @@ export const SidebarWrapper = () => {
       <aside
         className={`
     transition-all duration-300 ease-in-out
-    ${collapsed ? "w-0 md:w-20" : "w-full md:w-64"}
+    ${collapsed ? "w-0 md:w-20" : "w-full md:w-44"}
     ${isDark ? "bg-black text-white border-gray-700" : "bg-white text-gray-900 border-gray-200"}
     border-r overflow-hidden h-auto md:h-auto
   `}

@@ -10,8 +10,6 @@ interface Props {
   items: string[];
 }
 
-
-
 export const CollapseItems = ({ icon, items, title }: Props) => {
   const { theme } = useTheme();
   const isDark = theme === "dark";

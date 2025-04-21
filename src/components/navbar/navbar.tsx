@@ -16,7 +16,7 @@ interface Props {
 export const NavbarWrapper = ({ children }: Props) => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
-  const { collapsed, setCollapsed } = useSidebarContext(); // ✅ get sidebar toggle
+  const { collapsed, setCollapsed } = useSidebarContext();
 
   const baseBtnClass =
     "inline-flex h-10 w-10 items-center justify-center rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-gray-800";
@@ -40,8 +40,8 @@ export const NavbarWrapper = ({ children }: Props) => {
             onClick={setCollapsed}
             aria-label="Toggle Sidebar"
           >
-            {collapsed ? <Menu /> : <SquareMenu />}
-          </button>
+            {collapsed ? <Menu /> : <Menu />}
+          </button><span className="text-primary font-bold">Chat App</span>
         </NavbarContent>
 
         <NavbarContent justify="end" className="block xl:hidden">
