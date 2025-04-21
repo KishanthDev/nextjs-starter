@@ -35,14 +35,18 @@ export const NavbarWrapper = ({ children }: Props) => {
         isMenuOpen={false}
       >
         <NavbarContent justify="start">
-          <button
-            className={baseBtnClass}
-            onClick={setCollapsed}
-            aria-label="Toggle Sidebar"
-          >
-            {collapsed ? <Menu /> : <Menu />}
-          </button>
-          <span className="text-primary font-bold">Chat App</span>
+          <li>
+            <button
+              className={baseBtnClass}
+              onClick={setCollapsed}
+              aria-label="Toggle Sidebar"
+            >
+              {collapsed ? <Menu /> : <Menu />}
+            </button>
+          </li>
+          <li>
+            <span className="text-primary font-bold">Chat App</span>
+          </li>
         </NavbarContent>
 
         <NavbarContent justify="end" className="block xl:hidden">
