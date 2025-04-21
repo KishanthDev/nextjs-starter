@@ -16,13 +16,22 @@ export const Layout = ({ children }: Props) => {
   const [, setLocked] = useLockedBody(false);
   const [mounted, setMounted] = React.useState(false);
 
+  
   const handleToggleSidebar = () => {
     setSidebarOpen((prev) => {
       const next = !prev;
-      setLocked(next);
+
+      // Only lock body when opening sidebar on small screens
+      if (window.innerWidth < 768) {
+        setLocked(next);
+      } else {
+        setLocked(false); // always allow scroll on desktop
+      }
+
       return next;
     });
   };
+
 
   React.useEffect(() => {
     setMounted(true);
