@@ -10,6 +10,7 @@ import { SidebarItem } from "./sidebar-item";
 import { useSidebarContext } from "../layout/layout-context";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
+import { Menu, SquareMenu } from "lucide-react"
 
 export const SidebarWrapper = () => {
   const pathname = usePathname();
@@ -35,8 +36,8 @@ export const SidebarWrapper = () => {
         <div className="flex h-full flex-col">
           <div className="flex-1 overflow-y-auto transition-all p-4 space-y-6">
             <SidebarItem
-              title={collapsed ? "" : "Collapse"}
-              icon={<span className="text-xl">{collapsed ? ">" : "<"}</span>}
+              title={collapsed ? "" : "Chat App"}
+              icon={<span className="text-xl">{collapsed ? <Menu/> : <SquareMenu/>}</span>}
               onClick={setCollapsed}
             />
 
@@ -48,34 +49,34 @@ export const SidebarWrapper = () => {
             />
 
               <SidebarItem
-                isActive={pathname === "/accounts"}
-                title={collapsed ? "" : "Accounts"}
+                isActive={pathname === "/form"}
+                title={collapsed ? "" : "Forms"}
                 icon={<AccountsIcon />}
-                href="/accounts"
+                href="/form"
               />
               <SidebarItem
-                isActive={pathname === "/payments"}
-                title={collapsed ? "" : "Payments"}
+                isActive={pathname === "/content"}
+                title={collapsed ? "" : "Content"}
                 icon={<PaymentsIcon />}
-                href="/payments"
+                href="/content"
               />
               <SidebarItem
-                isActive={pathname === "/customers"}
-                title={collapsed ? "" : "Customers"}
+                isActive={pathname === "/chats"}
+                title={collapsed ? "" : "Chats"}
                 icon={<CustomersIcon />}
-                href="/customers"
+                href="/chats"
               />
               <SidebarItem
-                isActive={pathname === "/products"}
-                title={collapsed ? "" : "Products"}
+                isActive={pathname === "/comments"}
+                title={collapsed ? "" : "Comments"}
                 icon={<ProductsIcon />}
-                href="/products"
+                href="/comments"
               />
               <SidebarItem
-                isActive={pathname === "/reports"}
-                title={collapsed ? "" : "Reports"}
+                isActive={pathname === "/analytics"}
+                title={collapsed ? "" : "Analytics"}
                 icon={<ReportsIcon />}
-                href="/reports"
+                href="/analytics"
               />
           </div>
         </div>
