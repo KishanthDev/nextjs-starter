@@ -10,10 +10,7 @@ interface Props {
   items: string[];
 }
 
-interface ChevronIconProps {
-  isOpen: boolean;
-  className?: string;
-}
+
 
 export const CollapseItems = ({ icon, items, title }: Props) => {
   const { theme } = useTheme();

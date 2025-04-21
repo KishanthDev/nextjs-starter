@@ -68,23 +68,21 @@ export const UserDropdown = () => {
           />
         </DropdownItem>
 
-        <DropdownItem key="divider1" className="p-0" aria-hidden="true">
+        <DropdownItem key="divider-1" className="p-0" aria-hidden="true">
           <Divider />
         </DropdownItem>
 
-        {/* Other menu items */}
         <DropdownItem
           key="settings"
           className={`text-base ${isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"}`}
         >
           My Profile
         </DropdownItem>
+
         {/* Status submenu */}
         <DropdownItem key="status" className="group relative text-base">
           <div className="flex items-center justify-between">
-            <span className={`${isDark ? "text-white" : "text-black"}`}>
-              Status
-            </span>
+            <span className={`${isDark ? "text-white" : "text-black"}`}>Status</span>
             <svg
               className="ml-2 h-3 w-3 transition-transform group-hover:rotate-90"
               xmlns="http://www.w3.org/2000/svg"
@@ -102,17 +100,15 @@ export const UserDropdown = () => {
           </div>
 
           <div
-            className={`absolute right-full top-0 z-50 hidden w-40 rounded-lg p-2 shadow-xl group-hover:block ${
-              isDark ? "bg-zinc-900 text-white" : "bg-white text-black"
-            }`}
+            className={`absolute right-full top-0 z-50 hidden w-40 rounded-lg p-2 shadow-xl group-hover:block ${isDark ? "bg-zinc-900 text-white" : "bg-white text-black"
+              }`}
           >
             {statusOptions.map(({ label, color }) => (
               <div
                 key={label}
                 onClick={() => setSelectedStatus({ label, color })}
-                className={`flex cursor-pointer items-center gap-2 rounded px-3 py-2 text-sm hover:${
-                  isDark ? "bg-zinc-800" : "bg-gray-100"
-                }`}
+                className={`flex cursor-pointer items-center gap-2 rounded px-3 py-2 text-sm hover:${isDark ? "bg-zinc-800" : "bg-gray-100"
+                  }`}
               >
                 <span className={`h-2.5 w-2.5 rounded-full ${color}`} />
                 {label}
@@ -120,9 +116,11 @@ export const UserDropdown = () => {
             ))}
           </div>
         </DropdownItem>
-        <DropdownItem key="divider1" className="p-0" aria-hidden="true">
+
+        <DropdownItem key="divider-2" className="p-0" aria-hidden="true">
           <Divider />
         </DropdownItem>
+
         <DropdownItem
           key="logout"
           className={`text-base ${isDark ? "text-red-400 hover:bg-zinc-800" : "text-danger hover:bg-gray-100"}`}
