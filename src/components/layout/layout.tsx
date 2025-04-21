@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { useLockedBody } from "../hooks/useBodyLock";
 import { NavbarWrapper } from "../navbar/navbar";
@@ -45,7 +45,6 @@ export const Layout = ({ children }: Props) => {
         {/* Fixed Navbar */}
         <div className="fixed top-0 left-0 w-full z-50">
           <NavbarWrapper>
-            {/* Add content or leave empty if no children are needed */}
             <div></div>
           </NavbarWrapper>
         </div>
@@ -71,5 +70,3 @@ export const Layout = ({ children }: Props) => {
     </SidebarContext.Provider>
   );
 };
-
-

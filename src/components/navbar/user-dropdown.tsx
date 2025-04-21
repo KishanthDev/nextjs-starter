@@ -1,13 +1,13 @@
 "use client";
 
 import {
-  Avatar,
   Dropdown,
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
   User,
 } from "@nextui-org/react";
+import { User2 } from "lucide-react"; // Import icons from lucide-react
 import React, { useState } from "react";
 import { useTheme } from "next-themes";
 
@@ -25,28 +25,22 @@ const statusOptions = [
 export const UserDropdown = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
-
   const [selectedStatus, setSelectedStatus] = useState(statusOptions[0]);
+  const [isOpen, setIsOpen] = useState(false); // <-- track open state
 
   return (
-    <Dropdown placement="bottom-end">
+    <Dropdown placement="bottom-end" onOpenChange={setIsOpen}>
       <DropdownTrigger>
         <button
           type="button"
           aria-haspopup="true"
           aria-label="User menu"
-          className="relative cursor-pointer rounded-full bg-transparent p-0 focus:outline-none focus:ring-2 focus:ring-primary-500"
+          className={`relative cursor-pointer rounded-full bg-transparent p-0 
+            ${isOpen ? "ring-2 ring-primary" : "focus:outline-none focus:ring-2 focus:ring-primary"}`}
         >
-          <Avatar
-            isBordered
-            as="span"
-            color="secondary"
-            size="md"
-            src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-            alt=""
-            className={`ring-2 ${isDark ? "ring-gray-600" : "ring-gray-300"}`}
+          <User2
+            className={`h-8 w-8 ${isDark ? "text-white" : "text-black"}`}
           />
-          {/* Status dot indicator */}
           <span
             className={`absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-white dark:border-zinc-900 ${selectedStatus.color}`}
           />
