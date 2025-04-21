@@ -9,6 +9,10 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   title: "NextJs 15",
   description: "Nextjs 15 starter template",
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -21,7 +25,6 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/icon.png" />
-        <meta name="robots" content="index, follow"/>
         <meta name="theme-color" content="#e0c8fd" />
         <meta property="og:title" content="Nextjs App" />
         <meta name="twitter:title" content="Nextjs App" />
