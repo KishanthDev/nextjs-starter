@@ -54,15 +54,28 @@ export const SidebarItem = ({ title, icon, href, isActive, onClick }: SidebarIte
 
   if (href) {
     return (
-      <Link as={NextLink} href={href} className={classNames}>
+      <Link
+        as={NextLink}
+        href={href}
+        className={classNames}
+        aria-label={collapsed ? title : undefined}
+        title={collapsed ? title : undefined}
+      >
         {content}
       </Link>
     );
   }
 
+
   return (
-    <button onClick={onClick} className={classNames}>
+    <button
+      onClick={onClick}
+      className={classNames}
+      aria-label={collapsed ? title : undefined}
+      title={collapsed ? title : undefined}
+    >
       {content}
     </button>
   );
+
 };
