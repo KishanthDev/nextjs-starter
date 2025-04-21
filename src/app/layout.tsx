@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Layout } from "@/components/layout/layout";
 import classNames from "classnames";
 import type { Metadata } from "next";
+import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "NextJs 15",
@@ -41,7 +42,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Layout>{children}</Layout>
+          <Footer />
         </ThemeProvider>
+        
         <Analytics />
       </body>
     </html>
