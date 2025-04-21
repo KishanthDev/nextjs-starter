@@ -18,7 +18,7 @@ const customRender = (ui: React.ReactNode) =>
       disableTransitionOnChange
     >
       <Layout>{ui}</Layout>
-    </ThemeProvider>
+    </ThemeProvider>,
   );
 
 describe("RootLayout", () => {
@@ -26,7 +26,7 @@ describe("RootLayout", () => {
     customRender(
       <RootLayout>
         <div>Test Content</div>
-      </RootLayout>
+      </RootLayout>,
     );
 
     // Check if the content rendered correctly
@@ -37,7 +37,7 @@ describe("RootLayout", () => {
     customRender(
       <RootLayout>
         <div>Test Content</div>
-      </RootLayout>
+      </RootLayout>,
     );
 
     // Check if the Analytics component is rendered
@@ -48,7 +48,7 @@ describe("RootLayout", () => {
     customRender(
       <RootLayout>
         <div>Test Content</div>
-      </RootLayout>
+      </RootLayout>,
     );
 
     // Check if the document title is set correctly

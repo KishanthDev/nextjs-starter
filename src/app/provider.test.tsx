@@ -19,7 +19,7 @@ describe("Providers Component", () => {
     render(
       <Providers>
         <div>Child Component</div>
-      </Providers>
+      </Providers>,
     );
 
     // Check if the child component is rendered, indicating that Providers rendered correctly

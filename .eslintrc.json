@@ -1,13 +1,5 @@
 {
-  "overrides": [
-    {
-      "files": ["coverage/**/*", "jest.setup.js"],
-      "rules": {
-        "no-unused-vars": "off",
-        "no-undef": "off"
-      }
-    }
-  ],
+  "root": true,
   "extends": [
     "next/core-web-vitals",
     "next/typescript",
@@ -21,11 +13,11 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["prettier"], //* "prettier" plugin should be last in order, In case if you are adding any other plugins
+  "plugins": ["prettier"],
   "rules": {
-    "react/react-in-jsx-scope": ["off"],
+    "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-require-imports": "off",
-    "react/jsx-uses-react": ["off"],
+    "react/jsx-uses-react": "off",
     "@typescript-eslint/no-unused-vars": "warn",
     "import/no-extraneous-dependencies": "warn",
     "@next/next/no-img-element": 0,
@@ -101,15 +93,7 @@
         "allow": ["resolve", "reject", "done", "next", "err", "error"]
       }
     ],
-    "prettier/prettier": [
-      "error",
-      {
-        "trailingComma": "es5",
-        // below line only for windows users facing CLRF and eslint/prettier error
-        // non windows users feel free to delete it
-        "endOfLine": "auto"
-      }
-    ],
+    "prettier/prettier":"off",
     "jsx-a11y/href-no-hash": "off",
     "jsx-a11y/anchor-is-valid": [
       "warn",
@@ -119,14 +103,17 @@
     ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "@typescript-eslint/comma-dangle": ["off"]
+    "@typescript-eslint/comma-dangle": "off"
   },
   "overrides": [
     {
-      "files": ["next.config.*"],
+      "files": ["coverage/**/*", "jest.setup.js", "next.config.*"],
       "rules": {
+        "no-unused-vars": "off",
+        "no-undef": "off",
         "@typescript-eslint/no-require-imports": "off"
       }
     }
   ]
 }
+

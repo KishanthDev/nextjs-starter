@@ -25,20 +25,20 @@ export const StyledBurgerButton = React.forwardRef<
       "absolute flex flex-col justify-around",
       "h-[22px] w-[22px] border-none bg-transparent",
       "z-[202] cursor-pointer p-0 focus:outline-none",
-      className
+      className,
     )}
     {...props}
   >
     <div
       className={cn(
         "relative h-px w-[22px] origin-left rounded-full bg-foreground/70 transition-all duration-300 ease-in-out",
-        open ? "translate-y-[1px] rotate-45" : "-translate-y-1"
+        open ? "translate-y-[1px] rotate-45" : "-translate-y-1",
       )}
     />
     <div
       className={cn(
         "relative h-px w-[22px] origin-left rounded-full bg-foreground/70 transition-all duration-300 ease-in-out",
-        open ? "translate-y-0 -rotate-45" : "translate-y-1"
+        open ? "translate-y-0 -rotate-45" : "translate-y-1",
       )}
     />
   </button>

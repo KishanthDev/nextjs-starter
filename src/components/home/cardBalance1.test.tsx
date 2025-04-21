@@ -15,7 +15,7 @@ describe("CardBalance1", () => {
     render(
       <ThemeProvider>
         <CardBalance1 />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     // Check for dark theme specific styles
@@ -32,7 +32,7 @@ describe("CardBalance1", () => {
     render(
       <ThemeProvider>
         <CardBalance1 />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     // Check for light theme specific styles
@@ -48,7 +48,7 @@ describe("CardBalance1", () => {
     render(
       <ThemeProvider>
         <CardBalance1 />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     // Check for all metric values
@@ -63,7 +63,7 @@ describe("CardBalance1", () => {
     render(
       <ThemeProvider>
         <CardBalance1 />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     // Check if the icon is rendered

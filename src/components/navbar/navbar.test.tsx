@@ -2,7 +2,6 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { NavbarWrapper } from "./navbar";
 import { useTheme } from "next-themes";
-import { GithubIcon } from "../icons/navbar/github-icon";
 
 // Mock child components and hooks
 jest.mock("../icons/navbar/github-icon", () => ({
@@ -56,7 +55,7 @@ describe("NavbarWrapper", () => {
     const { container } = render(
       <NavbarWrapper>
         <div>Test Content</div>
-      </NavbarWrapper>
+      </NavbarWrapper>,
     );
 
     expect(container).toMatchSnapshot();
@@ -78,7 +77,7 @@ describe("NavbarWrapper", () => {
     render(
       <NavbarWrapper>
         <div>Test Content</div>
-      </NavbarWrapper>
+      </NavbarWrapper>,
     );
 
     expect(screen.getByRole("navigation")).toHaveClass("bg-black");
@@ -88,7 +87,7 @@ describe("NavbarWrapper", () => {
     render(
       <NavbarWrapper>
         <div>Test Content</div>
-      </NavbarWrapper>
+      </NavbarWrapper>,
     );
 
     const burgerButton = screen.getByTestId("burger-button");
@@ -100,15 +99,15 @@ describe("NavbarWrapper", () => {
     render(
       <NavbarWrapper>
         <div>Test Content</div>
-      </NavbarWrapper>
+      </NavbarWrapper>,
     );
 
     // Desktop elements should be hidden on mobile
     expect(
-      screen.queryAllByTestId("dark-mode-switch")[1]
+      screen.queryAllByTestId("dark-mode-switch")[1],
     ).not.toBeInTheDocument();
     expect(
-      screen.queryAllByTestId("fullscreen-toggle")[1]
+      screen.queryAllByTestId("fullscreen-toggle")[1],
     ).not.toBeInTheDocument();
     expect(screen.queryAllByTestId("user-dropdown")[1]).not.toBeInTheDocument();
   });
@@ -117,7 +116,7 @@ describe("NavbarWrapper", () => {
     render(
       <NavbarWrapper>
         <div>Test Content</div>
-      </NavbarWrapper>
+      </NavbarWrapper>,
     );
 
     const githubLink = screen.getByLabelText("GitHub").closest("a");
@@ -130,7 +129,7 @@ describe("NavbarWrapper", () => {
     const { rerender } = render(
       <NavbarWrapper>
         <div>Test Content</div>
-      </NavbarWrapper>
+      </NavbarWrapper>,
     );
 
     // Light theme
@@ -145,7 +144,7 @@ describe("NavbarWrapper", () => {
     rerender(
       <NavbarWrapper>
         <div>Test Content</div>
-      </NavbarWrapper>
+      </NavbarWrapper>,
     );
 
     // Dark theme

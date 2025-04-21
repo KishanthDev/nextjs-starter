@@ -30,7 +30,7 @@ describe("CardTransactions", () => {
       const img = screen.getByAltText(`Jose Perez`) as HTMLImageElement;
       expect(img).toBeInTheDocument();
       expect(img.src).toContain(
-        `https://i.pravatar.cc/48?u=a042581f4e29026024d&img=${index}`
+        `https://i.pravatar.cc/48?u=a042581f4e29026024d&img=${index}`,
       );
     });
   });
@@ -47,7 +47,7 @@ describe("CardTransactions", () => {
     transactions.forEach((transaction) => {
       expect(screen.getByText(transaction.name)).toHaveClass("text-white");
       expect(screen.getByText(transaction.amount)).toHaveClass(
-        "text-green-400"
+        "text-green-400",
       );
       expect(screen.getByText(transaction.date)).toHaveClass("text-gray-400");
     });
@@ -62,10 +62,10 @@ describe("CardTransactions", () => {
     transactions.forEach((transaction) => {
       expect(screen.getByText(transaction.name)).toHaveClass("text-gray-800");
       expect(screen.getByText(transaction.amount)).toHaveClass(
-        "text-green-600"
+        "text-green-600",
       );
       expect(screen.getByText(transaction.date)).toHaveClass(
-        "text-default-500"
+        "text-default-500",
       );
     });
   });

@@ -10,31 +10,31 @@ import Link from "next/link";
 // Dynamic imports using named exports
 const Chart = dynamic(
   () => import("../charts/steam").then((mod) => mod.Steam),
-  { ssr: false }
+  { ssr: false },
 );
 const TableWrapper = dynamic(
   () => import("../table/table").then((mod) => mod.TableWrapper),
-  { ssr: false }
+  { ssr: false },
 );
 const CardBalance1 = dynamic(
   () => import("./card-balance1").then((mod) => mod.CardBalance1),
-  { ssr: false }
+  { ssr: false },
 );
 const CardBalance2 = dynamic(
   () => import("./card-balance2").then((mod) => mod.CardBalance2),
-  { ssr: false }
+  { ssr: false },
 );
 const CardBalance3 = dynamic(
   () => import("./card-balance3").then((mod) => mod.CardBalance3),
-  { ssr: false }
+  { ssr: false },
 );
 const CardAgents = dynamic(
   () => import("./card-agents").then((mod) => mod.CardAgents),
-  { ssr: false }
+  { ssr: false },
 );
 const CardTransactions = dynamic(
   () => import("./card-transactions").then((mod) => mod.CardTransactions),
-  { ssr: false }
+  { ssr: false },
 );
 
 export const Content = () => {

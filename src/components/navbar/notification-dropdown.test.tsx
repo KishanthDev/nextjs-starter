@@ -2,7 +2,6 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { NotificationsDropdown } from "./notifications-dropdown";
 import { useTheme } from "next-themes";
-import { NotificationIcon } from "../icons/navbar/notification-icon";
 
 // Mock dependencies
 jest.mock("../icons/navbar/notification-icon", () => ({
@@ -55,7 +54,7 @@ describe("NotificationsDropdown", () => {
 
     // Verify dark mode classes
     expect(screen.getByTestId("notification-icon")).toHaveClass(
-      "text-gray-300"
+      "text-gray-300",
     );
   });
 
@@ -102,7 +101,7 @@ describe("NotificationsDropdown", () => {
     fireEvent.click(button);
     expect(screen.getByRole("menu")).toHaveAttribute(
       "aria-label",
-      "Notifications"
+      "Notifications",
     );
   });
 });

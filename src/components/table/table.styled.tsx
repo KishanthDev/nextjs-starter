@@ -15,7 +15,7 @@ export const IconButton = ({
   <button
     className={cn(
       "flex cursor-pointer items-center justify-center border-none bg-transparent outline-none transition-opacity hover:opacity-80 active:opacity-60 dark:text-gray-200",
-      className
+      className,
     )}
     {...props}
   >
@@ -39,7 +39,7 @@ export const StyledBadge = ({ type, children }: StyledBadgeProps) => (
   <span
     className={cn(
       "mx-1 inline-block rounded-[14px] px-3 py-1 text-center text-[10px] font-bold uppercase leading-none tracking-wider shadow-sm",
-      badgeVariants[type]
+      badgeVariants[type],
     )}
   >
     {children}

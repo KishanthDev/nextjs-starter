@@ -51,7 +51,7 @@ export const Flex = ({
         justify && justifyMap[justify],
         align && alignMap[align],
         wrap && wrapMap[wrap],
-        className
+        className,
       )}
       {...props}
     />

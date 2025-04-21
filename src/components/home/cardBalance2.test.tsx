@@ -8,7 +8,7 @@ describe("CardBalance2", () => {
     render(
       <ThemeProvider attribute="class" defaultTheme={theme}>
         <CardBalance2 />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
   };
 

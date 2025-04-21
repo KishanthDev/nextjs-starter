@@ -1,12 +1,18 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { Accounts } from "../../components/accounts/index";
 import accounts from "./page"; // Adjust the import path as necessary
 
 // Mock the Accounts component
-jest.mock("../../components/accounts/index", () => () => (
-  <div data-testid="accounts-component">Accounts Component</div>
-));
+jest.mock("../../components/accounts/index", () => {
+  const MockedComponent = () => (
+    <div data-testid="accounts-component">Accounts Component</div>
+  );
+
+  MockedComponent.displayName = "MockAccountsComponent"; // Set displayName
+
+  return MockedComponent;
+});
+
 
 describe("Accounts Page", () => {
   it("should render without crashing", () => {
