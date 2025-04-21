@@ -77,25 +77,8 @@ export const UserDropdown = () => {
           key="settings"
           className={`text-base ${isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"}`}
         >
-          My Settings
+          My Profile
         </DropdownItem>
-        <DropdownItem
-          key="team_settings"
-          className={`text-base ${isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"}`}
-        >
-          Team Settings
-        </DropdownItem>
-        <DropdownItem key="divider2" className="p-0" textValue="divider">
-          <Divider />
-        </DropdownItem>
-
-        <DropdownItem
-          key="analytics"
-          className={`text-base ${isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"}`}
-        >
-          Analytics
-        </DropdownItem>
-
         {/* Status submenu */}
         <DropdownItem key="status" className="group relative text-base">
           <div className="flex items-center justify-between">
@@ -137,29 +120,7 @@ export const UserDropdown = () => {
             ))}
           </div>
         </DropdownItem>
-
-        <DropdownItem
-          key="system"
-          className={`text-base ${isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"}`}
-        >
-          System
-        </DropdownItem>
-        <DropdownItem key="divider3" className="p-0" textValue="divider">
-          <Divider />
-        </DropdownItem>
-        <DropdownItem
-          key="configurations"
-          className={`text-base ${isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"}`}
-        >
-          Configurations
-        </DropdownItem>
-        <DropdownItem
-          key="help_and_feedback"
-          className={`text-base ${isDark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-100"}`}
-        >
-          Help & Feedback
-        </DropdownItem>
-        <DropdownItem key="divider4" className="p-0" textValue="divider">
+        <DropdownItem key="divider1" className="p-0" aria-hidden="true">
           <Divider />
         </DropdownItem>
         <DropdownItem

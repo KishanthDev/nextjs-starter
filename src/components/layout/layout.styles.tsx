@@ -4,7 +4,10 @@ interface WrapperLayoutProps {
 }
 
 export const WrapperLayout = ({ collapsed, children }: WrapperLayoutProps) => (
-    <div className={`transition-all duration-300 ease-in-out ${collapsed ? "ml-20" : "ml-64"}`}>
-      {children}
-    </div>
-  );
+  <div
+    className={`transition-all duration-300 ease-in-out ${collapsed ? "md:ml-20" : "md:ml-64"
+      }`}
+  >
+    {children}
+  </div>
+);

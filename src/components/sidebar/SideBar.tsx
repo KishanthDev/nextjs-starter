@@ -29,17 +29,22 @@ export const SidebarWrapper = () => {
 
       <aside
         className={`fixed left-0 top-0 z-40 h-screen transition-all duration-300 ease-in-out
-        ${collapsed ? "w-20" : "w-64"}
+        ${collapsed ? "w-0 md:w-20" : "w-full md:w-64"}
         ${isDark ? "bg-black text-white border-gray-700" : "bg-white text-gray-900 border-gray-200"}
-        border-r`}
+        border-r overflow-hidden`}
       >
+
         <div className="flex h-full flex-col">
           <div className="flex-1 overflow-y-auto transition-all p-4 space-y-6">
-            <SidebarItem
-              title={collapsed ? "" : "Chat App"}
-              icon={<span className="text-xl">{collapsed ? <Menu/> : <SquareMenu/>}</span>}
-              onClick={setCollapsed}
-            />
+            {/* Only show on desktop */}
+            <div className="hidden md:block">
+              <SidebarItem
+                title={collapsed ? "" : "Chat App"}
+                icon={<span className="text-xl">{collapsed ? <Menu /> : <SquareMenu />}</span>}
+                onClick={setCollapsed}
+              />
+            </div>
+
 
             <SidebarItem
               title={collapsed ? "" : "Dashboard"}
@@ -48,36 +53,36 @@ export const SidebarWrapper = () => {
               href="/"
             />
 
-              <SidebarItem
-                isActive={pathname === "/form"}
-                title={collapsed ? "" : "Forms"}
-                icon={<AccountsIcon />}
-                href="/form"
-              />
-              <SidebarItem
-                isActive={pathname === "/content"}
-                title={collapsed ? "" : "Content"}
-                icon={<PaymentsIcon />}
-                href="/content"
-              />
-              <SidebarItem
-                isActive={pathname === "/chats"}
-                title={collapsed ? "" : "Chats"}
-                icon={<CustomersIcon />}
-                href="/chats"
-              />
-              <SidebarItem
-                isActive={pathname === "/comments"}
-                title={collapsed ? "" : "Comments"}
-                icon={<ProductsIcon />}
-                href="/comments"
-              />
-              <SidebarItem
-                isActive={pathname === "/analytics"}
-                title={collapsed ? "" : "Analytics"}
-                icon={<ReportsIcon />}
-                href="/analytics"
-              />
+            <SidebarItem
+              isActive={pathname === "/form"}
+              title={collapsed ? "" : "Forms"}
+              icon={<AccountsIcon />}
+              href="/form"
+            />
+            <SidebarItem
+              isActive={pathname === "/content"}
+              title={collapsed ? "" : "Content"}
+              icon={<PaymentsIcon />}
+              href="/content"
+            />
+            <SidebarItem
+              isActive={pathname === "/chats"}
+              title={collapsed ? "" : "Chats"}
+              icon={<CustomersIcon />}
+              href="/chats"
+            />
+            <SidebarItem
+              isActive={pathname === "/comments"}
+              title={collapsed ? "" : "Comments"}
+              icon={<ProductsIcon />}
+              href="/comments"
+            />
+            <SidebarItem
+              isActive={pathname === "/analytics"}
+              title={collapsed ? "" : "Analytics"}
+              icon={<ReportsIcon />}
+              href="/analytics"
+            />
           </div>
         </div>
       </aside>
