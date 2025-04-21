@@ -30,7 +30,7 @@ export const SidebarWrapper = () => {
     border-r overflow-hidden h-auto md:h-auto
   `}
       >
-        <div className="flex min-h-[492px] flex-col">
+        <div className="flex min-h-screen flex-col">
           <div className="flex-1 overflow-y-auto transition-all p-4 space-y-6">
 
             <SidebarItem
