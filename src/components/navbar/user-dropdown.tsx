@@ -7,7 +7,7 @@ import {
   DropdownTrigger,
   User,
 } from "@nextui-org/react";
-import { User2 } from "lucide-react"; // Import icons from lucide-react
+import { User2 } from "lucide-react";
 import React, { useState } from "react";
 import { useTheme } from "next-themes";
 
@@ -29,7 +29,7 @@ export const UserDropdown = () => {
   const [isOpen, setIsOpen] = useState(false); // <-- track open state
 
   return (
-    <Dropdown placement="bottom-end" onOpenChange={setIsOpen}>
+    <Dropdown shouldBlockScroll={false} placement="bottom-end" onOpenChange={setIsOpen}>
       <DropdownTrigger>
         <button
           type="button"
