@@ -45,16 +45,6 @@ export const NavbarWrapper = ({ children }: Props) => {
         {/* Right Side: All icons (mobile/tablet) */}
         <NavbarContent justify="end" className="block xl:hidden">
           <div className="flex items-center gap-3 sm:gap-4">
-            <NotificationsDropdown />
-            <Link
-              href="https://github.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className={baseBtnClass}
-            >
-              <GithubIcon />
-            </Link>
             <div className={baseBtnClass}>
               <DarkModeSwitch />
             </div>
@@ -65,19 +55,6 @@ export const NavbarWrapper = ({ children }: Props) => {
           </div>
         </NavbarContent>
 
-        {/* DESKTOP: Left Top - Notifications + GitHub */}
-        <div className="absolute left-4 top-1/2 z-50 hidden -translate-y-1/2 items-center gap-4 xl:flex">
-          <NotificationsDropdown />
-          <Link
-            href="https://github.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className={baseBtnClass}
-          >
-            <GithubIcon />
-          </Link>
-        </div>
 
         {/* DESKTOP: Right Top - DarkMode, Fullscreen, User */}
         <div className="absolute right-4 top-1/2 z-50 hidden -translate-y-1/2 items-center gap-4 xl:flex">

@@ -10,6 +10,11 @@ interface Props {
   items: string[];
 }
 
+interface ChevronIconProps {
+  isOpen: boolean;
+  className?: string;
+}
+
 export const CollapseItems = ({ icon, items, title }: Props) => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
@@ -20,11 +25,10 @@ export const CollapseItems = ({ icon, items, title }: Props) => {
       isCompact
       itemClasses={{
         base: "px-0 py-1", // Reduced padding to align with SidebarItem
-        heading: `hover:bg-gray-900 rounded-lg transition-all ${
-          isDark
+        heading: `hover:bg-gray-900 rounded-lg transition-all ${isDark
             ? "dark:hover:bg-gray-800 dark:hover:text-gray-200"
             : "hover:text-gray-700"
-        }`,
+          }`,
         indicator: `${isDark ? "text-gray-400" : "text-default-500"}`,
         content: `${isDark ? "text-white" : "text-black"}`,
       }}
@@ -34,13 +38,10 @@ export const CollapseItems = ({ icon, items, title }: Props) => {
         aria-label={title}
         title={
           <div className="flex items-center gap-2.5 pl-2.5">
-            {" "}
-            {/* Match SidebarItem padding */}
             {icon}
             <span
-              className={`text-medium font-normal ${
-                isDark ? "text-zinc-200" : "text-zinc-700"
-              }`}
+              className={`text-medium font-normal ${isDark ? "text-zinc-200" : "text-zinc-700"
+                }`}
             >
               {title}
             </span>
@@ -48,23 +49,19 @@ export const CollapseItems = ({ icon, items, title }: Props) => {
         }
         indicator={({ isOpen }) => (
           <ChevronUpIcon
-            className={`h-4 w-4 transition-transform duration-300 ease-in-out ${
-              isOpen ? "rotate-0" : "rotate-180"
-            } ${isDark ? "text-gray-400" : "text-default-500"}`}
+            className={`h-4 w-4 transition-transform duration-300 ease-in-out ${isOpen ? "rotate-0" : "rotate-180"
+              } ${isDark ? "text-gray-400" : "text-default-500"}`}
           />
         )}
       >
         <div className="flex flex-col gap-1 pl-12 pt-2">
-          {" "}
-          {/* Adjusted padding for sub-items */}
           {items.map((item, index) => (
             <span
               key={index}
-              className={`cursor-pointer text-sm ${
-                isDark
+              className={`cursor-pointer text-sm ${isDark
                   ? "text-zinc-400 hover:text-gray-200"
                   : "text-zinc-500 hover:text-gray-700"
-              }`}
+                }`}
             >
               {item}
             </span>

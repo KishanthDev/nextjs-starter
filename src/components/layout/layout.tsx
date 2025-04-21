@@ -41,7 +41,7 @@ export const Layout = ({ children }: Props) => {
       <SidebarWrapper />
 
       {/* FLEX LAYOUT: Main content */}
-      <WrapperLayout>
+      <WrapperLayout collapsed={sidebarOpen}>
         <div className="flex min-h-screen w-full flex-1 flex-col overflow-hidden">
           <NavbarWrapper>{children}</NavbarWrapper>
         </div>
