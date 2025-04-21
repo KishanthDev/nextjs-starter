@@ -40,6 +40,17 @@ const nextConfig: NextConfig = withPWA({
     dirs: ["src"],
     ignoreDuringBuilds: true,
   },
+  headers: async () => [
+    {
+      source: "/(.*)",
+      headers: [
+        {
+          key: "X-Robots-Tag",
+          value: "index, follow",
+        },
+      ],
+    },
+  ],
   experimental: {
     legacyBrowsers: false,
     browsersListForSwc: true,
