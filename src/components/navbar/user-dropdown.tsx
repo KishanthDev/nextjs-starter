@@ -19,7 +19,7 @@ const statusOptions = [
   { label: "Online", color: "bg-green-500" },
   { label: "Away", color: "bg-yellow-400" },
   { label: "Busy", color: "bg-red-500" },
-  { label: "Invisible", color: "bg-gray-400" },
+  { label: "Offline", color: "bg-gray-400" },
 ];
 
 export const UserDropdown = () => {
@@ -49,7 +49,7 @@ export const UserDropdown = () => {
 
       <DropdownMenu
         aria-label="User menu actions"
-        className={`w-64 rounded-lg p-2 shadow-xl ${isDark ? "bg-zinc-900 text-white" : "bg-white text-black"}`}
+        className={`w-64 rounded-lg p-2 shadow-xl right-0 ${isDark ? "bg-zinc-900 text-white" : "bg-white text-black"}`}
       >
         <DropdownItem key="profile" className="h-16">
           <User

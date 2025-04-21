@@ -75,3 +75,8 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+html {
+  overflow-y: overlay;
+  scrollbar-gutter: stable;
+}
