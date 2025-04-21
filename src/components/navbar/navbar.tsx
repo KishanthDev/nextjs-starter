@@ -1,11 +1,9 @@
 "use client";
 
-import { Link, Navbar, NavbarContent } from "@nextui-org/react";
+import { Navbar, NavbarContent } from "@nextui-org/react";
 import React from "react";
-import { GithubIcon } from "../icons/navbar/github-icon";
 import { Box } from "../styles/box";
 import { BurguerButton } from "./burguer-button";
-import { NotificationsDropdown } from "./notifications-dropdown";
 import { UserDropdown } from "./user-dropdown";
 import { useTheme } from "next-themes";
 import { DarkModeSwitch } from "./darkmodeswitch";
