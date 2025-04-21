@@ -48,7 +48,7 @@ export const SidebarItem = ({ title, icon, href, isActive, onClick }: SidebarIte
   const content = (
     <>
       {iconWrapper}
-      <span className={textClassNames}>{title}</span>
+      <span className={textClassNames} aria-hidden="true">{title}</span>
     </>
   );
 
@@ -58,24 +58,22 @@ export const SidebarItem = ({ title, icon, href, isActive, onClick }: SidebarIte
         as={NextLink}
         href={href}
         className={classNames}
-        aria-label={collapsed ? title : undefined}
-        title={collapsed ? title : undefined}
+        aria-label={title}
+        title={title}
       >
         {content}
       </Link>
     );
   }
 
-
   return (
     <button
       onClick={onClick}
       className={classNames}
-      aria-label={collapsed ? title : undefined}
-      title={collapsed ? title : undefined}
+      aria-label={title}
+      title={title}
     >
       {content}
     </button>
   );
-
-};
+}
