@@ -70,7 +70,7 @@ export const Content = () => {
       </Box>
 
       {/* Statistics Chart */}
-      <Box className="mb-10">
+      <Box>
         <h3
           className={`mb-6 text-center text-2xl font-semibold lg:text-left ${isDark ? "text-white" : "text-black"}`}
         >

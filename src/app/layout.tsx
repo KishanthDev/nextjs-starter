@@ -21,6 +21,7 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/icon.png" />
+        <meta name="robots" content="index, follow"/>
         <meta name="theme-color" content="#e0c8fd" />
         <meta property="og:title" content="Nextjs App" />
         <meta name="twitter:title" content="Nextjs App" />

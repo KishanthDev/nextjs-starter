@@ -66,13 +66,26 @@ export const Steam = React.memo(() => {
   };
 
   return (
-    <div className="w-full">
-      <div className={`w-full ${isDark ? "bg-gray-900" : "bg-white"}`}>
+    <div
+      className="w-full"
+      style={{
+        minHeight: '300px', // Reserve space
+        position: 'relative'
+      }}
+    >
+      <div
+        className={`w-full ${isDark ? "bg-gray-900" : "bg-white"}`}
+        style={{
+          height: '100%',
+          width: '100%',
+          position: 'absolute' // Absolute positioning prevents shifts
+        }}
+      >
         <Chart
           options={options}
           series={series}
           type="area"
-          height={300}
+          height="100%"
           width="100%"
         />
       </div>
