@@ -24,13 +24,13 @@ export default function ChatUI() {
   const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
 
   return (
-    <div className="flex h-[87vh] border border-gray-300 bg-white text-black transition-colors dark:border-gray-700 dark:bg-zinc-900 dark:text-white">
+    <div className="flex h-[calc(100vh-5rem)] border border-gray-300 bg-white text-black transition-colors dark:border-gray-700 dark:bg-zinc-900 dark:text-white">
       <ContactList
         contacts={sampleContacts}
         selectedContact={selectedContact}
         onSelect={setSelectedContact}
       />
-      <div className="flex flex-1 flex-col">
+      <div className="flex flex-1 flex-col min-h-0"> {/* min-h-0 prevents unwanted scrolling */}
         <ChatHeader contact={selectedContact} />
         <ChatMessages selected={!!selectedContact} messages={sampleMessages} />
         {selectedContact && <ChatInput />}
