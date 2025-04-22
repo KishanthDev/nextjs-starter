@@ -1,7 +1,5 @@
 "use client";
 import React from "react";
-import { HomeIcon } from "../icons/sidebar/home-icon";
-import { PaymentsIcon } from "../icons/sidebar/payments-icon";
 import { SidebarItem } from "./sidebar-item";
 import { useSidebarContext } from "../layout/layout-context";
 import { usePathname } from "next/navigation";
@@ -36,8 +34,8 @@ export const SidebarWrapper = () => {
             <SidebarItem
               title={collapsed ? "" : "Dashboard"}
               icon={<LayoutDashboard />}
-              isActive={pathname === "/"}
-              href="/"
+              isActive={pathname === "/dashboard"}
+              href="/dashboard"
             />
             <SidebarItem
               isActive={pathname === "/content"}

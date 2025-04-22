@@ -10,6 +10,7 @@ import {
 import { User2 } from "lucide-react";
 import React, { useState } from "react";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/navigation";
 
 const Divider = () => (
   <hr className="my-2 border-t border-gray-200 dark:border-gray-700" />
@@ -24,10 +25,15 @@ const statusOptions = [
 
 export const UserDropdown = () => {
   const { theme } = useTheme();
+  const router = useRouter();
+
   const isDark = theme === "dark";
   const [selectedStatus, setSelectedStatus] = useState(statusOptions[0]);
   const [isOpen, setIsOpen] = useState(false); // <-- track open state
-
+const handleLogout = ()=>{
+  localStorage.clear()
+  router.push("/login");
+}
   return (
     <Dropdown shouldBlockScroll={false} placement="bottom-end" onOpenChange={setIsOpen}>
       <DropdownTrigger>
@@ -117,6 +123,7 @@ export const UserDropdown = () => {
 
         <DropdownItem
           key="logout"
+          onPress={handleLogout}
           className={`text-base ${isDark ? "text-red-400 hover:bg-zinc-800" : "text-danger hover:bg-gray-100"}`}
           color="danger"
         >

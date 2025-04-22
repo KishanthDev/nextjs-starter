@@ -1,9 +1,9 @@
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Layout } from "@/components/layout/layout";
 import classNames from "classnames";
 import type { Metadata } from "next";
+import ClientLayoutWrapper from "@/components/layout/client-layout-wrapper";
 
 export const metadata: Metadata = {
   title: "NextJs 15",
@@ -44,7 +44,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Layout>{children}</Layout>
+          <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
         </ThemeProvider>
         <Analytics />
       </body>
