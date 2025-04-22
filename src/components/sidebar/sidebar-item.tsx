@@ -24,7 +24,7 @@ export const SidebarItem = ({
   const classNames = clsx(
     "flex items-center rounded-md p-2 text-sm font-medium transition-all duration-300 ease-in-out",
     {
-      "bg-primary-500/10 dark:bg-white/10": isActive, // Light blue background in light mode, subtle white in dark
+      "bg-primary-500/10 dark:bg-white/30": isActive, // Light blue background in light mode, subtle white in dark
       "hover:bg-gray-100 dark:hover:bg-gray-700": !isActive,
     },
   );

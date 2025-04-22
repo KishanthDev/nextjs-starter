@@ -18,7 +18,7 @@ export default function ChatMessages({
     }
 
     return (
-        <div className="flex-1 p-4 overflow-y-auto bg-gray-100 dark:bg-black space-y-3 flex flex-col">
+        <div className="flex-1 p-4 overflow-y-auto bg-gray-100 dark:bg-black space-y-3 flex flex-col scrollbar-hide">
             {messages.map((msg, idx) => (
                 <div
                     key={idx}

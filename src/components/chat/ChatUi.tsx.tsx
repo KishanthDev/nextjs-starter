@@ -18,7 +18,19 @@ const sampleMessages: { fromUser: boolean; text: string }[] = [
   { fromUser: false, text: "Sure thing! I'm gonna call you in 5, is it okay?" },
   { fromUser: true, text: "Awesome! Call me in 5 minutes.." },
   { fromUser: true, text: "👍🏻" },
+  { fromUser: false, text: "Great, talk soon!" },
+  { fromUser: true, text: "Hey, just checking — are we still on for tomorrow?" },
+  { fromUser: false, text: "Yes, absolutely! Looking forward to it." },
+  { fromUser: true, text: "Perfect! Also, did you get a chance to look at the report?" },
+  { fromUser: false, text: "Not yet, I’ll review it tonight and send feedback." },
+  { fromUser: true, text: "Cool, no rush. Let me know if you have questions." },
+  { fromUser: false, text: "Thanks! Appreciate it." },
+  { fromUser: true, text: "BTW, check out this meme 😂" },
+  { fromUser: false, text: "Haha, that’s hilarious!" },
+  { fromUser: false, text: "You always send the best ones." },
+  { fromUser: true, text: "😎" },
 ];
+
 
 export default function ChatUI() {
   const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
