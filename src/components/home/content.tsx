@@ -86,7 +86,6 @@ export const Content = () => {
       </Box>
 
       {/* Section: Agents & Transactions */}
-      
     </Box>
   );
 };

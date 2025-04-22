@@ -23,15 +23,17 @@ export const NavbarWrapper = ({ children }: Props) => {
 
   return (
     <Box
-      className={`relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ${isDark ? "bg-black" : "bg-white"
-        }`}
+      className={`relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ${
+        isDark ? "bg-black" : "bg-white"
+      }`}
     >
       <Navbar
         isBordered
-        className={`relative w-full py-2 shadow-lg ${isDark
-            ? "bg-black text-white border-b border-gray-700"
-            : "bg-white text-black border-b border-gray-300"
-          }`}
+        className={`relative w-full py-2 shadow-lg ${
+          isDark
+            ? "border-b border-gray-700 bg-black text-white"
+            : "border-b border-gray-300 bg-white text-black"
+        }`}
         isMenuOpen={false}
       >
         <NavbarContent justify="start">
@@ -45,7 +47,7 @@ export const NavbarWrapper = ({ children }: Props) => {
             </button>
           </li>
           <li>
-            <span className="text-primary font-bold">Chat App</span>
+            <span className="font-bold text-primary">Chat App</span>
           </li>
         </NavbarContent>
 

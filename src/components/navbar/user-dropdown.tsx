@@ -30,19 +30,22 @@ export const UserDropdown = () => {
   const isDark = theme === "dark";
   const [selectedStatus, setSelectedStatus] = useState(statusOptions[0]);
   const [isOpen, setIsOpen] = useState(false); // <-- track open state
-const handleLogout = ()=>{
-  localStorage.clear()
-  router.push("/login");
-}
+  const handleLogout = () => {
+    localStorage.clear();
+    router.push("/login");
+  };
   return (
-    <Dropdown shouldBlockScroll={false} placement="bottom-end" onOpenChange={setIsOpen}>
+    <Dropdown
+      shouldBlockScroll={false}
+      placement="bottom-end"
+      onOpenChange={setIsOpen}
+    >
       <DropdownTrigger>
         <button
           type="button"
           aria-haspopup="true"
           aria-label="User menu"
-          className={`relative cursor-pointer rounded-full bg-transparent p-0 
-            ${isOpen ? "ring-2 ring-primary" : "focus:outline-none focus:ring-2 focus:ring-primary"}`}
+          className={`relative cursor-pointer rounded-full bg-transparent p-0 ${isOpen ? "ring-2 ring-primary" : "focus:outline-none focus:ring-2 focus:ring-primary"}`}
         >
           <User2
             className={`h-8 w-8 ${isDark ? "text-white" : "text-black"}`}
@@ -55,7 +58,7 @@ const handleLogout = ()=>{
 
       <DropdownMenu
         aria-label="User menu actions"
-        className={`w-64 rounded-lg p-2 shadow-xl right-0 ${isDark ? "bg-zinc-900 text-white" : "bg-white text-black"}`}
+        className={`right-0 w-64 rounded-lg p-2 shadow-xl ${isDark ? "bg-zinc-900 text-white" : "bg-white text-black"}`}
       >
         <DropdownItem key="profile" className="h-16">
           <User
@@ -82,7 +85,9 @@ const handleLogout = ()=>{
         {/* Status submenu */}
         <DropdownItem key="status" className="group relative text-base">
           <div className="flex items-center justify-between">
-            <span className={`${isDark ? "text-white" : "text-black"}`}>Status</span>
+            <span className={`${isDark ? "text-white" : "text-black"}`}>
+              Status
+            </span>
             <svg
               className="ml-2 h-3 w-3 transition-transform group-hover:rotate-90"
               xmlns="http://www.w3.org/2000/svg"
@@ -100,15 +105,17 @@ const handleLogout = ()=>{
           </div>
 
           <div
-            className={`absolute right-full top-0 z-50 hidden w-40 rounded-lg p-2 shadow-xl group-hover:block ${isDark ? "bg-zinc-900 text-white" : "bg-white text-black"
-              }`}
+            className={`absolute right-full top-0 z-50 hidden w-40 rounded-lg p-2 shadow-xl group-hover:block ${
+              isDark ? "bg-zinc-900 text-white" : "bg-white text-black"
+            }`}
           >
             {statusOptions.map(({ label, color }) => (
               <div
                 key={label}
                 onClick={() => setSelectedStatus({ label, color })}
-                className={`flex cursor-pointer items-center gap-2 rounded px-3 py-2 text-sm hover:${isDark ? "bg-zinc-800" : "bg-gray-100"
-                  }`}
+                className={`flex cursor-pointer items-center gap-2 rounded px-3 py-2 text-sm hover:${
+                  isDark ? "bg-zinc-800" : "bg-gray-100"
+                }`}
               >
                 <span className={`h-2.5 w-2.5 rounded-full ${color}`} />
                 {label}

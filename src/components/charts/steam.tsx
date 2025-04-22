@@ -69,16 +69,16 @@ export const Steam = React.memo(() => {
     <div
       className="w-full"
       style={{
-        minHeight: '300px', // Reserve space
-        position: 'relative'
+        minHeight: "300px", // Reserve space
+        position: "relative",
       }}
     >
       <div
         className={`w-full ${isDark ? "bg-gray-900" : "bg-white"}`}
         style={{
-          height: '100%',
-          width: '100%',
-          position: 'absolute' // Absolute positioning prevents shifts
+          height: "100%",
+          width: "100%",
+          position: "absolute", // Absolute positioning prevents shifts
         }}
       >
         <Chart

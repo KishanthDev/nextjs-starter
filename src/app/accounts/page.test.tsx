@@ -13,7 +13,6 @@ jest.mock("../../components/accounts/index", () => {
   return MockedComponent;
 });
 
-
 describe("Accounts Page", () => {
   it("should render without crashing", () => {
     const { container } = render(React.createElement(accounts));

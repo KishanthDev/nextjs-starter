@@ -42,9 +42,9 @@ export const Layout = ({ children }: Props) => {
         setCollapsed: handleToggleSidebar,
       }}
     >
-      <div className="flex flex-col min-h-screen w-full">
+      <div className="flex min-h-screen w-full flex-col">
         {/* Fixed Navbar */}
-        <div className="fixed top-0 left-0 w-full z-50">
+        <div className="fixed left-0 top-0 z-50 w-full">
           <NavbarWrapper>
             <div></div>
           </NavbarWrapper>
@@ -53,16 +53,17 @@ export const Layout = ({ children }: Props) => {
         {/* Main content and sidebar */}
         <div className="flex flex-1 pt-[53px]">
           <div
-            className={`fixed left-0 z-40 transition-all duration-300 ease-in-out ${sidebarOpen ? "w-50" : "w-20"
-              }`}
+            className={`fixed left-0 z-40 transition-all duration-300 ease-in-out ${
+              sidebarOpen ? "w-50" : "w-20"
+            }`}
           >
             <SidebarWrapper />
           </div>
 
-
           <main
-            className={`transition-all duration-300 ease-in-out ${sidebarOpen ? "ml-44" : "ml-20"
-              } flex-1 overflow-auto`}
+            className={`transition-all duration-300 ease-in-out ${
+              sidebarOpen ? "ml-44" : "ml-20"
+            } flex-1 overflow-auto`}
           >
             {children}
           </main>
@@ -72,8 +73,7 @@ export const Layout = ({ children }: Props) => {
         <div className="relative z-50">
           <Footer />
         </div>
-
       </div>
     </SidebarContext.Provider>
   );
-}
+};

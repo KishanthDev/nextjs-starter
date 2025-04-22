@@ -93,7 +93,7 @@
         "allow": ["resolve", "reject", "done", "next", "err", "error"]
       }
     ],
-    "prettier/prettier":"off",
+    "prettier/prettier": "off",
     "jsx-a11y/href-no-hash": "off",
     "jsx-a11y/anchor-is-valid": [
       "warn",
@@ -116,4 +116,3 @@
     }
   ]
 }
-

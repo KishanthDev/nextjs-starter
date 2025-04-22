@@ -12,14 +12,12 @@ export function Providers({ children }: { children: React.ReactNode }) {
   }, []);
 
   if (!isClient) return null;
-  
+
   return (
     <NextUIProvider>
       <NextThemesProvider attribute="class" defaultTheme="light">
         <HeroUIProvider>
-          <main className="text-foreground bg-background">
-            {children}
-          </main>
+          <main className="bg-background text-foreground">{children}</main>
         </HeroUIProvider>
       </NextThemesProvider>
     </NextUIProvider>

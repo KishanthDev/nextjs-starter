@@ -6,20 +6,20 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 export default function ClientLayoutWrapper({
-    children,
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    const [showLayout, setShowLayout] = useState(false);
-    const pathname = usePathname();
+  const [showLayout, setShowLayout] = useState(false);
+  const pathname = usePathname();
 
-    useEffect(() => {
-        const isLoggedIn = localStorage.getItem("login") === "true";
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("login") === "true";
 
-        const shouldShowLayout = isLoggedIn
+    const shouldShowLayout = isLoggedIn;
 
-        setShowLayout(shouldShowLayout);
-    }, [pathname]);
+    setShowLayout(shouldShowLayout);
+  }, [pathname]);
 
-    return showLayout ? <Layout>{children}</Layout> : children;
+  return showLayout ? <Layout>{children}</Layout> : children;
 }

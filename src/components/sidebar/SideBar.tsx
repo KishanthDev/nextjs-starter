@@ -4,7 +4,7 @@ import { SidebarItem } from "./sidebar-item";
 import { useSidebarContext } from "../layout/layout-context";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
-import { MessageCircle,LayoutDashboard,TableOfContents } from "lucide-react";
+import { MessageCircle, LayoutDashboard, TableOfContents } from "lucide-react";
 
 export const SidebarWrapper = () => {
   const pathname = usePathname();
@@ -21,16 +21,10 @@ export const SidebarWrapper = () => {
         />
       )}
       <aside
-        className={`
-    transition-all duration-300 ease-in-out
-    ${collapsed ? "w-0 md:w-20" : "w-full md:w-44"}
-    ${isDark ? "bg-black text-white border-gray-700" : "bg-white text-gray-900 border-gray-200"}
-    border-r overflow-hidden h-auto md:h-auto
-  `}
+        className={`transition-all duration-300 ease-in-out ${collapsed ? "w-0 md:w-20" : "w-full md:w-44"} ${isDark ? "border-gray-700 bg-black text-white" : "border-gray-200 bg-white text-gray-900"} h-auto overflow-hidden border-r md:h-auto`}
       >
         <div className="flex min-h-screen flex-col">
-          <div className="flex-1 overflow-y-auto transition-all p-4 space-y-6">
-
+          <div className="flex-1 space-y-6 overflow-y-auto p-4 transition-all">
             <SidebarItem
               title={collapsed ? "" : "Dashboard"}
               icon={<LayoutDashboard />}
@@ -46,7 +40,7 @@ export const SidebarWrapper = () => {
             <SidebarItem
               isActive={pathname === "/chats"}
               title={collapsed ? "" : "Chats"}
-              icon={<MessageCircle/>}
+              icon={<MessageCircle />}
               href="/chats"
             />
           </div>

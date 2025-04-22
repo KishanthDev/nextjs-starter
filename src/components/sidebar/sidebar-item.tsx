@@ -12,7 +12,13 @@ interface SidebarItemProps {
   onClick?: () => void;
 }
 
-export const SidebarItem = ({ title, icon, href, isActive, onClick }: SidebarItemProps) => {
+export const SidebarItem = ({
+  title,
+  icon,
+  href,
+  isActive,
+  onClick,
+}: SidebarItemProps) => {
   const { collapsed } = useSidebarContext();
 
   const classNames = clsx(
@@ -20,17 +26,19 @@ export const SidebarItem = ({ title, icon, href, isActive, onClick }: SidebarIte
     {
       "bg-primary-500/10 dark:bg-white/10": isActive, // Light blue background in light mode, subtle white in dark
       "hover:bg-gray-100 dark:hover:bg-gray-700": !isActive,
-    }
+    },
   );
 
   const iconWrapper = (
-    <span className={clsx(
-      "min-w-[24px] h-6 w-6 flex items-center justify-center transition-colors duration-300",
-      {
-        "text-primary-600 dark:text-white": isActive, // Blue in light, white in dark
-        "text-gray-600 dark:text-gray-400": !isActive,
-      }
-    )}>
+    <span
+      className={clsx(
+        "flex h-6 w-6 min-w-[24px] items-center justify-center transition-colors duration-300",
+        {
+          "text-primary-600 dark:text-white": isActive, // Blue in light, white in dark
+          "text-gray-600 dark:text-gray-400": !isActive,
+        },
+      )}
+    >
       {icon}
     </span>
   );
@@ -42,13 +50,15 @@ export const SidebarItem = ({ title, icon, href, isActive, onClick }: SidebarIte
       "opacity-100 scale-100 ml-3 w-auto": !collapsed,
       "font-bold text-primary-600 dark:text-white": isActive, // Blue in light, white in dark
       "text-gray-700 dark:text-gray-300": !isActive,
-    }
+    },
   );
 
   const content = (
     <>
       {iconWrapper}
-      <span className={textClassNames} aria-hidden="true">{title}</span>
+      <span className={textClassNames} aria-hidden="true">
+        {title}
+      </span>
     </>
   );
 
@@ -76,4 +86,4 @@ export const SidebarItem = ({ title, icon, href, isActive, onClick }: SidebarIte
       {content}
     </button>
   );
-}
+};
