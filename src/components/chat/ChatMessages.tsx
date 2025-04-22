@@ -18,15 +18,16 @@ export default function ChatMessages({
     }
 
     return (
-        <div className="flex-1 p-4 overflow-y-auto bg-gray-100 dark:bg-black space-y-3">
+        <div className="flex-1 p-4 overflow-y-auto bg-gray-100 dark:bg-black space-y-3 flex flex-col">
             {messages.map((msg, idx) => (
                 <div
                     key={idx}
                     className={classNames(
                         "max-w-sm px-4 py-2 rounded-lg",
                         msg.fromUser
-                            ? "bg-blue-500 text-white self-end ml-auto"
-                            : "bg-blue-100 dark:bg-blue-800 text-black dark:text-white self-start mr-auto"
+                            ? "bg-blue-500 text-white self-end"
+                            : "bg-blue-100 dark:bg-blue-800 text-black dark:text-white self-start",
+                        "inline-block"
                     )}
                 >
                     {msg.text}
