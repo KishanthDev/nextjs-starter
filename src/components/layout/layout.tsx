@@ -51,7 +51,7 @@ export const Layout = ({ children }: Props) => {
         </div>
 
         {/* Main content and sidebar */}
-        <div className="flex flex-1 pt-[53px]">
+        <div className="flex flex-1 mt-[52px]">
           <div
             className={`fixed left-0 z-40 transition-all duration-300 ease-in-out ${
               sidebarOpen ? "w-50" : "w-20"
