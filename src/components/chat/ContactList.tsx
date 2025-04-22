@@ -20,7 +20,7 @@ export default function ContactList({
   onSelect,
 }: Props) {
   return (
-    <div className="w-1/3 border-r border-gray-300 bg-gray-100 dark:border-gray-700 dark:bg-gray-900">
+    <div className="w-1/3 border-r border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-900">
       <h2 className="p-6 text-xl font-normal text-blue-500">Chats</h2>
       {contacts.map((contact) => (
         <div
@@ -29,9 +29,9 @@ export default function ContactList({
           className={classNames(
             "flex cursor-pointer items-center gap-3 p-3 hover:bg-gray-200 dark:hover:bg-zinc-700",
             selectedContact?.id === contact.id
-              ? "bg-white shadow dark:bg-zinc-700"
+                ? "bg-gray-200 shadow dark:bg-zinc-700"
               : "",
-            "border-b border-gray-500 dark:border-zinc-800",
+            "border-b border-gray-300 dark:border-zinc-800",
           )}
         >
           <div className="relative">
