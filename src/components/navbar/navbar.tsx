@@ -8,6 +8,7 @@ import { DarkModeSwitch } from "./darkmodeswitch";
 import FullScreenToggle from "./FullScreenToggle";
 import { useSidebarContext } from "../layout/layout-context";
 import { Menu } from "lucide-react";
+import LocationModal from "./LocationModal";
 
 interface Props {
   children: React.ReactNode;
@@ -48,6 +49,9 @@ export const NavbarWrapper = ({ children }: Props) => {
           </li>
           <li>
             <span className="font-bold text-primary">Chat App</span>
+          </li>
+          <li>
+           <LocationModal/>
           </li>
         </NavbarContent>
 
