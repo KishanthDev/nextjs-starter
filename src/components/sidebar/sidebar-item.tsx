@@ -34,7 +34,7 @@ export const SidebarItem = ({
       className={clsx(
         "flex h-6 w-6 min-w-[24px] items-center justify-center transition-colors duration-300",
         {
-          "text-primary-600 dark:text-white": isActive, // Blue in light, white in dark
+          "text-primary-600 dark:text-white": isActive,
           "text-gray-600 dark:text-gray-400": !isActive,
         },
       )}

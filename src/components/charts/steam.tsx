@@ -1,24 +1,25 @@
 "use client";
-import React from "react";
+import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 import { ApexOptions } from "apexcharts";
 import { useTheme } from "next-themes";
 
-const Chart = dynamic(() => import("react-apexcharts"), {
-  ssr: false,
-});
+const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-export const Steam = React.memo(() => {
-  Steam.displayName = "Steam";
+const SteamInner = () => {
   const { theme } = useTheme();
-  const isDark = theme === "dark";
 
-  const series = [
-    { name: "Series1", data: [31, 40, 28, 51, 42, 109, 100] },
-    { name: "Series2", data: [11, 32, 45, 32, 34, 52, 41] },
-  ];
+  const isDark = useMemo(() => theme === "dark", [theme]);
 
-  const options: ApexOptions = {
+  const series = useMemo(
+    () => [
+      { name: "Series1", data: [31, 40, 28, 51, 42, 109, 100] },
+      { name: "Series2", data: [11, 32, 45, 32, 34, 52, 41] },
+    ],
+    []
+  );
+
+  const options: ApexOptions = useMemo(() => ({
     chart: {
       type: "area",
       animations: { enabled: false },
@@ -63,24 +64,11 @@ export const Steam = React.memo(() => {
     tooltip: { enabled: false },
     legend: { show: false },
     dataLabels: { enabled: false },
-  };
+  }), [isDark]);
 
   return (
-    <div
-      className="w-full"
-      style={{
-        minHeight: "300px", // Reserve space
-        position: "relative",
-      }}
-    >
-      <div
-        className={`w-full ${isDark ? "bg-gray-900" : "bg-white"}`}
-        style={{
-          height: "100%",
-          width: "100%",
-          position: "absolute", // Absolute positioning prevents shifts
-        }}
-      >
+    <div className="w-full min-h-[300px]">
+      <div className={`w-full min-h-[300px] ${isDark ? "bg-gray-900" : "bg-white"}`}>
         <Chart
           options={options}
           series={series}
@@ -91,4 +79,15 @@ export const Steam = React.memo(() => {
       </div>
     </div>
   );
-});
+};
+
+export const Steam = () => {
+  const { theme } = useTheme();
+
+  if (!theme) return <div className="min-h-[300px] w-full animate-pulse bg-muted" />;
+
+  return <MemoizedSteamInner />;
+};
+
+const MemoizedSteamInner = React.memo(SteamInner);
+MemoizedSteamInner.displayName = "SteamInner";
