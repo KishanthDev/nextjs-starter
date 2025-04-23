@@ -50,7 +50,7 @@ export default function LocationModal() {
                                 </div>
 
                                 <Input
-                                    placeholder="Search a new address"
+                                    placeholder="  Search a new address"
                                     startContent={<FiSearch className="text-gray-400" />}
                                     className="w-full"
                                 />
