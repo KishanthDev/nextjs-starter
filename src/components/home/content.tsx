@@ -1,45 +1,40 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useTheme } from "next-themes";
 import dynamic from "next/dynamic";
 import { Box } from "../styles/box";
 import { Flex } from "../styles/flex";
 
-const Chart = dynamic(() => import("../charts/steam").then(mod => mod.Steam), { ssr: false });
-const CardBalance1 = dynamic(() => import("./card-balance1").then(mod => mod.CardBalance1), { ssr: false });
-const CardBalance2 = dynamic(() => import("./card-balance2").then(mod => mod.CardBalance2), { ssr: false });
-const CardBalance3 = dynamic(() => import("./card-balance3").then(mod => mod.CardBalance3), { ssr: false });
+// Dynamic imports with SSR enabled
+const Chart = dynamic(() => import("../charts/steam").then(mod => mod.Steam), { ssr: true });
+const CardBalance1 = dynamic(() => import("./card-balance1").then(mod => mod.CardBalance1), { ssr: true });
+const CardBalance2 = dynamic(() => import("./card-balance2").then(mod => mod.CardBalance2), { ssr: true });
+const CardBalance3 = dynamic(() => import("./card-balance3").then(mod => mod.CardBalance3), { ssr: true });
 
 export const Content = () => {
   const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null; // Prevent hydration mismatch
-
   const isDark = theme === "dark";
+  const bgColor = isDark ? "bg-black" : "bg-white";
+  const textColor = isDark ? "text-white" : "text-black";
+  const cardBg = isDark ? "bg-gray-900" : "bg-default-100";
 
   return (
-    <Box className={`min-h-screen w-full px-4 py-6 lg:px-12 ${isDark ? "bg-black" : "bg-white"}`}>
+    <Box className={`min-h-screen w-full px-4 py-6 lg:px-12 ${bgColor}`}>
       <Box className="mb-10">
-        <h3 className={`mb-6 text-center text-2xl font-semibold lg:text-left ${isDark ? "text-white" : "text-black"}`}>
+        <h3 className={`mb-6 text-center text-2xl font-semibold lg:text-left ${textColor}`}>
           Available Balance
         </h3>
         <Flex className="flex-col gap-4 lg:flex-row lg:justify-between">
-          {[<CardBalance1 key="cb1" />, <CardBalance2 key="cb2" />, <CardBalance3 key="cb3" />].map((Component, i) => (
-            <Box key={i} className="w-full min-w-0 lg:w-1/3">{Component}</Box>
-          ))}
+          <CardBalance1 />
+          <CardBalance2 />
+          <CardBalance3 />
         </Flex>
       </Box>
-
       <Box>
-        <h3 className={`mb-6 text-center text-2xl font-semibold lg:text-left ${isDark ? "text-white" : "text-black"}`}>
+        <h3 className={`mb-6 text-center text-2xl font-semibold lg:text-left ${textColor}`}>
           Statistics
         </h3>
-        <Box className={`w-full rounded-2xl px-4 py-6 shadow-lg sm:px-6 sm:py-8 ${isDark ? "bg-gray-900" : "bg-default-100"}`}>
+        <Box className={`w-full rounded-2xl px-4 py-6 shadow-lg sm:px-6 sm:py-8 ${cardBg}`}>
           <Chart />
         </Box>
       </Box>
