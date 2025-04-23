@@ -90,5 +90,17 @@
     "cz-git",
     "PWA",
     "pnpm"
-  ]
+  ],
+  "browserslist": {
+    "modern": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 safari versions",
+      "last 2 edge versions"
+    ],
+    "legacy": [
+      "> 0.25%",
+      "not dead"
+    ]
+  }
 }

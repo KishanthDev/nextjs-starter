@@ -36,17 +36,28 @@ const nextConfig: NextConfig = {
       "@heroui/react",
     ],
   },
-  webpack: (config: Configuration) => {
-    config.optimization = config.optimization || {};
-    config.optimization.splitChunks = {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/](react|react-dom|next|@nextui-org|@heroui|react-apexcharts)[\\/]/,
-          name: "vendor",
-          chunks: "all",
+  webpack: (config: Configuration, { isServer }) => {
+    if (!isServer) {
+      config.optimization = config.optimization || {};
+      config.optimization.splitChunks = {
+        chunks: "all",
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/](react|react-dom|next|@nextui-org|@heroui|react-apexcharts)[\\/]/,
+            name: "vendor",
+            chunks: "all",
+            priority: 20,
+          },
+          modern: {
+            test: /[\\/]node_modules[\\/]/,
+            name: "modern",
+            chunks: "all",
+            priority: 10,
+            enforce: true,
+          },
         },
-      },
-    };
+      };
+    }
     return config;
   },
 };
