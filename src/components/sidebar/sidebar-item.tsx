@@ -68,7 +68,7 @@ export const SidebarItem = ({
         as={NextLink}
         href={href}
         className={classNames}
-        aria-label={title}
+        aria-label={href}
         title={title}
       >
         {content}

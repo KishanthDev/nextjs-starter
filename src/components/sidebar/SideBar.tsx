@@ -30,21 +30,18 @@ export const SidebarWrapper = () => {
               icon={<LayoutDashboard />}
               isActive={pathname === "/dashboard"}
               href="/dashboard"
-              aria-label="dashboard"
             />
             <SidebarItem
               isActive={pathname === "/content"}
               title={collapsed ? "" : "Content"}
               icon={<TableOfContents />}
               href="/content"
-              aria-label="content"
             />
             <SidebarItem
               isActive={pathname === "/chats"}
               title={collapsed ? "" : "Chats"}
               icon={<MessageCircle />}
               href="/chats"
-              aria-label="chats"
             />
           </div>
         </div>
