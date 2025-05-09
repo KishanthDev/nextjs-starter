@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 async function getUploadedImages() {
     try {
-        const url = `${process.env.VERCEL_URL || 'http://localhost:3000'}/api/upload`;
+        const url = `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/upload`;
         console.log(`Fetching images from: ${url}`);
         const res = await fetch(url, {
             cache: 'no-store',
