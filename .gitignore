@@ -13,6 +13,10 @@
 # testing
 /coverage
 
+node_modules/
+package-lock.json
+.DS_Store
+
 # next.js
 /.next/
 /out/
@@ -38,3 +42,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+.env*.local

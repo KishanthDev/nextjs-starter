@@ -1,9 +1,17 @@
+/** @type {import('next').NextConfig} */
 import type { NextConfig } from "next";
 import type { Configuration } from "webpack";
 
 const nextConfig: NextConfig = {
   images: {
     domains: ["i.pravatar.cc"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '**',
+      },
+    ],
   },
   eslint: {
     dirs: ["src"],
