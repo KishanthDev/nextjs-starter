@@ -60,8 +60,8 @@ const ImageUpload = () => {
     };
 
     return (
-        <div className="flex flex-col items-center gap-6 p-6 bg-gray-100 min-h-screen">
-            <h1 className="text-2xl font-bold text-gray-800">Upload an Image</h1>
+        <div className="w-full items-center gap-6 p-6 bg-gray-100 dark:bg-gray-900 min-h-screen">
+            <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">Upload an Image</h1>
             <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4">
                 <input
                     type="file"
@@ -78,17 +78,19 @@ const ImageUpload = () => {
                     {isUploading ? 'Uploading...' : 'Upload Image'}
                 </button>
             </form>
+
             {isUploading && (
-                <div className="w-64 bg-gray-200 rounded-full h-2.5">
+                <div className="w-64 bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
                     <div
                         className="bg-blue-500 h-2.5 rounded-full transition-all duration-300"
                         style={{ width: `${progress}%` }}
                     ></div>
                 </div>
             )}
+
             {imageUrl && (
                 <div className="text-center">
-                    <p className="text-gray-700 mb-2">Uploaded Image:</p>
+                    <p className="text-gray-700 dark:text-gray-300 mb-2">Uploaded Image:</p>
                     <img
                         src={imageUrl}
                         alt="Uploaded"
@@ -96,9 +98,10 @@ const ImageUpload = () => {
                     />
                 </div>
             )}
+
             <Link
                 href="/gallery"
-                className="mt-4 text-blue-500 hover:text-blue-700 underline"
+                className="mt-4 text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 underline"
             >
                 View All Uploaded Images
             </Link>
