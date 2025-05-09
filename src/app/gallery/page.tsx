@@ -2,7 +2,9 @@ import Link from 'next/link';
 
 async function getUploadedImages() {
     try {
-        const res = await fetch(`${process.env.VERCEL_URL || 'http://localhost:3000'}/api/upload`, {
+        const url = `${process.env.VERCEL_URL || 'http://localhost:3000'}/api/upload`;
+        console.log(`Fetching images from: ${url}`);
+        const res = await fetch(url, {
             cache: 'no-store',
         });
         if (!res.ok) {
@@ -10,6 +12,7 @@ async function getUploadedImages() {
             return [];
         }
         const data = await res.json();
+        console.log('Fetched data:', JSON.stringify(data, null, 2));
         return data.uploads as string[];
     } catch (error: unknown) {
         const errorMessage = error instanceof Error ? error.message : 'Unknown error';
