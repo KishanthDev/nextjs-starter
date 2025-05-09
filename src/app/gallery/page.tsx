@@ -1,11 +1,25 @@
 import Link from 'next/link';
 
 async function getUploadedImages() {
-    const res = await fetch('http://localhost:3000/api/uploads', {
-        cache: 'no-store',
-    });
-    const data = await res.json();
-    return data.uploads as string[];
+    try {
+        const res = await fetch(`${process.env.VERCEL_URL || 'http://localhost:3000'}/api/upload`, {
+            cache: 'no-store',
+        });
+        if (!res.ok) {
+            console.error(`Failed to fetch images: ${res.status} ${res.statusText}`);
+            return [];
+        }
+        const data = await res.json();
+        return data.uploads as string[];
+    } catch (error: unknown) {
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+        const errorStack = error instanceof Error ? error.stack : undefined;
+        console.error('Error fetching images:', {
+            message: errorMessage,
+            stack: errorStack,
+        });
+        return [];
+    }
 }
 
 export default async function Gallery() {
@@ -16,7 +30,7 @@ export default async function Gallery() {
             <div className="max-w-7xl mx-auto">
                 <h1 className="text-3xl font-bold text-gray-800 mb-6">Image Gallery</h1>
                 <Link
-                    href="/file-upload"
+                    href="/"
                     className="inline-block mb-4 text-blue-500 hover:text-blue-700 underline"
                 >
                     Back to Upload
@@ -43,3 +57,8 @@ export default async function Gallery() {
         </div>
     );
 }
+
+export const metadata = {
+    title: 'Image Gallery',
+    description: 'View all images uploaded to the Next.js app',
+};
