@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 
 const ImageUpload = () => {
     const [file, setFile] = useState<File | null>(null);
