@@ -2,17 +2,21 @@ import Link from 'next/link';
 
 async function getUploadedImages() {
     try {
-        const url = `https://nextjs-starter-git-chat-dashboard-kishanths-projects-3911b82e.vercel.app/api/upload`;
+        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+        const url = `${baseUrl}/api/upload`;
+
         console.log(`Fetching images from: ${url}`);
+
         const res = await fetch(url, {
             cache: 'no-store',
         });
+
         if (!res.ok) {
             console.error(`Failed to fetch images: ${res.status} ${res.statusText}`);
             return [];
         }
+
         const data = await res.json();
-        console.log('Fetched data:', JSON.stringify(data, null, 2));
         return data.uploads as string[];
     } catch (error: unknown) {
         const errorMessage = error instanceof Error ? error.message : 'Unknown error';
