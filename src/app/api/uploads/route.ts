@@ -1,16 +1,22 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+import { cloudinary } from '@/lib/cloudinary';
 
-const uploadsFilePath = path.join(process.cwd(), 'data', 'uploads.json');
+type CloudinaryImage = {
+    secure_url: string;
+};
 
 export async function GET() {
     try {
-        const uploadsData = await fs.readFile(uploadsFilePath, 'utf-8');
-        const uploads = JSON.parse(uploadsData) as string[];
-        return NextResponse.json({ uploads }, { status: 200 });
+        const result = await cloudinary.search
+            .expression('folder:nextjs-uploads')
+            .sort_by('created_at', 'desc')
+            .max_results(30)
+            .execute();
+
+        const uploads = (result.resources as CloudinaryImage[]).map((img) => img.secure_url);
+        return NextResponse.json({ uploads });
     } catch (error) {
-        console.error('Error reading uploads:', error);
-        return NextResponse.json({ uploads: [] }, { status: 200 });
+        console.error('Cloudinary fetch error:', error);
+        return NextResponse.json({ uploads: [] });
     }
 }
