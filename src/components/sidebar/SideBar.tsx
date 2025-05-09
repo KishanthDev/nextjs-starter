@@ -32,10 +32,10 @@ export const SidebarWrapper = () => {
               href="/dashboard"
             />
             <SidebarItem
-              isActive={pathname === "/content"}
-              title={collapsed ? "" : "Content"}
+              isActive={pathname === "/file-upload"}
+              title={collapsed ? "" : "Upload"}
               icon={<TableOfContents />}
-              href="/content"
+              href="/file-upload"
             />
             <SidebarItem
               isActive={pathname === "/chats"}

@@ -63,13 +63,23 @@ const ImageUpload = () => {
         <div className="w-full items-center gap-6 p-6 bg-gray-100 dark:bg-gray-900 min-h-screen">
             <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">Upload an Image</h1>
             <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4">
-                <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleFileChange}
-                    className="file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:bg-blue-500 file:text-white hover:file:bg-blue-600"
-                    disabled={isUploading}
-                />
+                <div className="flex flex-col items-start gap-2">
+                    <label htmlFor="file-upload" className="text-gray-700 dark:text-gray-300">
+                        Choose an image to upload:
+                    </label>
+                    <input
+                        id="file-upload"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                        className="file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:bg-blue-500 file:text-white hover:file:bg-blue-600"
+                        disabled={isUploading}
+                        aria-describedby="file-upload-help"
+                    />
+                    <p id="file-upload-help" className="text-sm text-gray-500 dark:text-gray-400">
+                        Select a JPEG, PNG, or GIF image file
+                    </p>
+                </div>
                 <button
                     type="submit"
                     disabled={!file || isUploading}
