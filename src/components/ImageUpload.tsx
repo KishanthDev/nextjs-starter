@@ -25,43 +25,30 @@ const ImageUpload = () => {
         const formData = new FormData();
         formData.append('file', file);
 
-        const xhr = new XMLHttpRequest();
+        try {
+            const response = await fetch('/api/upload', {
+                method: 'POST',
+                body: formData,
+                credentials: 'same-origin',
+                referrerPolicy: 'no-referrer-when-downgrade'
+            });
 
-        xhr.upload.onprogress = (event) => {
-            if (event.lengthComputable) {
-                const percentComplete = Math.round((event.loaded / event.total) * 100);
-                setProgress(percentComplete);
-            }
-        };
+            if (!response.ok) throw new Error('Upload failed');
 
-        xhr.onload = () => {
-            if (xhr.status === 200) {
-                const data = JSON.parse(xhr.responseText);
-                if (data.imageUrl) {
-                    setImageUrl(data.imageUrl);
-                } else {
-                    console.error('Upload failed:', data.message);
-                }
-            } else {
-                console.error('Upload failed:', xhr.statusText);
+            const data = await response.json();
+            if (data.imageUrl) {
+                setImageUrl(data.imageUrl);
             }
+        } catch (error) {
+            console.error('Upload error:', error);
+        } finally {
             setIsUploading(false);
             setProgress(0);
-        };
-
-        xhr.onerror = () => {
-            console.error('Upload error');
-            setIsUploading(false);
-            setProgress(0);
-        };
-
-        xhr.open('POST', '/api/upload', true);
-        xhr.send(formData);
+        }
     };
 
     return (
         <div className="w-full items-center gap-6 p-6 bg-gray-100 dark:bg-gray-900 min-h-screen">
-            <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">Upload an Image</h1>
             <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4">
                 <div className="flex flex-col items-start gap-2">
                     <label htmlFor="file-upload" className="text-gray-700 dark:text-gray-300">
@@ -108,13 +95,6 @@ const ImageUpload = () => {
                     />
                 </div>
             )}
-
-            <Link
-                href="/gallery"
-                className="mt-4 text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 underline"
-            >
-                View All Uploaded Images
-            </Link>
         </div>
     );
 };

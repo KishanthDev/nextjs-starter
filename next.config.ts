@@ -23,7 +23,16 @@ const nextConfig: NextConfig = {
       headers: [
         {
           key: "Cache-Control",
-          value: "private",
+          value: "private, max-age=3600, stale-while-revalidate=60",
+        },
+      ],
+    },
+    {
+      source: "/file-upload",
+      headers: [
+        {
+          key: "Cache-Control",
+          value: "private, max-age=3600, stale-while-revalidate=60",
         },
       ],
     },
