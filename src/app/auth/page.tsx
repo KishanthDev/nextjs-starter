@@ -5,7 +5,7 @@ import { User, Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const AuthPage: React.FC = () => {
-  const [isSignIn, setIsSignIn] = useState<boolean>(false);
+  const [isSignIn, setIsSignIn] = useState<boolean>(true);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -18,7 +18,7 @@ const AuthPage: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsSignIn(true);
-    }, 200);
+    }, 400);
     return () => clearTimeout(timer);
   }, []);
 
@@ -34,8 +34,6 @@ const AuthPage: React.FC = () => {
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     localStorage.setItem("login", "true");
-    localStorage.setItem("userEmail", email);
-    localStorage.setItem("rememberMe", rememberMe.toString());
     console.log("Login:", { email, password, rememberMe });
     router.push("/dashboard");
   };

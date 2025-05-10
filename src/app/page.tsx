@@ -1,6 +1,19 @@
-import type { NextPage } from "next";
-import LoginPage from "./login/page";
+"use client";
 
-const Home: NextPage = () => <LoginPage />;
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import AuthPage from "./auth/page";
 
-export default Home;
+export default function Home() {
+    const router = useRouter();
+
+    useEffect(() => {
+        const isLoggedIn = localStorage.getItem("login") === "true";
+        if (isLoggedIn) {
+            console.log("Home: Redirecting to /dashboard (isLoggedIn=true)");
+            router.push("/dashboard");
+        }
+    }, [router]);
+
+    return <AuthPage />;
+}

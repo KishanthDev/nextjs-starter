@@ -32,7 +32,7 @@ export const UserDropdown = () => {
   const [isOpen, setIsOpen] = useState(false); // <-- track open state
   const handleLogout = () => {
     localStorage.clear();
-    router.push("/login");
+    router.push("/auth");
   };
   return (
     <Dropdown
