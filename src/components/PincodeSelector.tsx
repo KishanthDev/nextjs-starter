@@ -81,7 +81,7 @@ export default function PincodeSelector() {
                             <CommandGroup>
                                 {pincodeData
                                     .filter((item) =>
-                                        `${item.pincode}-${item.officeName}`
+                                        `${item.pincode}-${item.city}`
                                             .toLowerCase()
                                             .includes(search.toLowerCase())
                                     )
@@ -91,7 +91,7 @@ export default function PincodeSelector() {
                                             value={item.pincode.toString()}
                                             onSelect={handleSelect}
                                         >
-                                            {item.pincode} - {item.officeName}
+                                            {item.pincode} - {item.city}
                                             <Check
                                                 className={cn(
                                                     "ml-auto",
