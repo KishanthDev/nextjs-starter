@@ -47,7 +47,7 @@ const ImageUpload = () => {
     };
 
     return (
-        <div className="w-full items-center gap-6 p-6 bg-gray-100 dark:bg-gray-900 min-h-screen">
+        <div className="w-full items-center gap-6 p-6 bg-gray-100 dark:bg-gray-900">
             <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4">
                 <div className="flex flex-col items-start gap-2">
                     <label htmlFor="file-upload" className="text-gray-700 dark:text-gray-300">
